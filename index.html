@@ -1,332 +1,387 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Эксклюзивные приключенческие туры по всему миру с местными гидами. Откройте для себя уникальные маршруты и незабываемые впечатления.">
-    <meta name="keywords" content="туры, путешествия, экскурсии, приключения, турагентство">
-    <title>Ветер странствий - эксклюзивные туры и экскурсии</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Terra Scientia - научный и спортивный туризм. Экспедиции, гранты, образование. Присоединяйтесь к исследованию природы."
+    />
+    <meta
+      name="keywords"
+      content="туризм, наука, экспедиция, образование, гранты, АНО Ц"
+    />
+    <meta name="author" content="Terra Scientia" />
+    <title>Terra Scientia | Научный и Спортивный Туризм</title>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Ветер странствий - эксклюзивные туры и экспедиции">
-    <meta property="og:description" content="Эксклюзивные приключенческие туры по всему миру с местными гидами. Откройте для себя уникальные маршруты и незабываемые впечатления.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-    <meta property="og:url" content="https://riotinn.github.io/kpods/">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Ветер странствий - эксклюзивные туры и экспедиции">
-    <meta property="twitter:description" content="Эксклюзивные приключенческие туры по всему миру с местными гидами. Откройте для себя уникальные маршруты и незабываемые впечатления.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-    <meta property="twitter:url" content="https://riotinn.github.io/kpods/">
-    <meta property="twitter:domain" content="yourusername.github.io">
-    
-    <!-- Канонический URL -->
-    <link rel="canonical" href="https://riotinn.github.io/kpods/">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Шапка -->
+    <header class="header" id="header">
+      <div class="container header-inner">
+        <a href="#" class="logo" aria-label="Terra Scientia Главная">
+          <i class="ph-fill ph-compass"></i>
+          TERRA <span>SCIENTIA</span>
+        </a>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <nav>
+          <ul class="nav-menu" id="navMenu">
+            <li>
+              <a href="about.html" class="nav-link" aria-label="О нас">О нас</a>
+            </li>
+            <li>
+              <a href="activity.html" class="nav-link" aria-label="Программы"
+                >Программы</a
+              >
+            </li>
+            <li>
+              <a href="media.html" class="nav-link" aria-label="Новости"
+                >Новости</a
+              >
+            </li>
+            <li>
+              <a href="partners.html" class="nav-link" aria-label="Партнеры"
+                >Партнеры</a
+              >
+            </li>
+            <li>
+              <a
+                href="contacts.html"
+                class="btn btn-primary nav-cta"
+                aria-label="Контакты"
+                >Контакты</a
+              >
+            </li>
+          </ul>
+        </nav>
 
-</head>
-<body>
-    <!-- Шапка сайта -->
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <i class="fas fa-compass"></i> Ветер странствий
-            </a>
-            
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#expeditions" class="active">Экскурсии</a></li>
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
-                    <li><a href="#account" class="btn btn-primary">Личный кабинет</a></li>
-                </ul>
-            </nav>
-            
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
+        <div
+          class="burger"
+          id="burger"
+          role="button"
+          aria-label="Переключение навигации"
+          aria-expanded="false"
+          tabindex="0"
+        >
+          <i class="ph ph-list"></i>
         </div>
+      </div>
     </header>
 
-    <!-- Герой-секция -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Откройте мир заново</h1>
-            <p>Мы превращаем мечты о путешествиях в реальность</p>
-            <div class="hero-buttons">
-                <a href="#destinations" class="btn">Выбрать направления</a>
-                <a href="#offers" class="btn btn-primary">Горящие предложения</a>
-            </div>
+    <main>
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="container hero-content">
+          <h1>Исследование. Приключение. <br />Наука.</h1>
+          <p>
+            Мы объединяем академический подход с духом первооткрывателей.
+            Присоединяйтесь к программе научного и спортивного туризма.
+          </p>
+          <div class="hero-btns">
+            <a href="#programs" class="btn btn-primary" aria-label="Выбрать тур"
+              >Выбрать тур <i class="ph-bold ph-arrow-right"></i
+            ></a>
+            <a
+              href="#about"
+              class="btn btn-accent"
+              aria-label="Прочитать про организацию"
+              >Узнать больше</a
+            >
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Популярные направления -->
-    <section id="destinations" class="section destinations">
+      <!-- О нас -->
+      <section class="section-padding" id="about">
         <div class="container">
-            <h2 class="section-title">Популярные направления</h2>
-            <div class="destination-grid">
-                <div class="destination-card">
-                    <div class="destination-img">
-                        <img src="img/dest-1.avif" alt="Тур от Уссури до Тибета">
-                    </div>
-                    <div class="destination-info">
-                        <h3>Тропой Пржевальского: от Уссури до Тибета</h3>
-                        <p>Грандиозное путешествие по маршрутам великого географа Николая Пржевальского через заповедную уссурийскую тайгу, монгольские степи и опасные тропы Тибета. Это испытание для сильных духом, готовых к суровым условиям и желающих увидеть, как меняется лик Земли.</p>
-                        <div class="destination-price">от 45 000 руб.</div>
-                        <a href="#" class="btn">Подробнее</a>
-                    </div>
-                </div>
-                
-                <div class="destination-card">
-                    <div class="destination-img">
-                        <img src="img/dest-2.avif" alt="Тур по Тянь-Шань">
-                    </div>
-                    <div class="destination-info">
-                        <h3>Небесные горы: по следам Семенова-Тян-Шанского</h3>
-                        <p>Исследовательский поход в высокогорную страну Тянь-Шань, которую Петр Семенов-Тян-Шанский впервые описал для науки. Экспедиция для тех, кто хочет ощутить дух первооткрывательства, увидеть нетронутую природу и, подобно самому ученому, с юмором и вниманием к деталям зафиксировать все увиденное.</p>
-                        <div class="destination-price">от 65 000 руб.</div>
-                        <a href="#" class="btn">Подробнее</a>
-                    </div>
-                </div>
-                
-                <div class="destination-card">
-                    <div class="destination-img">
-                        <img src="img/dest-3.avif" alt="Путешествие от Кронштадта до Аляски">
-                    </div>
-                    <div class="destination-info">
-                        <h3>Капитанская дочка: от Кронштадта до Аляски</h3>
-                        <p>Морская экспедиция в духе кругосветных плаваний русских мореплавателей. Участники почувствуют себя первооткрывателями Русской Америки, узнают о судьбах таких исследователей, как Лаврентий Загоскин, и увидят земли, которые когда-то были частью России.</p>
-                        <div class="destination-price">от 85 000 руб.</div>
-                        <a href="#" class="btn">Подробнее</a>
-                    </div>
-                </div>
+          <div class="about-grid">
+            <div class="about-text reveal">
+              <span class="section-subtitle">Организация</span>
+              <h2>Наука, выходящая за пределы лаборатории</h2>
+              <p>
+                АНО «Terra Scientia» — это площадка для активных исследований,
+                геологических экспедиций и экологического мониторинга.
+              </p>
+              <p>
+                Мы привлекаем молодых ученых, студентов и энтузиастов, чтобы
+                проводить грантовые исследования в труднодоступных уголках
+                природы.
+              </p>
+              <a
+                href="about.html"
+                class="btn btn-primary section"
+                aria-label="Перейти на страницу «О нас»"
+                >Полная версия <i class="ph-bold ph-arrow-right"></i
+              ></a>
             </div>
+            <div class="about-image reveal">
+              <img
+                src="img/Сайт-портал.jpg"
+                alt="Научная экспедиция"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Преимущества -->
-    <section class="section benefits">
+      <!-- Программы -->
+      <section class="section-padding programs" id="programs">
         <div class="container">
-            <h2 class="section-title">Почему выбирают нас</h2>
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3>Уникальные маршруты</h3>
-                    <p>Мы разрабатываем эксклюзивные маршруты, которые вы не найдете у других туроператоров.</p>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
-                    <h3>Местные гиды</h3>
-                    <p>Наши гиды - местные жители, которые знают все секреты и тонкости своей страны.</p>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Полная безопасность</h3>
-                    <p>Мы заботимся о вашей безопасности на всех этапах путешествия.</p>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="benefit-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Путешествия с душой</h3>
-                    <p>Мы вкладываем душу в каждое путешествие, чтобы вы получили незабываемые впечатления.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+          <span class="section-subtitle reveal">Направления</span>
+          <h2 class="section-title reveal">Наши программы</h2>
 
-    <!-- Акции -->
-    <section id="offers" class="section offers">
-        <div class="container">
-            <h2 class="section-title">Горящие предложения</h2>
-            <div class="destination-grid">
-                <div class="offer-card">
-                    <div class="offer-img">
-                        <img src="img/offer-1.avif" alt="Тур на остров Сахалин">
-                    </div>
-                    <div class="offer-content">
-                        <span class="offer-tag">-30%</span>
-                        <h3>Остров Сахалин: дневник Антона Чехова</h3>
-                        <p>Социально-историческая экспедиция по следам поездки Антона Чехова на каторжный остров. Это глубокое погружение в историю, человеческие судьбы и природу Дальнего Востока. Путешествие для вдумчивых исследователей, желающих понять, как личный опыт писателя помог создать одну из самых сильных его книг.</p>
-                        <div class="offer-price">
-                            <span class="original-price">70 000 руб.</span>
-                            <span class="discount-price">49 000 руб.</span>
-                        </div>
-                        <a href="#" class="btn">Забронировать</a>
-                    </div>
-                </div>
-                
-                <div class="offer-card">
-                    <div class="offer-img">
-                        <img src="img/offer-2.avif" alt="Тур от Соловков до Антарктиды">
-                    </div>
-                    <div class="offer-content">
-                        <span class="offer-tag">-25%</span>
-                        <h3>Дыхание Севера: от Соловков до Антарктиды</h3>
-                        <p>Двухчастная экспедиция, посвященная русским полярным исследователям. Первая часть — знакомство с суровым наследием Русского Севера. Вторая — путешествие к ледяным берегам Антарктиды вместе с дневниками Фаддея Беллинсгаузена, первооткрывателя ледового континента.</p>
-                        <div class="offer-price">
-                            <span class="original-price">60 000 руб.</span>
-                            <span class="discount-price">45 000 руб.</span>
-                        </div>
-                        <a href="#" class="btn">Забронировать</a>
-                    </div>
-                </div>
-                
-                <div class="offer-card">
-                    <div class="offer-img">
-                        <img src="img/offer-3.avif" alt="Экспедиция по Кавказу">
-                    </div>
-                    <div class="offer-content">
-                        <span class="offer-tag">-20%</span>
-                        <h3>Кисть и перо Коста Хетагурова</h3>
-                        <p>Экспедиция по Кавказу, посвященная осетинскому поэту и художнику Коста Хетагурову. Участники увидят величественные горные пейзажи, которые он писал, и посетят места, связанные с его жизнью и творчеством. Это путешествие о том, как любовь к малой родине рождает великое искусство.</p>
-                        <div class="offer-price">
-                            <span class="original-price">75 000 руб.</span>
-                            <span class="discount-price">60 000 руб.</span>
-                        </div>
-                        <a href="#" class="btn">Забронировать</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+          <div class="programs-grid">
+            <!-- Card 1 -->
+            <article class="card reveal">
+              <div class="card-img" aria-hidden="true">
+                <span class="card-badge">Популярное</span>
+                <img src="img/Кружок.png" alt="Глациология" loading="lazy" />
+              </div>
+              <div class="card-content">
+                <h3>Глациологический поход</h3>
+                <p>
+                  Исследование ледников и сбор данных о климатических изменениях
+                  в условиях высокогорья.
+                </p>
+                <a
+                  href="#"
+                  class="card-link"
+                  aria-label="Просмотр экскурсии по гляциологии"
+                  >Подробнее <i class="ph-bold ph-arrow-right"></i
+                ></a>
+              </div>
+            </article>
 
-    <!-- Отзывы -->
-    <section class="section testimonials">
-        <div class="container">
-            <h2 class="section-title">Отзывы наших клиентов</h2>
-            <div class="testimonial-slider">
-                <div class="testimonial-item">
-                    <div class="testimonial-text">
-                        "Невероятное путешествие на Дальний Восток! Организация на высшем уровне, гиды знающие и внимательные. Остров Сахалин превзошел все ожидания!"
-                    </div>
-                    <div class="testimonial-author">Анна и Сергей Ивановы</div>
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <!-- Card 2 -->
+            <article class="card reveal">
+              <div class="card-img" aria-hidden="true">
+                <span class="card-badge">Спорт</span>
+                <img
+                  src="img/видеорепотраж.png "
+                  alt="Треккинг"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-content">
+                <h3>Экологический Треккинг</h3>
+                <p>
+                  Спортивный поход с целью очистки местности и популяризации
+                  лайфстайла «No Trace».
+                </p>
+                <a
+                  href="#"
+                  class="card-link"
+                  aria-label="Посмотреть тур по треккингу"
+                  >Подробнее <i class="ph-bold ph-arrow-right"></i
+                ></a>
+              </div>
+            </article>
 
-    <!-- Подвал -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Ветер странствий</h3>
-                    <p>Мы создаем незабываемые путешествия, которые остаются в памяти на всю жизнь. Откройте мир с нами!</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-vk"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Навигация</h3>
-                    <ul class="footer-links">
-                        <li><a href="#destinations">Экскурсии</a></li>
-                        <li><a href="#about">О нас</a></li>
-                        <li><a href="#contacts">Контакты</a></li>
-                        <li><a href="#account">Личный кабинет</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Контакты</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Путешественников, 15</li>
-                        <li><i class="fas fa-phone"></i> +7 (495) 123-45-67</li>
-                        <li><i class="fas fa-envelope"></i> info@windtravel.ru</li>
-                        <li><i class="fas fa-clock"></i> Пн-Пт: 9:00-20:00</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Полезные ссылки</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Политика конфиденциальности</a></li>
-                        <li><a href="#">Условия использования</a></li>
-                        <li><a href="#">Карта сайта</a></li>
-                        <li><a href="#">Частые вопросы</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Ветер странствий. Все права защищены.</p>
-            </div>
+            <!-- Card 3 -->
+            <article class="card reveal">
+              <div class="card-img" aria-hidden="true">
+                <span class="card-badge">Грант</span>
+                <img src="img/Новые лица.png" alt="Ботаника" loading="lazy" />
+              </div>
+              <div class="card-content">
+                <h3>Флористическая экспедиция</h3>
+                <p>
+                  Поиск новых видов растений в заповедных лесах с возможностью
+                  публикации научных работ.
+                </p>
+                <a
+                  href="#"
+                  class="card-link"
+                  aria-label="Просмотр ботанической экскурсии"
+                  >Подробнее <i class="ph-bold ph-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+          </div>
         </div>
+      </section>
+
+      <!-- Новости -->
+      <section class="section-padding" id="news">
+        <div class="container">
+          <span class="section-subtitle reveal">Анонсы</span>
+          <h2 class="section-title reveal">Последние новости</h2>
+
+          <div class="news-grid">
+            <div class="news-item reveal">
+              <div class="news-date">15 Октября</div>
+              <div class="news-content">
+                <h4>Получен грант на исследование экосистем</h4>
+                <p>
+                  Мы благодарим Министерство природных ресурсов за поддержку
+                  нового проекта по изучению горных озер.
+                </p>
+                <a href="#" class="card-link" aria-label="Читать далее"
+                  >Читать далее</a
+                >
+              </div>
+            </div>
+            <div class="news-item reveal">
+              <div class="news-date">02 Октября</div>
+              <div class="news-content">
+                <h4>Запись на зимний тур открыта</h4>
+                <p>
+                  Собирайте снаряжение! Зимняя экспедиция в Саяны стартует 15
+                  декабря.
+                </p>
+                <a href="#" class="card-link" aria-label="Читать далее"
+                  >Читать далее</a
+                >
+              </div>
+            </div>
+            <div class="news-item reveal">
+              <div class="news-date">20 Сентября</div>
+              <div class="news-content">
+                <h4>Встреча с учеными Кольского полуострова</h4>
+                <p>
+                  Бесплатная лекция о геологии Кольского региона в нашем офисе
+                  25 сентября.
+                </p>
+                <a href="#" class="card-link" aria-label="Читать далее"
+                  >Читать далее</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Партнеры -->
+      <section class="partners" id="partners">
+        <div class="container">
+          <div class="partners-track">
+            <div class="partner-logo">
+              <i class="ph-fill ph-university"></i> Университет
+            </div>
+            <div class="partner-logo"><i class="ph-fill ph-leaf"></i> WWF</div>
+            <div class="partner-logo">
+              <i class="ph-fill ph-satellite"></i> Космо
+            </div>
+            <div class="partner-logo">
+              <i class="ph-fill ph-globe-hemisphere-west"></i> GeoLab
+            </div>
+            <div class="partner-logo">
+              <i class="ph-fill ph-trophy"></i> СпортГрад
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer" id="contacts">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h2><i class="ph-fill ph-compass"></i> TERRA SCIENTIA</h2>
+            <p>
+              АНО «Терра Сктиенсия». Развитие научного туризма и просвещения.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="social-icon" aria-label="Instagram"
+                ><i class="ph-fill ph-instagram-logo"></i
+              ></a>
+              <a href="#" class="social-icon" aria-label="Telegram"
+                ><i class="ph-fill ph-telegram-logo"></i
+              ></a>
+              <a href="#" class="social-icon" aria-label="Facebook"
+                ><i class="ph-fill ph-facebook-logo"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Навигация</h4>
+            <ul class="footer-links">
+              <li><a href="index.html" aria-label="Главная">Главная</a></li>
+              <li><a href="about.html" aria-label="О нас">О нас</a></li>
+              <li>
+                <a href="activity.html" aria-label="Программы">Программы</a>
+              </li>
+              <li>
+                <a href="science-tourism.html" aria-label="Научный туризм"
+                  >Научный туризм</a
+                >
+              </li>
+              <li><a href="media.html" aria-label="Блог">Блог</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Контакты</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="tel:" aria-label="Номер телефона"
+                  ><i class="ph-fill ph-phone"></i> +7 (999) 000-00-00</a
+                >
+              </li>
+              <li>
+                <a href="mailto:" aria-label="Электронная почта"
+                  ><i class="ph-fill ph-envelope"></i> info@terrascientia.ru</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.openstreetmap.org/?#map=15/55.74903/37.61397"
+                  aria-label="Адрес организации"
+                  ><i class="ph-fill ph-map-pin"></i> г. Москва, ул. Научная,
+                  10</a
+                >
+              </li>
+              <li>
+                <a href="contacts.html" aria-label="Страница контакты"
+                  >Контактная информация</a
+                >
+              </li>
+              <li>
+                <a href="partners.html" aria-label="Страница партнеры"
+                  >Партнерам</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Newsletter</h4>
+            <p>Получать анонсы туров</p>
+            <form action="#" method="POST" onsubmit="event.preventDefault()">
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                aria-label="Адрес электронной почты"
+              />
+              <button
+                type="submit"
+                class="btn btn-accent"
+                aria-label="Кнопка для подписки"
+              >
+                <i class="ph-bold ph-paper-plane-right"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Terra Scientia. Все права защищены.</p>
+        </div>
+      </div>
     </footer>
 
-    <script>
-        // Мобильное меню
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.querySelector('i').classList.toggle('fa-bars');
-            hamburger.querySelector('i').classList.toggle('fa-times');
-        });
-        
-        // Закрытие меню при клике на ссылку
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.querySelector('i').classList.add('fa-bars');
-                hamburger.querySelector('i').classList.remove('fa-times');
-            });
-        });
-        
-        // Плавная прокрутка
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Изменение шапки при прокрутке
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if(window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-            }
-        });
-    </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

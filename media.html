@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Медиа и Блог | Ц</title>
+
+    <!-- Шрифты и иконки -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo" aria-label="Terra Scientia Главная">
+          <i class="ph-fill ph-compass"></i>
+          TERRA <span>SCIENTIA</span>
+        </a>
+
+        <nav>
+          <ul class="nav-menu" id="navMenu">
+            <li>
+              <a href="about.html" class="nav-link" aria-label="О нас">О нас</a>
+            </li>
+            <li>
+              <a href="activity.html" class="nav-link" aria-label="Программы"
+                >Программы</a
+              >
+            </li>
+            <li>
+              <a href="media.html" class="nav-link" aria-label="Новости"
+                >Новости</a
+              >
+            </li>
+            <li>
+              <a href="partners.html" class="nav-link" aria-label="Партнеры"
+                >Партнеры</a
+              >
+            </li>
+            <li>
+              <a
+                href="contacts.html"
+                class="btn btn-primary nav-cta"
+                aria-label="Контакты"
+                >Контакты</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div
+          class="burger"
+          id="burger"
+          role="button"
+          aria-label="Переключение навигации"
+          tabindex="0"
+        >
+          <i class="ph ph-list"></i>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <h1 class="hero-title">Истории, которые вдохновляют</h1>
+        <p class="hero-subtitle">
+          Новости, видео и интервью о наших экспедициях и достижениях.
+        </p>
+      </div>
+    </section>
+
+    <!-- Tabs Navigation -->
+    <section class="section-padding filter-news">
+      <div class="container">
+        <div class="tabs-container">
+          <button class="tab-btn active" data-category="all">
+            Все новости
+          </button>
+          <button class="tab-btn" data-category="grant">Гранты</button>
+          <button class="tab-btn" data-category="event">События</button>
+          <button class="tab-btn" data-category="media">В СМИ</button>
+          <button class="tab-btn" data-category="podcast">Подкаст</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section-padding programs">
+      <div class="container">
+        <div class="news-grid" id="newsGrid">
+          <!-- Article 1 -->
+          <article class="article-card news-item" data-category="grant">
+            <div class="card-img">
+              <img
+                src="img/видеорепотраж.png"
+                class="article-img"
+                alt="Грант"
+              />
+            </div>
+            <div class="card-content">
+              <div class="article-meta">
+                <span><i class="ph-fill ph-trophy"></i> Грант</span>
+                <span>• 24 Окт 2023</span>
+              </div>
+              <h3 class="article-title">
+                Ц получил грант Минобрнауки на 2024 год
+              </h3>
+              <p class="article-excerpt">
+                Наша организация подтвердила статус партнера по проекту
+                «Вовлечение молодежи в науку». Грант позволит провести 5 новых
+                экспедиций для студентов.
+              </p>
+              <a href="#" class="btn btn-outline">Читать далее</a>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="article-card news-item" data-category="event">
+            <div class="card-img">
+              <img
+                src="img/Сайт-портал.jpg"
+                class="article-img"
+                alt="Тур"
+              />
+            </div>
+            <div class="card-content">
+              <div class="article-meta">
+                <span><i class="ph-fill ph-calendar-check"></i> Событие</span>
+                <span>• 15 Окт 2023</span>
+              </div>
+              <h3 class="article-title">
+                Открытие набора на зимний альпинизм в Альпах
+              </h3>
+              <p class="article-excerpt">
+                Прием заявок начался! Командируем группа до 15 человек на
+                восшествие на пик Монблан. Требуется базовая физическая
+                подготовка.
+              </p>
+              <a href="#" class="btn btn-outline">Читать далее</a>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="article-card news-item" data-category="media">
+            <div class="card-img">
+              <img
+                src="img/Кружок.png"
+                class="article-img"
+                alt="ТВ"
+              />
+            </div>
+            <div class="card-content">
+              <div class="article-meta">
+                <span><i class="ph-fill ph-tv"></i> В СМИ</span>
+                <span>• 01 Окт 2023</span>
+              </div>
+              <h3 class="article-title">
+                «Радио России» рассказывает об истории Центра
+              </h3>
+              <p class="article-excerpt">
+                Интервью с директором АНО «Ц» об организации
+                дополнительного образования и сохранении культурного наследия.
+              </p>
+              <a href="#" class="btn btn-outline">Читать далее</a>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="article-card news-item" data-category="podcast">
+            <div class="card-img">
+              <img
+                src="img/Новые лица.png"
+                class="article-img"
+                alt="Подкаст"
+              />
+            </div>
+            <div class="card-content">
+              <div class="article-meta">
+                <span><i class="ph-fill ph-headphones"></i> Подкаст</span>
+                <span>• 20 Сен 2023</span>
+              </div>
+              <h3 class="article-title">
+                Эпизод 42: Как стать волонтером-исследователем
+              </h3>
+              <p class="article-excerpt">
+                Глубокое интервью с нашими волонтерами о том, как совмещать
+                науку и путешествия, и где найти гранты.
+              </p>
+              <a href="#" class="btn btn-outline">Слушать</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="section-padding">
+      <div class="container">
+        <h2 class="section-title">Видеоблог экспедиций</h2>
+        <div class="videos-grid">
+          <!-- Video 1 -->
+          <div class="video-card">
+            <img src="img/видеорепотраж.png" alt="Video 1" />
+            <div class="play-overlay">
+              <div class="play-btn"><i class="ph-fill ph-play"></i></div>
+            </div>
+            <div class="video-header">Дневник экспедиции: Камчатка</div>
+          </div>
+          <!-- Video 2 -->
+          <div class="video-card">
+            <img src="img/Кружок.png" alt="Video 2" />
+            <div class="play-overlay">
+              <div class="play-btn"><i class="ph-fill ph-play"></i></div>
+            </div>
+            <div class="video-header">Как мы открывали новый маршрут</div>
+          </div>
+          <!-- Video 3 -->
+          <div class="video-card">
+            <img src="img/Новые лица.png" alt="Video 3" />
+            <div class="play-overlay">
+              <div class="play-btn"><i class="ph-fill ph-play"></i></div>
+            </div>
+            <div class="video-header">Тайны Дюны Мраморной</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Press Section -->
+    <section class="section-padding">
+      <div class="container press" class="press">
+        <i class="ph-fill ph-newspaper"></i>
+        <div class="press-outlet">
+          <div class="press-quote">
+            "АНО "Ц" демонстрирует уникальный подход к
+            образовательному туризму, объединяя науку и дух приключений."
+          </div>
+          <img src="img/Сайт-портал.jpg" alt="RTV" />
+          <span>RTV Плюс • 2023</span>
+        </div>
+        <div class="press-outlet">
+          <div class="press-quote">
+            "АНО "Ц" демонстрирует уникальный подход к
+            образовательному туризму, объединяя науку и дух приключений."
+          </div>
+          <img src="img/Сайт-портал.jpg" alt="Vest" />
+          <span>Газета Ведомости • 2022</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Podcast Promo -->
+    <section class="section-padding programs" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <img
+              src="img/видеорепотраж.png"
+              alt="Podcast Art"
+              class="podcast-img"
+            />
+          </div>
+          <div>
+            <span class="section-subtitle">Подкаст</span>
+            <h2 class="section-title">Science & Spirit</h2>
+            <p class="podcast-desc">
+              Блог о том, как современные технологии и древние знания помогают
+              исследовать мир. Подкаст Центра Роста доступен на всех платформах.
+            </p>
+            <div class="podcast-buttons">
+              <button class="btn btn-primary">
+                <i class="ph-fill ph-spotify-logo"></i> Слушать на Spotify
+              </button>
+              <button class="btn btn-outline">
+                <i class="ph-fill ph-apple-logo"></i> Apple Podcasts
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" id="contacts">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h2><i class="ph-fill ph-compass"></i> TERRA SCIENTIA</h2>
+            <p>
+              АНО «Терра Сктиенсия». Развитие научного туризма и просвещения.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="social-icon" aria-label="Instagram"
+                ><i class="ph-fill ph-instagram-logo"></i
+              ></a>
+              <a href="#" class="social-icon" aria-label="Telegram"
+                ><i class="ph-fill ph-telegram-logo"></i
+              ></a>
+              <a href="#" class="social-icon" aria-label="Facebook"
+                ><i class="ph-fill ph-facebook-logo"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Навигация</h4>
+            <ul class="footer-links">
+              <li><a href="index.html" aria-label="Главная">Главная</a></li>
+              <li><a href="about.html" aria-label="О нас">О нас</a></li>
+              <li>
+                <a href="activity.html" aria-label="Программы">Программы</a>
+              </li>
+              <li>
+                <a href="science-tourism.html" aria-label="Научный туризм"
+                  >Научный туризм</a
+                >
+              </li>
+              <li><a href="media.html" aria-label="Блог">Блог</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Контакты</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="tel:" aria-label="Номер телефона"
+                  ><i class="ph-fill ph-phone"></i> +7 (999) 000-00-00</a
+                >
+              </li>
+              <li>
+                <a href="mailto:" aria-label="Электронная почта"
+                  ><i class="ph-fill ph-envelope"></i> info@terrascientia.ru</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.openstreetmap.org/?#map=15/55.74903/37.61397"
+                  aria-label="Адрес организации"
+                  ><i class="ph-fill ph-map-pin"></i> г. Москва, ул. Научная,
+                  10</a
+                >
+              </li>
+              <li>
+                <a href="contacts.html" aria-label="Страница контакты"
+                  >Контактная информация</a
+                >
+              </li>
+              <li>
+                <a href="partners.html" aria-label="Страница партнеры"
+                  >Партнерам</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Newsletter</h4>
+            <p>Получать анонсы туров</p>
+            <form action="#" method="POST" onsubmit="event.preventDefault()">
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                aria-label="Адрес электронной почты"
+              />
+              <button
+                type="submit"
+                class="btn btn-accent"
+                aria-label="Кнопка для подписки"
+              >
+                <i class="ph-bold ph-paper-plane-right"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Terra Scientia. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      function filterNews(category) {
+        const items = document.querySelectorAll(".news-item");
+        const buttons = document.querySelectorAll(".tab-btn");
+
+        // Update buttons
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+
+        // Filter items
+        items.forEach((item) => {
+          if (category === "all" || item.dataset.category === category) {
+            item.style.display = "flex";
+            // Simple animation reset
+            item.style.opacity = "0";
+            setTimeout(() => (item.style.opacity = "1"), 50);
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
