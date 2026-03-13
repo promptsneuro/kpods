@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } catch (e) {
     console.warn("Team Error:", e);
   }
-  
+
   try {
     const timelineItems = document.querySelectorAll(".timeline-item");
     // if (timelineItems.length > 0) {
@@ -264,5 +264,86 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   } catch (e) {
     console.warn("Map Error:", e);
+  }
+
+  try {
+    const modal = document.getElementById("tourModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalBody = document.getElementById("modalBody");
+    const closeBtn = document.querySelector(".modal-close");
+    const infoBtns = document.querySelectorAll(".btn-info");
+
+    if (modal && modalTitle && modalBody) {
+      function openModal(event) {
+        const btn = event.currentTarget;
+        const title = btn.getAttribute("data-title");
+        const detailsData = btn.getAttribute("data-details");
+
+        if (title && detailsData) {
+          try {
+            const details = JSON.parse(detailsData);
+
+            // Вставляем контент в модальное окно
+            modalTitle.textContent = title;
+            modalBody.innerHTML = `
+                    <div class="detail-section">
+                        <h4>Маршрут программы</h4>
+                        <p>${details.route}</p>
+                    </div>
+                    <div class="detail-section">
+                        <h4>Условия проживания</h4>
+                        <p>${details.accommodation}</p>
+                    </div>
+                    <div class="detail-section">
+                        <h4>Питание</h4>
+                        <p>${details.food}</p>
+                    </div>
+                `;
+
+            // Активируем модальное окно (доступно для скринридеров)
+            modal.classList.add("active");
+            modal.setAttribute("aria-hidden", "false");
+
+            // Блокируем скролл страницы для UX
+            document.body.style.overflow = "hidden";
+          } catch (e) {
+            console.error("Ошибка парсинга JSON в data-details:", e);
+            modalTitle.textContent = "Ошибка загрузки данных";
+          }
+        }
+      }
+      function closeModal() {
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+    }
+
+    if (infoBtns.length > 0) {
+      infoBtns.forEach((btn) => {
+        btn.addEventListener("click", openModal);
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeModal);
+    }
+
+    if (modal) {
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+    }
+
+    // Закрытие по клавише ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+  } catch (e) {
+    console.warn("Modal Error:", e);
   }
 });

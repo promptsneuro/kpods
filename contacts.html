@@ -1,13 +1,23 @@
 <!doctype html>
-<html lang="ru">
+<html
+  lang="ru"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:og="http://ogp.me/ns#"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Свяжитесь с нами для сотрудничества или получения информации о наших программах и экспедициях.">
-  <meta name="keywords" content="Контакты, сотрудничество, программы, экспедиции, Центр Роста">
-  
+    <meta
+      name="description"
+      content="Свяжитесь с нами для сотрудничества или получения информации о наших программах и экспедициях."
+    />
+    <meta
+      name="keywords"
+      content="Контакты, сотрудничество, программы, экспедиции, Центр"
+    />
+
     <meta name="author" content="Terra Scientia" />
-    <title>Контакты | Центр Роста</title>
+    <title>Контакты | Центр</title>
 
     <!-- Шрифты и иконки -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,34 +30,57 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
       <div class="container header-inner">
         <a href="index.html" class="logo" aria-label="Terra Scientia Главная">
-          <i class="ph-fill ph-compass"></i>
+          <i class="ph-fill ph-compass" aria-hidden="true"></i>
           TERRA <span>SCIENTIA</span>
         </a>
 
-        <nav>
-          <ul class="nav-menu" id="navMenu">
-            <li>
+        <nav role="navigation" aria-label="Основное меню">
+          <ul class="nav-menu" id="navMenu" role="menubar">
+            <li role="presentation">
               <a href="about.html" class="nav-link" aria-label="О нас">О нас</a>
             </li>
-            <li>
-              <a href="activity.html" class="nav-link" aria-label="Программы"
+            <li role="presentation" class="dropdown">
+              <a
+                href="#"
+                class="nav-link"
+                id="programs-nav-link"
+                aria-label="Программы"
+                aria-expanded="false"
                 >Программы</a
               >
+              <ul role="menu">
+                <li role="none">
+                  <a
+                    href="activity.html"
+                    role="menuitem"
+                    aria-label="Деятельность"
+                    >Деятельность</a
+                  >
+                </li>
+                <li role="none">
+                  <a
+                    href="science-tourism.html"
+                    role="menuitem"
+                    aria-label="Научный туризм"
+                    >Научный туризм</a
+                  >
+                </li>
+              </ul>
             </li>
-            <li>
+            <li role="presentation">
               <a href="media.html" class="nav-link" aria-label="Новости"
                 >Новости</a
               >
             </li>
-            <li>
+            <li role="presentation">
               <a href="partners.html" class="nav-link" aria-label="Партнеры"
                 >Партнеры</a
               >
             </li>
-            <li>
+            <li role="presentation">
               <a
                 href="contacts.html"
                 class="btn btn-primary nav-cta"
@@ -63,289 +96,388 @@
           id="burger"
           role="button"
           aria-label="Переключение навигации"
+          aria-expanded="false"
           tabindex="0"
         >
-          <i class="ph ph-list"></i>
+          <i class="ph ph-list" aria-hidden="true"></i>
         </div>
       </div>
     </header>
 
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1 class="hero-title">На связи</h1>
-        <p>Мы всегда готовы обсудить новые проекты и гранты.</p>
-      </div>
-    </section>
+    <main role="main">
 
-    <!-- Main Content class="container contact-grid"-->
-    <section class="section-padding programs contact-grid">
-      <!-- Left: Contact Info -->
-      <div class="container contact-info-block">
-        <h3>Контактная информация</h3>
-
-        <div class="contact-item">
-          <div class="contact-icon"><i class="ph-fill ph-map-pin"></i></div>
-          <div class="contact-details">
-            <h4>Фактический адрес</h4>
-            <p>119071, г. Москва,<br />наунчая</p>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon"><i class="ph-fill ph-briefcase"></i></div>
-          <div class="contact-details">
-            <h4>Юридический адрес</h4>
-            <p>119071, г. Москва,<br />наунчая</p>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon"><i class="ph-fill ph-phone"></i></div>
-          <div class="contact-details">
-            <h4>Телефон</h4>
-            <p>+7 (999) 000-00-00</p>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon">
-            <i class="ph-fill ph-envelope-simple"></i>
-          </div>
-          <div class="contact-details">
-            <h4>E-mail</h4>
-            <p>info@terracent.ru</p>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon"><i class="ph-fill ph-clock"></i></div>
-          <div class="contact-details">
-            <h4>Время работы</h4>
-            <p>Пн - Пт: 10:00 - 18:00<br />Сб - Вс: Выходной</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Form -->
-      <section class="cooperation-section" id="contacts-form">
+      <section
+        class="section-padding programs"
+        role="region"
+        aria-labelledby="contact-heading"
+      >
         <div class="container">
-          <div class="cooperation-box">
-            <div>
-              <h2 class="partner-header">Напишите нам</h2>
+          <div class="contact-grid">
+            <div class="contact-info-block">
+              <div class="container">
+              <h2 id="contact-heading">
+                Контактная информация
+              </h2>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="ph-fill ph-map-pin" aria-hidden="true"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Фактический адрес</h4>
+                  <p>119071, г. Москва, ул. Научная, 10</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="ph-fill ph-briefcase" aria-hidden="true"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Юридический адрес</h4>
+                  <p>119071, г. Москва, ул. Научная, 10</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="ph-fill ph-phone" aria-hidden="true"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Телефон</h4>
+                  <p>+7 (999) 000-00-00</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="ph-fill ph-envelope-simple" aria-hidden="true"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>E-mail</h4>
+                  <p>info@terracent.ru</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="ph-fill ph-clock" aria-hidden="true"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Время работы</h4>
+                  <p>Пн - Пт: 10:00 - 18:00<br />Сб - Вс: Выходной</p>
+                </div>
+              </div>
+              </div>
             </div>
+            <section
+              class="cooperation-section"
+              id="contacts-form"
+              role="region"
+              aria-labelledby="form-heading"
+            >
+              <div class="container">
+                <div class="cooperation-box">
+                <h2 id="form-heading" class="partner-header">Напишите нам</h2>
+                <form
+                  id="cooperationForm"
+                  aria-label="Форма для связи с Центром"
+                >
+                  <div class="form-group">
+                    <label for="name" class="form-label">Ваше Имя</label>
+                    <input
+                      type="text"
+                      id="name"
+                      class="form-input"
+                      placeholder="Иван Иванов"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      class="form-input"
+                      placeholder="ivan@example.com"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="partnershipType"
+                      >Тип партнёрства</label
+                    >
+                    <select
+                      id="partnershipType"
+                      class="form-select"
+                      required
+                      aria-label="Тип партнёрства"
+                    >
+                      <option
+                        value=""
+                        disabled
+                        selected
+                        aria-label="Выберите тип"
+                      >
+                        Вопрос по программе
+                      </option>
+                      <option value="partnership" aria-label="Партнёрство">
+                        Партнёрство
+                      </option>
+                      <option value="grant" aria-label="Грантовая заявка">
+                        Грантовая заявка
+                      </option>
+                      <option value="other" aria-label="Другое">Другое</option>
+                    </select>
+                  </div>
+                  <div class="form-group full-width">
+                    <label class="form-label" for="message">Сообщение</label>
+                    <textarea
+                      id="message"
+                      class="form-textarea"
+                      placeholder="Опишите кратко ваш запрос или идею..."
+                      aria-label="Сообщение"
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="submit-btn">
+                    Отправить заявку
+                  </button>
+                </form>
 
-            <!-- Form Container -->
-            <form id="cooperationForm" aria-label="Форма для связи с Центром Роста">
-              <div class="form-group">
-                <label for="name" class="form-label">Ваше Имя</label>
-                <input
-                  type="text"
-                  id="name"
-                  class="form-input"
-                  placeholder="Иван Иванов"
-                  required
-                />
+                <div
+                  id="successMessage"
+                  class="success-message"
+                  role="alert"
+                  aria-live="polite"
+                  hidden
+                >
+                  <i
+                    class="ph-fill ph-check-circle success-icon"
+                    aria-hidden="true"
+                  ></i>
+                  <h3 class="partner-header">Заявка принята!</h3>
+                  <p>
+                    Спасибо за интерес к сотрудничеству. Мы свяжемся с вами в
+                    ближайшее время.
+                  </p>
+                  <button
+                    class="btn btn-outline"
+                    id="send-more"
+                    aria-label="Отправить ещё"
+                  >
+                    Отправить ещё
+                  </button>
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  class="form-input"
-                  placeholder="ivan@example.com"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label class="form-label">Тип партнёрства</label>
-                <select class="form-select" required aria-label="Тип партнёрства">
-                  <option value="" disabled selected aria-label="Вопрос по программе">
-                    Вопрос по программе
-                  </option>
-                  <option value="partnership" aria-label="Партнёрство">Партнёрство</option>
-                  <option value="grant" aria-label="Грантовая заявка">Грантовая заявка</option>
-                  <option value="other" aria-label="Другое">Другое</option>
-                </select>
-              </div>
-              <div class="form-group full-width">
-                <label class="form-label">Сообщение</label>
-                <textarea
-                  class="form-textarea"
-                  placeholder="Опишите кратко ваш запрос или идею..."
-                ></textarea>
-              </div>
-              <button type="submit" class="submit-btn">Отправить заявку</button>
-            </form>
+            </section>
+          </div>
+        </div>
+      </section>
 
-            <!-- Success Message (Hidden by default) -->
-            <div id="successMessage" class="success-message">
-              <i class="ph-fill ph-check-circle success-icon"></i>
-              <h3 class="partner-header">Заявка принята!</h3>
+      <section
+        class="section-padding programs"
+        role="region"
+        aria-labelledby="requisites-heading"
+      >
+        <div class="container docs-container contacts">
+          <div class="doc-column reveal">
+            <h2 id="requisites-heading">
+              <i class="ph-fill ph-file-text"></i> Реквизиты для спонсоров
+            </h2>
+            <div class="requisite-box">
+              <div class="requisite-row">
+                <span>ИНН:</span>
+                <span>1234567890</span>
+              </div>
+              <div class="requisite-row">
+                <span>КПП:</span>
+                <span>123456789</span>
+              </div>
+              <div class="requisite-row">
+                <span>ОГРН:</span>
+                <span>1234567890123</span>
+              </div>
+              <div class="requisite-row">
+                <span>Юридический адрес:</span>
+                <span>119071, г. Москва, ул. Научная, 10</span>
+              </div>
+              <div class="requisite-row">
+                <span>ФИО Генерального директора:</span>
+                <span>Иванов Иван Иванович</span>
+              </div>
+              <div class="requisite-row">
+                <span>Банк:</span>
+                <span>ПАО «Сбербанк»</span>
+              </div>
+              <div class="requisite-row">
+                <span>Корр. счёт:</span>
+                <span>12345678901234567890</span>
+              </div>
+              <div class="requisite-row">
+                <span>БИК:</span>
+                <span>044525225</span>
+              </div>
+              <div class="requisite-row">
+                <span>Расчётный счёт:</span>
+                <span>12345678901234567890</span>
+              </div>
+              <div class="requisite-row">
+                <span>Наименование получателя:</span>
+                <span>АНО "Ц"</span>
+              </div>
+            </div>
+            <div class="features">
               <p>
-                Спасибо за интерес к сотрудничеству. Мы свяжемся с вами в
-                ближайшее время.
+                <i class="ph-fill ph-check-circle" aria-hidden="true"></i>
+                Официальная организация с 2016 года.
+                <br />
+                <i class="ph-fill ph-check-circle" aria-hidden="true"></i>
+                Деятельность: Образование, Спорт, Культура.
               </p>
-              <button
-              class="btn btn-outline"
-            id="send-more">
-              Отправить ещё
-            </button>
             </div>
           </div>
         </div>
       </section>
-    </section>
 
-    <section id="documents" class="section-padding programs">
-      <div class="container docs-container contacts">
-        <!-- Requisites -->
-        <div class="doc-column reveal">
-          <h3><i class="ph-fill ph-file-text"></i> Реквизиты для спонсоров</h3>
-          <div class="requisite-box">
-            <div class="requisite-row">
-              <span>ИНН:</span>
-              <span>1</span>
-            </div>
-            <div class="requisite-row">
-              <span>КПП:</span>
-              <span>1</span>
-            </div>
-            <div class="requisite-row">
-              <span>ОГРН:</span>
-              <span>1</span>
-            </div>
-            <div class="requisite-row">
-              <span>Юридический адрес:</span>
-              <span>1</span>
-            </div>
-            <div class="requisite-row">
-              <span>ФИО Генерального директора:</span>
-              <span>1а</span>
-            </div>
-
-            <div class="requisite-row">
-              <span>Банк:</span>
-              <span>ПАО «Сбербанк»</span>
-            </div>
-            <div class="requisite-row">
-              <span>Корр. счёт:</span>
-              <span>1</span>
-            </div>
-            <div class="requisite-row">
-              <span>БИК:</span>
-              <span>1</span>
-            </div>
-            <div class="requisite-row">
-              <span>Расчётный счёт:</span>
-              <span>1</span>
-            </div>
-            <div class="requisite-row">
-              <span>Наименование получателя:</span>
-              <span>АНО  </span>
-            </div>
-          </div>
-          <div class="features">
-            <p>
-              <i class="ph-fill ph-check-circle"></i> Официальная организация с
-              2016 года.
-              <br />
-              <i class="ph-fill ph-check-circle"></i> Деятельность: Образование,
-              Спорт, Культура.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Maps Section -->
-    <section class="section-padding">
-      <div class="container">
-        <h2 class="section-title map-title">Карта проезда</h2>
-
-        <!-- Interactive Map Viewer -->
-        <div class="map-viewer">
-          <!-- Map Controls -->
-          <div class="map-controls">
-            <button class="map-btn active" data-map-type="ostm">
-              <i class="ph-fill ph-globe"></i> OpenStreetMap
-            </button>
-            <button class="map-btn" data-map-type="google">
-              <i class="ph-fill ph-map-pin"></i> Google
-            </button>
-            <button class="map-btn" data-map-type="static">
-              <i class="ph-fill ph-image"></i> Статическая
-            </button>
-          </div>
-
-          <!-- Layers -->
-          <div class="map-content">
-            <!-- Layer 1: OpenStreetMap -->
-            <div id="map-ostm" class="map-layer active" >
-              <iframe aria-label="OpenStreetMap карта"
-                width="425"
-                height="350"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=37.589249610900886%2C55.74216330872453%2C37.627959251403816%2C55.75588253752735&amp;layer=mapnik"
-              ></iframe
-              ><br /><small
-                ><a
-                  href="https://www.openstreetmap.org/?#map=15/55.74902/37.60860"
-                  >Посмотреть более крупную карту</a
-                ></small
+      <section
+        class="section-padding"
+        role="region"
+        aria-labelledby="map-heading"
+      >
+        <div class="container">
+          <h2 id="map-heading" class="section-title map-title">
+            Карта проезда
+          </h2>
+          <div
+            class="map-viewer"
+            role="region"
+            aria-label="Интерактивная карта"
+          >
+            <div class="map-controls">
+              <button
+                class="map-btn active"
+                data-map-type="ostm"
+                aria-label="OpenStreetMap"
               >
+                <i class="ph-fill ph-globe" aria-hidden="true"></i>
+                OpenStreetMap
+              </button>
+              <button
+                class="map-btn"
+                data-map-type="google"
+                aria-label="Google"
+              >
+                <i class="ph-fill ph-map-pin" aria-hidden="true"></i> Google
+              </button>
+              <button
+                class="map-btn"
+                data-map-type="static"
+                aria-label="Статическая карта"
+              >
+                <i class="ph-fill ph-image" aria-hidden="true"></i> Статическая
+              </button>
             </div>
 
-            <!-- Layer 2: google -->
-            <div id="map-google" class="map-layer">
-              <iframe aria-label="Google карта"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d577337.0372487117!2d36.72585733901914!3d55.58072949390743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2z0JzQvtGB0LrQstCw!5e0!3m2!1sru!2sru!4v1772631635429!5m2!1sru!2sru"
-                width="600"
-                height="450"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
+            <div class="map-content">
+              <!-- Layer 1: OpenStreetMap -->
+              <div
+                id="map-ostm"
+                class="map-layer active"
+                role="region"
+                aria-label="OpenStreetMap карта"
+              >
+                <iframe
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=37.589249610900886%2C55.74216330872453%2C37.627959251403816%2C55.75588253752735&amp;layer=mapnik"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  aria-label="OpenStreetMap карта"
+                ></iframe>
+                <small
+                  ><a
+                    href="https://www.openstreetmap.org/?#map=15/55.74902/37.60860"
+                    target="_blank"
+                    >Посмотреть более крупную карту</a
+                  ></small
+                >
+              </div>
 
-            <!-- Layer 3: Static -->
-            <div id="map-static" class="map-layer">
-              <img src="img/Расположение.png" alt="Статическая карта" loading="lazy"/>
+              <!-- Layer 2: Google -->
+              <div
+                id="map-google"
+                class="map-layer"
+                role="region"
+                aria-label="Google карта"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d577337.0372487117!2d36.72585733901914!3d55.58072949390743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2z0JzQvtGB0LrQstCw!5e0!3m2!1sru!2sru!4v1772631635429!5m2!1sru!2sru"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  aria-label="Google карта"
+                ></iframe>
+              </div>
+
+              <!-- Layer 3: Static -->
+              <div
+                id="map-static"
+                class="map-layer"
+                role="region"
+                aria-label="Статическая карта"
+              >
+                <img
+                  src="img/Расположение.png"
+                  alt="Статическая карта"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <footer class="footer" id="contacts">
+    <footer class="footer" id="contacts" role="contentinfo">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <h2><i class="ph-fill ph-compass"></i> TERRA SCIENTIA</h2>
+            <h2>
+              <i class="ph-fill ph-compass" aria-hidden="true"></i> TERRA
+              SCIENTIA
+            </h2>
             <p>
               АНО «Терра Сктиенсия». Развитие научного туризма и просвещения.
             </p>
-            <div class="social-icons">
+            <div class="social-icons" role="group" aria-label="Социальные сети">
               <a href="#" class="social-icon" aria-label="Instagram"
-                ><i class="ph-fill ph-instagram-logo"></i
+                ><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i
               ></a>
               <a href="#" class="social-icon" aria-label="Telegram"
-                ><i class="ph-fill ph-telegram-logo"></i
+                ><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i
               ></a>
               <a href="#" class="social-icon" aria-label="Facebook"
-                ><i class="ph-fill ph-facebook-logo"></i
+                ><i class="ph-fill ph-facebook-logo" aria-hidden="true"></i
               ></a>
             </div>
           </div>
 
           <div class="footer-col">
             <h4>Навигация</h4>
-            <ul class="footer-links">
+            <ul class="footer-links" role="list">
               <li><a href="index.html" aria-label="Главная">Главная</a></li>
               <li><a href="about.html" aria-label="О нас">О нас</a></li>
               <li>
-                <a href="activity.html" aria-label="Программы">Программы</a>
+                <a href="activity.html" aria-label="Деятельность"
+                  >Деятельность</a
+                >
               </li>
               <li>
                 <a href="science-tourism.html" aria-label="Научный туризм"
@@ -358,34 +490,35 @@
 
           <div class="footer-col">
             <h4>Контакты</h4>
-            <ul class="footer-links">
+            <ul class="footer-links" role="list">
               <li>
-                <a href="tel:" aria-label="Номер телефона"
-                  ><i class="ph-fill ph-phone"></i> +7 (999) 000-00-00</a
+                <a href="tel:+79990000000" aria-label="Номер телефона"
+                  ><i class="ph-fill ph-phone" aria-hidden="true"></i>+7 (999)
+                  000-00-00</a
                 >
               </li>
               <li>
-                <a href="mailto:" aria-label="Электронная почта"
-                  ><i class="ph-fill ph-envelope"></i> info@terrascientia.ru</a
+                <a
+                  href="mailto:info@terrascientia.ru"
+                  aria-label="Электронная почта"
+                  ><i class="ph-fill ph-envelope"></i>info@terrascientia.ru</a
                 >
               </li>
               <li>
                 <a
                   href="https://www.openstreetmap.org/?#map=15/55.74903/37.61397"
                   aria-label="Адрес организации"
-                  ><i class="ph-fill ph-map-pin"></i> г. Москва, ул. Научная,
+                  ><i class="ph-fill ph-map-pin"></i>г. Москва, ул. Научная,
                   10</a
                 >
               </li>
               <li>
-                <a href="contacts.html" aria-label="Страница контакты"
+                <a href="contacts.html" aria-label="Контактная информация"
                   >Контактная информация</a
                 >
               </li>
               <li>
-                <a href="partners.html" aria-label="Страница партнеры"
-                  >Партнерам</a
-                >
+                <a href="partners.html" aria-label="Партнеры">Партнеры</a>
               </li>
             </ul>
           </div>
@@ -393,7 +526,12 @@
           <div class="footer-col">
             <h4>Newsletter</h4>
             <p>Получать анонсы туров</p>
-            <form action="#" method="POST" onsubmit="event.preventDefault()">
+            <form
+              action="#"
+              method="POST"
+              onsubmit="event.preventDefault()"
+              aria-label="Подписка на рассылку"
+            >
               <input
                 type="email"
                 placeholder="Email"
@@ -403,9 +541,9 @@
               <button
                 type="submit"
                 class="btn btn-accent"
-                aria-label="Кнопка для подписки"
+                aria-label="Подписаться"
               >
-                <i class="ph-bold ph-paper-plane-right"></i>
+                <i class="ph-bold ph-paper-plane-right" aria-hidden="true"></i>
               </button>
             </form>
           </div>

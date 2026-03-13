@@ -1,18 +1,22 @@
 <!doctype html>
-<html lang="ru">
+<html
+  lang="ru"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:og="http://ogp.me/ns#"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
+    <meta
       name="description"
-      content="Изучите проекты и экспедиции Центра Роста: научные исследования, гранты, спортивные туры и многое другое."
+      content="Сотрудничество с Центром: грантовые проекты, научные институты, туроператоры и благотворительные фонды. Обсудите партнёрство и масштабные инициативы в науке и образовании."
     />
     <meta
       name="keywords"
-      content="Деятельность, проекты, экспедиции, научные исследования, гранты, спортивные туры"
+      content="сотрудничество, партнёры, гранты, научные институты, туроператоры, благотворительность, корпоративная социальная ответственность, научные проекты"
     />
     <meta name="author" content="Terra Scientia" />
-    <title>Партнёрам | Центр Роста</title>
+    <title>Партнёрам | Центр </title>
 
     <!-- Шрифты и иконки -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,34 +29,57 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
       <div class="container header-inner">
         <a href="index.html" class="logo" aria-label="Terra Scientia Главная">
-          <i class="ph-fill ph-compass"></i>
+          <i class="ph-fill ph-compass" aria-hidden="true"></i>
           TERRA <span>SCIENTIA</span>
         </a>
 
-        <nav>
-          <ul class="nav-menu" id="navMenu">
-            <li>
+        <nav role="navigation" aria-label="Основное меню">
+          <ul class="nav-menu" id="navMenu" role="menubar">
+            <li role="presentation">
               <a href="about.html" class="nav-link" aria-label="О нас">О нас</a>
             </li>
-            <li>
-              <a href="activity.html" class="nav-link" aria-label="Программы"
+            <li role="presentation" class="dropdown">
+              <a
+                href="#"
+                class="nav-link"
+                id="programs-nav-link"
+                aria-label="Программы"
+                aria-expanded="false"
                 >Программы</a
               >
+              <ul role="menu">
+                <li role="none">
+                  <a
+                    href="activity.html"
+                    role="menuitem"
+                    aria-label="Деятельность"
+                    >Деятельность</a
+                  >
+                </li>
+                <li role="none">
+                  <a
+                    href="science-tourism.html"
+                    role="menuitem"
+                    aria-label="Научный туризм"
+                    >Научный туризм</a
+                  >
+                </li>
+              </ul>
             </li>
-            <li>
+            <li role="presentation">
               <a href="media.html" class="nav-link" aria-label="Новости"
                 >Новости</a
               >
             </li>
-            <li>
+            <li role="presentation">
               <a href="partners.html" class="nav-link" aria-label="Партнеры"
                 >Партнеры</a
               >
             </li>
-            <li>
+            <li role="presentation">
               <a
                 href="contacts.html"
                 class="btn btn-primary nav-cta"
@@ -68,213 +95,285 @@
           id="burger"
           role="button"
           aria-label="Переключение навигации"
+          aria-expanded="false"
           tabindex="0"
         >
-          <i class="ph ph-list"></i>
+          <i class="ph ph-list" aria-hidden="true"></i>
         </div>
       </div>
     </header>
 
-    <!-- Главный экран (Hero) -->
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1 class="hero-title">Сильное сотрудничество</h1>
-        <p class="hero-subtitle">
-          Мы объединяем экспертизу, ресурсы и амбиции для достижения масштабных
-          результатов в науке и туризме.
-        </p>
-      </div>
-    </section>
-
-    <!-- Partnership Types -->
-    <section class="partnership-section">
-      <div class="container">
-        <div>
-          <span class="section-subtitle">Потенциальным партнёрам</span>
-          <h2 class="section-title">Варианты сотрудничества</h2>
-          <p>
-            Выберите направление, в котором мы сможем приумножить ваш вклад в
-            науку и образование.
-          </p>
-        </div>
-
-        <div class="partners-grid">
-          <!-- Option 1 -->
-          <div class="partner-card">
-            <div class="partner-icon"><i class="ph-fill ph-flask"></i></div>
-            <h3>Научные Институты</h3>
-            <ul class="partner-list">
-              <li>
-                <i class="ph-bold ph-check-circle"></i> Совместные грантовые
-                проекты
-              </li>
-              <li>
-                <i class="ph-bold ph-check-circle"></i> Проведение полевых
-                исследований
-              </li>
-              <li>
-                <i class="ph-bold ph-check-circle"></i> Экспертиза и публикации
-              </li>
-            </ul>
-            <a href="#form" class="btn btn-outline">Подробнее</a>
-          </div>
-
-          <!-- Option 2 -->
-          <div class="partner-card">
-            <div class="partner-icon"><i class="ph-fill ph-bus"></i></div>
-            <h3>Туроператоры</h3>
-            <ul class="partner-list">
-              <li>
-                <i class="ph-bold ph-check-circle"></i> Логистика и транспорт
-              </li>
-              <li>
-                <i class="ph-bold ph-check-circle"></i> Организация баз и
-                проживания
-              </li>
-              <li>
-                <i class="ph-bold ph-check-circle"></i> Безопасность экспедиций
-              </li>
-            </ul>
-            <a href="#form" class="btn btn-outline">Подробнее</a>
-          </div>
-
-          <!-- Option 3 -->
-          <div class="partner-card">
-            <div class="partner-icon">
-              <i class="ph-fill ph-hand-heart"></i>
-            </div>
-            <h3>Фонды и Банки</h3>
-            <ul class="partner-list">
-              <li>
-                <i class="ph-bold ph-check-circle"></i> Финансирование проектов
-              </li>
-              <li>
-                <i class="ph-bold ph-check-circle"></i> Корпоративная социальная
-                ответственность
-              </li>
-              <li>
-                <i class="ph-bold ph-check-circle"></i> Благотворительность
-              </li>
-            </ul>
-            <a href="#form" class="btn btn-outline">Подробнее</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Cooperation Form -->
-    <section class="cooperation-section" id="form">
-      <div class="container">
-        <div class="cooperation-box">
-          <div style="text-align: center; margin-bottom: 40px">
-            <h2 class="partner-header">Обсудить партнёрство</h2>
+    <main role="main">
+      <!-- Partnership Types -->
+      <section
+        class="partnership-section"
+        role="region"
+        aria-labelledby="partnership-heading"
+      >
+        <div class="container">
+          <div>
+            <span class="section-subtitle" aria-hidden="true"
+              >Потенциальным партнёрам</span
+            >
+            <h1 id="partnership-heading" class="section-title">
+              Варианты сотрудничества
+            </h1>
             <p>
-              Оставьте заявку, и наш менеджер свяжется с вами в течение 24
-              часов.
+              Выберите направление, в котором мы сможем приумножить ваш вклад в
+              науку и образование.
             </p>
           </div>
 
-          <!-- Form Container -->
-          <form id="cooperationForm">
-            <div class="form-grid">
-              <div class="form-group">
-                <label class="form-label">Ваше Имя</label>
-                <input
-                  type="text"
-                  class="form-input"
-                  placeholder="Иван Иванов"
-                  required
-                />
+          <div
+            class="partners-grid"
+            role="list"
+            aria-label="Варианты сотрудничества"
+          >
+            <!-- Option 1 -->
+            <div class="partner-card" role="listitem">
+              <div class="partner-icon" aria-hidden="true">
+                <i class="ph-fill ph-flask"></i>
               </div>
-              <div class="form-group">
-                <label class="form-label">Компания / Организация</label>
-                <input
-                  type="text"
-                  class="form-input"
-                  placeholder="ООО 'Ромашка'"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label class="form-label">Тип партнёрства</label>
-                <select class="form-select" required>
-                  <option value="" disabled selected>
-                    Выберите направление
-                  </option>
-                  <option value="grant">Грантодатель</option>
-                  <option value="logistics">Логистика</option>
-                  <option value="science">Наука</option>
-                  <option value="other">Другое</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Телефон</label>
-                <input
-                  type="tel"
-                  class="form-input"
-                  placeholder="+7 (999) 000-00-00"
-                  required
-                />
-              </div>
-              <div class="form-group full-width">
-                <label class="form-label">Сообщение</label>
-                <textarea
-                  class="form-textarea"
-                  placeholder="Опишите кратко ваш запрос или идею..."
-                ></textarea>
-              </div>
+              <h3>Научные Институты</h3>
+              <ul class="partner-list" role="list">
+                <li role="listitem">
+                  <i class="ph-bold ph-check-circle" aria-hidden="true"></i>
+                  Совместные грантовые проекты
+                </li>
+                <li role="listitem">
+                  <i class="ph-bold ph-check-circle" aria-hidden="true"></i>
+                  Проведение полевых исследований
+                </li>
+                <li role="listitem">
+                  <i class="ph-bold ph-check-circle" aria-hidden="true"></i>
+                  Экспертиза и публикации
+                </li>
+              </ul>
+              <a
+                href="#form"
+                class="btn btn-outline"
+                aria-label="Подробнее о сотрудничестве с научными институтами"
+                >Подробнее</a
+              >
             </div>
-            <button type="submit" class="submit-btn">Отправить заявку</button>
-          </form>
 
-          <!-- Success Message (Hidden by default) -->
-          <div id="successMessage" class="success-message">
-            <i class="ph-fill ph-check-circle success-icon"></i>
-            <h3 class="partner-header">Заявка принята!</h3>
-            <p>
-              Спасибо за интерес к сотрудничеству. Мы свяжемся с вами в
-              ближайшее время.
-            </p>
-            <button
-              class="btn btn-outline"
-            id="send-more">
-              Отправить ещё
-            </button>
+            <!-- Option 2 -->
+            <div class="partner-card" role="listitem">
+              <div class="partner-icon" aria-hidden="true">
+                <i class="ph-fill ph-bus"></i>
+              </div>
+              <h3>Туроператоры</h3>
+              <ul class="partner-list" role="list">
+                <li role="listitem">
+                  <i class="ph-bold ph-check-circle" aria-hidden="true"></i>
+                  Логистика и транспорт
+                </li>
+                <li role="listitem">
+                  <i class="ph-bold ph-check-circle" aria-hidden="true"></i>
+                  Организация баз и проживания
+                </li>
+                <li role="listitem">
+                  <i class="ph-bold ph-check-circle" aria-hidden="true"></i>
+                  Безопасность экспедиций
+                </li>
+              </ul>
+              <a
+                href="#form"
+                class="btn btn-outline"
+                aria-label="Подробнее о сотрудничестве с туроператорами"
+                >Подробнее</a
+              >
+            </div>
+
+            <!-- Option 3 -->
+            <div class="partner-card" role="listitem">
+              <div class="partner-icon" aria-hidden="true">
+                <i class="ph-fill ph-hand-heart"></i>
+              </div>
+              <h3>Фонды и Банки</h3>
+              <ul class="partner-list" role="list">
+                <li role="listitem">
+                  <i class="ph-bold ph-check-circle" aria-hidden="true"></i>
+                  Финансирование проектов
+                </li>
+                <li role="listitem">
+                  <i class="ph-bold ph-check-circle" aria-hidden="true"></i>
+                  Корпоративная социальная ответственность
+                </li>
+                <li role="listitem">
+                  <i class="ph-bold ph-check-circle" aria-hidden="true"></i>
+                  Благотворительность
+                </li>
+              </ul>
+              <a
+                href="#form"
+                class="btn btn-outline"
+                aria-label="Подробнее о сотрудничестве с фондами и банками"
+                >Подробнее</a
+              >
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <footer class="footer" id="contacts">
+      <!-- Cooperation Form -->
+      <section
+        class="cooperation-section"
+        id="form"
+        role="region"
+        aria-labelledby="form-heading"
+      >
+        <div class="container">
+          <div class="cooperation-box">
+            <h2 id="form-heading" class="partner-header">
+              Форма для сотрудничества
+            </h2>
+
+            <!-- Form Container -->
+            <form
+              id="cooperationForm"
+              aria-label="Форма для заявки на сотрудничество"
+            >
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="name" class="form-label">Ваше Имя</label>
+                  <input
+                    type="text"
+                    id="name"
+                    class="form-input"
+                    placeholder="Иван Иванов"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="company" class="form-label"
+                    >Компания / Организация</label
+                  >
+                  <input
+                    type="text"
+                    id="company"
+                    class="form-input"
+                    placeholder="ООО 'Ромашка'"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="partnerType" class="form-label"
+                    >Тип партнёрства</label
+                  >
+                  <select
+                    id="partnerType"
+                    class="form-select"
+                    required
+                    aria-label="Выберите тип партнёрства"
+                  >
+                    <option
+                      value=""
+                      disabled
+                      selected
+                      aria-label="Выберите направление"
+                    >
+                      Выберите направление
+                    </option>
+                    <option value="grant" aria-label="Грантодатель">
+                      Грантодатель
+                    </option>
+                    <option value="logistics" aria-label="Логистика">
+                      Логистика
+                    </option>
+                    <option value="science" aria-label="Наука">Наука</option>
+                    <option value="other" aria-label="Другое">Другое</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone" class="form-label">Телефон</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    class="form-input"
+                    placeholder="+7 (999) 000-00-00"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div class="form-group full-width">
+                  <label for="message" class="form-label">Сообщение</label>
+                  <textarea
+                    id="message"
+                    class="form-textarea"
+                    placeholder="Опишите кратко ваш запрос или идею..."
+                    aria-label="Сообщение"
+                  ></textarea>
+                </div>
+              </div>
+              <button type="submit" class="submit-btn">Отправить заявку</button>
+            </form>
+
+            <div
+              id="successMessage"
+              class="success-message"
+              role="alert"
+              aria-live="polite"
+              hidden
+            >
+              <i
+                class="ph-fill ph-check-circle success-icon"
+                aria-hidden="true"
+              ></i>
+              <h3 class="partner-header">Заявка принята!</h3>
+              <p>
+                Спасибо за интерес к сотрудничеству. Мы свяжемся с вами в
+                ближайшее время.
+              </p>
+              <button
+                class="btn btn-outline"
+                id="send-more"
+                aria-label="Отправить ещё"
+              >
+                Отправить ещё
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contacts" role="contentinfo">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <h2><i class="ph-fill ph-compass"></i> TERRA SCIENTIA</h2>
+            <h2>
+              <i class="ph-fill ph-compass" aria-hidden="true"></i> TERRA
+              SCIENTIA
+            </h2>
             <p>
               АНО «Терра Сктиенсия». Развитие научного туризма и просвещения.
             </p>
-            <div class="social-icons">
+            <div class="social-icons" role="group" aria-label="Социальные сети">
               <a href="#" class="social-icon" aria-label="Instagram"
-                ><i class="ph-fill ph-instagram-logo"></i
+                ><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i
               ></a>
               <a href="#" class="social-icon" aria-label="Telegram"
-                ><i class="ph-fill ph-telegram-logo"></i
+                ><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i
               ></a>
               <a href="#" class="social-icon" aria-label="Facebook"
-                ><i class="ph-fill ph-facebook-logo"></i
+                ><i class="ph-fill ph-facebook-logo" aria-hidden="true"></i
               ></a>
             </div>
           </div>
 
           <div class="footer-col">
             <h4>Навигация</h4>
-            <ul class="footer-links">
+            <ul class="footer-links" role="list">
               <li><a href="index.html" aria-label="Главная">Главная</a></li>
               <li><a href="about.html" aria-label="О нас">О нас</a></li>
               <li>
-                <a href="activity.html" aria-label="Программы">Программы</a>
+                <a href="activity.html" aria-label="Деятельность"
+                  >Деятельность</a
+                >
               </li>
               <li>
                 <a href="science-tourism.html" aria-label="Научный туризм"
@@ -287,34 +386,35 @@
 
           <div class="footer-col">
             <h4>Контакты</h4>
-            <ul class="footer-links">
+            <ul class="footer-links" role="list">
               <li>
-                <a href="tel:" aria-label="Номер телефона"
-                  ><i class="ph-fill ph-phone"></i> +7 (999) 000-00-00</a
+                <a href="tel:+79990000000" aria-label="Номер телефона"
+                  ><i class="ph-fill ph-phone" aria-hidden="true"></i>+7 (999)
+                  000-00-00</a
                 >
               </li>
               <li>
-                <a href="mailto:" aria-label="Электронная почта"
-                  ><i class="ph-fill ph-envelope"></i> info@terrascientia.ru</a
+                <a
+                  href="mailto:info@terrascientia.ru"
+                  aria-label="Электронная почта"
+                  ><i class="ph-fill ph-envelope"></i>info@terrascientia.ru</a
                 >
               </li>
               <li>
                 <a
                   href="https://www.openstreetmap.org/?#map=15/55.74903/37.61397"
                   aria-label="Адрес организации"
-                  ><i class="ph-fill ph-map-pin"></i> г. Москва, ул. Научная,
+                  ><i class="ph-fill ph-map-pin"></i>г. Москва, ул. Научная,
                   10</a
                 >
               </li>
               <li>
-                <a href="contacts.html" aria-label="Страница контакты"
+                <a href="contacts.html" aria-label="Контактная информация"
                   >Контактная информация</a
                 >
               </li>
               <li>
-                <a href="partners.html" aria-label="Страница партнеры"
-                  >Партнерам</a
-                >
+                <a href="partners.html" aria-label="Партнеры">Партнеры</a>
               </li>
             </ul>
           </div>
@@ -322,7 +422,12 @@
           <div class="footer-col">
             <h4>Newsletter</h4>
             <p>Получать анонсы туров</p>
-            <form action="#" method="POST" onsubmit="event.preventDefault()">
+            <form
+              action="#"
+              method="POST"
+              onsubmit="event.preventDefault()"
+              aria-label="Подписка на рассылку"
+            >
               <input
                 type="email"
                 placeholder="Email"
@@ -332,9 +437,9 @@
               <button
                 type="submit"
                 class="btn btn-accent"
-                aria-label="Кнопка для подписки"
+                aria-label="Подписаться"
               >
-                <i class="ph-bold ph-paper-plane-right"></i>
+                <i class="ph-bold ph-paper-plane-right" aria-hidden="true"></i>
               </button>
             </form>
           </div>

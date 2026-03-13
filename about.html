@@ -1,5 +1,9 @@
 <!doctype html>
-<html lang="ru">
+<html
+  lang="ru"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:og="http://ogp.me/ns#"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,34 +28,57 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
       <div class="container header-inner">
         <a href="index.html" class="logo" aria-label="Terra Scientia Главная">
-          <i class="ph-fill ph-compass"></i>
+          <i class="ph-fill ph-compass" aria-hidden="true"></i>
           TERRA <span>SCIENTIA</span>
         </a>
 
-        <nav>
-          <ul class="nav-menu" id="navMenu">
-            <li>
+        <nav role="navigation" aria-label="Основное меню">
+          <ul class="nav-menu" id="navMenu" role="menubar">
+            <li role="presentation">
               <a href="about.html" class="nav-link" aria-label="О нас">О нас</a>
             </li>
-            <li>
-              <a href="activity.html" class="nav-link" aria-label="Программы"
+            <li role="presentation" class="dropdown">
+              <a
+                href="#"
+                class="nav-link"
+                id="programs-nav-link"
+                aria-label="Программы"
+                aria-expanded="false"
                 >Программы</a
               >
+              <ul role="menu">
+                <li role="none">
+                  <a
+                    href="activity.html"
+                    role="menuitem"
+                    aria-label="Деятельность"
+                    >Деятельность</a
+                  >
+                </li>
+                <li role="none">
+                  <a
+                    href="science-tourism.html"
+                    role="menuitem"
+                    aria-label="Научный туризм"
+                    >Научный туризм</a
+                  >
+                </li>
+              </ul>
             </li>
-            <li>
+            <li role="presentation">
               <a href="media.html" class="nav-link" aria-label="Новости"
                 >Новости</a
               >
             </li>
-            <li>
+            <li role="presentation">
               <a href="partners.html" class="nav-link" aria-label="Партнеры"
                 >Партнеры</a
               >
             </li>
-            <li>
+            <li role="presentation">
               <a
                 href="contacts.html"
                 class="btn btn-primary nav-cta"
@@ -70,279 +97,354 @@
           aria-expanded="false"
           tabindex="0"
         >
-          <i class="ph ph-list"></i>
+          <i class="ph ph-list" aria-hidden="true"></i>
         </div>
       </div>
     </header>
-<main>
-    <section class="hero" aria-label="Главный экран">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="container hero-content">
-        <h1>Мы создаем возможности для развития</h1>
-        <p>
-          Образование, бизнес и творчество как инструменты для личностного роста
-          и общества.
-        </p>
-        <a href="#mission" class="btn btn-primary" aria-label="Узнать больше"
-          >Узнать больше</a
-        >
-      </div>
-    </section>
+    <main role="main">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-bg" id="about-hero" aria-hidden="true"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+      </section>
 
-    <!-- Mission -->
-    <section class="section-padding" id="mission" aria-label="Миссия">
-      <div class="container mission-grid">
-        <div class="mission-text reveal" role="region" aria-label="Миссия">
-          <span class="section-subtitle">Наша миссия</span>
-          <h2>
-            Разработка потенциала человека через дополнительное образование и
-            креативные проекты.
-          </h2>
-          <p>
-            Основанная в 2016 году, наша организация работает на стыке бизнеса,
-            культуры и спорта. Мы верим, что каждый человек способен к росту,
-            если ему предоставить правильные инструменты и поддержку.
-          </p>
-          <p>
-            Благодаря партнерству с государственными структурами и научным
-            сообществам, мы реализуем программы, которые развивают регион и
-            воспитывают достойную смену.
-          </p>
-
-          <div class="mission-stats">
-            <div class="stat-item">
-              <span class="stat-number">2016</span>
-              <span class="stat-label">Год основания</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">40+</span>
-              <span class="stat-label">Проектов</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">1000+</span>
-              <span class="stat-label">Выпускников</span>
-            </div>
-          </div>
-        </div>
-        <div class="about-image reveal" role="img" aria-label="Команда Центра Роста">
-          <img src="img/Миссия.png" alt="Миссия" loading="lazy"/>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section id="team" class="section-padding programs" aria-label="Команда">
-      <div class="container">
-        <div class="reveal" role="region" aria-label="Команда">
-          <span class="section-subtitle">Команда</span>
-          <h2 class="section-title">Люди роста</h2>
-        </div>
-
-      <div class="team-controls reveal" role="group" aria-label="Фильтры команды">
-          <button class="btn btn-outline active" data-filter="all" aria-pressed="true">Все</button>
-          <button class="btn btn-outline" data-filter="leaders" aria-pressed="false">Учредители</button>
-          <button class="btn btn-outline" data-filter="scientists" aria-pressed="false">Ученые</button>
-          <button class="btn btn-outline" data-filter="instructors" aria-pressed="false">Инструкторы</button>
-        </div>
-
-        <!-- Grid -->
-        <div class="team-grid" role="list" aria-label="Список команды">
-          <!-- Leader 1 -->
-          <div class="team-card" data-category="leaders" role="listitem">
-            <img src="img/видеорепотраж.png" alt="Савинова Юлия" loading="lazy"/>
-            <div class="team-info">
-              <span class="team-role">Учредитель / Ген. Директор</span>
-              <h3> Юлия </h3>
-              <p class="team-bio">
-                Менеджер проектов, руководитель организации. С 2016 года
-                отвечает за стратегическое развитие и грантовые отношения.
-              </p>
-            </div>
-          </div>
-
-          <!-- Leader 2 -->
-          <div class="team-card" data-category="leaders">
-            <img src="img/видеорепотраж.png" alt="Савинова Ольга" loading="lazy"/>
-            <div class="team-info">
-              <span class="team-role">Учредитель</span>
-              <h3> Ольга </h3>
-              <p class="team-bio">
-                Специалист по организационным вопросам и контролю качества
-                образовательных программ.
-              </p>
-            </div>
-          </div>
-
-          <!-- Scientist -->
-          <div class="team-card" data-category="scientists" role="listitem">
-            <img src="img/видеорепотраж.png" alt="Аверин Николай" loading="lazy"/>
-            <div class="team-info">
-              <span class="team-role">Научный консультант</span>
-              <h3> Николай </h3>
-              <p class="team-bio">
-                Эксперт в области педагогики и дополнительного образования,
-                автор научных статей.
-              </p>
-            </div>
-          </div>
-
-          <!-- Instructor -->
-          <div class="team-card" data-category="instructors" role="listitem">
-            <img src="img/видеорепотраж.png" alt="Инструктор" loading="lazy"/>
-            <div class="team-info">
-              <span class="team-role">Старший инструктор</span>
-              <h3>Андрей </h3>
-              <p class="team-bio">
-                Мастер спорта по туризму. Проводит спортивные походы и тренинги
-                по выживанию.
-              </p>
-            </div>
-          </div>
-          <!-- Instructor -->
-          <div class="team-card" data-category="instructors" role="listitem">
-            <img src="img/видеорепотраж.png" alt="Инструктор" loading="lazy"/>
-            <div class="team-info">
-              <span class="team-role">Методист</span>
-              <h3>Елена </h3>
-              <p class="team-bio">
-                Разработка авторских курсов по робототехнике и цифровому
-                творчеству.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Documents & Requisites -->
-    <section id="documents" class="section-padding" aria-label="Документы и реквизиты">
-      <div class="container docs-container">
-        <!-- Requisites -->
-        <div class="doc-column reveal" role="region" aria-label="Реквизиты">
-          <h3><i class="ph-fill ph-file-text"></i> Реквизиты для договоров</h3>
-          <div class="requisite-box">
-            <div class="requisite-row">
-              <span>Полное наименование:</span>
-              <span>АНО </span>
-            </div>
-            <div class="requisite-row">
-              <span>ИНН:</span>
-              <span>1</span>
-            </div>
-            <div class="requisite-row">
-              <span>КПП:</span>
-              <span>1</span>
-            </div>
-            <div class="requisite-row">
-              <span>ОГРН:</span>
-              <span>1</span>
-            </div>
-            <div class="requisite-row">
-              <span>Юридический адрес:</span>
-              <span>1</span>
-            </div>
-            <div class="requisite-row">
-              <span>ФИО Генерального директора:</span>
-              <span>1</span>
-            </div>
-          </div>
-          <div class="features">
+      
+      <section
+        class="section-padding"
+        id="mission"
+        role="region"
+        aria-labelledby="mission-heading"
+      >
+        <div class="container mission-grid">
+          <div class="mission-text reveal" role="article">
+            <span class="section-subtitle">Наша миссия</span>
+            <h1 id="mission-heading" class="section-title">
+              Разработка потенциала человека через дополнительное образование и
+              креативные проекты.
+            </h1>
             <p>
-              <i class="ph-fill ph-check-circle"></i> Официальная организация с
-              2016 года.
-              <br />
-              <i class="ph-fill ph-check-circle"></i> Деятельность: Образование,
-              Спорт, Культура.
+              Основанная в 2016 году, наша организация работает на стыке
+              бизнеса, культуры и спорта. Мы верим, что каждый человек способен
+              к росту, если ему предоставить правильные инструменты и поддержку.
             </p>
+            <p>
+              Благодаря партнерству с государственными структурами и научным
+              сообществами, мы реализуем программы, которые развивают регион и
+              воспитывают достойную смену.
+            </p>
+
+            <div class="mission-stats">
+              <div class="stat-item">
+                <span class="stat-number">2016</span>
+                <span class="stat-label">Год основания</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">40+</span>
+                <span class="stat-label">Проектов</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">1000+</span>
+                <span class="stat-label">Выпускников</span>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <!-- Documents List -->
-        <div class="doc-column reveal">
-          <h3><i class="ph-fill ph-files"></i> Отчётность и документы</h3>
-          <ul class="doc-list">
-            <li>
-              <i class="ph-fill ph-file-pdf doc-icon"></i>
-              <div>
-                <strong>Годовой отчет за 2022 год</strong>
-                <div
-                  class="doc-file"
-                  aria-label="Файл формата PDF размером 2.4 мегабайт"
-                >
-                  PDF • 2.4 MB
-                </div>
+      
+      <section
+        id="team"
+        class="section-padding programs"
+        role="region"
+        aria-labelledby="team-heading"
+      >
+        <div class="container">
+          <div class="reveal" role="heading" aria-level="2">
+            <span class="section-subtitle">Команда</span>
+            <h2 id="team-heading" class="section-title">Люди роста</h2>
+          </div>
+
+          
+          <div
+            class="team-controls reveal"
+            role="toolbar"
+            aria-label="Фильтры команды"
+          >
+            <button
+              class="btn btn-outline active"
+              data-filter="all"
+              aria-pressed="true"
+              role="radio"
+              aria-label="Показать все"
+            >
+              Все
+            </button>
+            <button
+              class="btn btn-outline"
+              data-filter="leaders"
+              role="radio"
+              aria-label="Показать учредителей"
+            >
+              Учредители
+            </button>
+            <button
+              class="btn btn-outline"
+              data-filter="scientists"
+              role="radio"
+              aria-label="Показать ученых"
+            >
+              Ученые
+            </button>
+            <button
+              class="btn btn-outline"
+              data-filter="instructors"
+              role="radio"
+              aria-label="Показать инструкторов"
+            >
+              Инструкторы
+            </button>
+          </div>
+
+          
+          <div class="team-grid" role="grid" aria-label="Список команды">
+            <!-- Leader 1 -->
+            <div class="team-card" data-category="leaders" role="gridcell">
+              <img
+                src="img/видеорепотраж.png"
+                alt=" Юлия"
+                loading="lazy"
+              />
+              <div class="team-info">
+                <span class="team-role">Учредитель / Ген. Директор</span>
+                <h3> Юлия </h3>
+                <p class="team-bio">
+                  Менеджер проектов, руководитель организации. С 2016 года
+                  отвечает за стратегическое развитие и грантовые отношения.
+                </p>
               </div>
-            </li>
-            <li>
-              <i class="ph-fill ph-file-pdf doc-icon"></i>
-              <div>
-                <strong>Благодарственное письмо Минспорта</strong>
-                <div
-                  class="doc-file"
-                  aria-label="Файл формата PDF размером 1.1 мегабайт"
-                >
-                  PDF • 1.1 MB
-                </div>
+            </div>
+
+            <!-- Leader 2 -->
+            <div class="team-card" data-category="leaders" role="gridcell">
+              <img
+                src="img/видеорепотраж.png"
+                alt=" Ольга"
+                loading="lazy"
+              />
+              <div class="team-info">
+                <span class="team-role">Учредитель</span>
+                <h3> Ольга </h3>
+                <p class="team-bio">
+                  Специалист по организационным вопросам и контролю качества
+                  образовательных программ.
+                </p>
               </div>
-            </li>
-            <li>
-              <i class="ph-fill ph-file-pdf doc-icon"></i>
-              <div>
-                <strong>Диплом участника выставки "Образование"</strong>
-                <div
-                  class="doc-file"
-                  aria-label="Файл формата PDF размером 3.5 мегабайт"
-                >
-                  PDF • 3.5 MB
-                </div>
+            </div>
+
+            
+            <div class="team-card" data-category="scientists" role="gridcell">
+              <img
+                src="img/видеорепотраж.png"
+                alt=" Николай"
+                loading="lazy"
+              />
+              <div class="team-info">
+                <span class="team-role">Научный консультант</span>
+                <h3>Николай  </h3>
+                <p class="team-bio">
+                  Эксперт в области педагогики и дополнительного образования,
+                  автор научных статей.
+                </p>
               </div>
-            </li>
-            <li>
-              <i class="ph-fill ph-file-pdf doc-icon"></i>
-              <div>
-                <strong>Устав организации</strong>
-                <div
-                  class="doc-file"
-                  aria-label="Файл формата PDF размером 500 килобайт"
-                >
-                  PDF • 500 KB
-                </div>
+            </div>
+
+            
+            <div class="team-card" data-category="instructors" role="gridcell">
+              <img
+                src="img/видеорепотраж.png"
+                alt="Инструктор"
+                loading="lazy"
+              />
+              <div class="team-info">
+                <span class="team-role">Старший инструктор</span>
+                <h3>Андрей </h3>
+                <p class="team-bio">
+                  Мастер спорта по туризму. Проводит спортивные походы и
+                  тренинги по выживанию.
+                </p>
               </div>
-            </li>
-          </ul>
+            </div>
+            
+            <div class="team-card" data-category="instructors" role="gridcell">
+              <img
+                src="img/видеорепотраж.png"
+                alt="Инструктор"
+                loading="lazy"
+              />
+              <div class="team-info">
+                <span class="team-role">Методист</span>
+                <h3>Елена </h3>
+                <p class="team-bio">
+                  Разработка авторских курсов по робототехнике и цифровому
+                  творчеству.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-</main>
-    <footer class="footer" id="contacts">
+      </section>
+
+      <!-- Documents & Requisites -->
+      <section
+        id="documents"
+        class="section-padding"
+        role="region"
+        aria-labelledby="documents-heading"
+      >
+        <div class="container docs-container">
+          
+          <div class="doc-column reveal" role="group" aria-label="Реквизиты">
+            <h3>
+              <i class="ph-fill ph-file-text" aria-hidden="true"></i> Реквизиты
+              для договоров
+            </h3>
+            <div
+              class="requisite-box"
+              role="region"
+              aria-label="Реквизиты организации"
+            >
+              <div class="requisite-row">
+                <span>Полное наименование:</span>
+                <span>АНО "Ц"</span>
+              </div>
+              <div class="requisite-row">
+                <span>ИНН:</span>
+                <span>1</span>
+              </div>
+              <div class="requisite-row">
+                <span>КПП:</span>
+                <span>1</span>
+              </div>
+              <div class="requisite-row">
+                <span>ОГРН:</span>
+                <span>1</span>
+              </div>
+              <div class="requisite-row">
+                <span>Юридический адрес:</span>
+                <span>119071, г. Москва, ул. Научная</span>
+              </div>
+              <div class="requisite-row">
+                <span>ФИО Генерального директора:</span>
+                <span> Юлия </span>
+              </div>
+            </div>
+            <div
+              class="features"
+              role="group"
+              aria-label="Дополнительная информация"
+            >
+              <p>
+                <i class="ph-fill ph-check-circle" aria-hidden="true"></i>
+                Официальная организация с 2016 года.
+                <br />
+                <i class="ph-fill ph-check-circle" aria-hidden="true"></i>
+                Деятельность: Образование, Спорт, Культура.
+              </p>
+            </div>
+          </div>
+
+          <!-- Documents List -->
+          <div class="doc-column reveal" role="group" aria-label="Документы">
+            <h3>
+              <i class="ph-fill ph-files" aria-hidden="true"></i> Отчётность и
+              документы
+            </h3>
+            <ul class="doc-list" role="list">
+              <li role="listitem">
+                <i class="ph-fill ph-file-pdf doc-icon" aria-hidden="true"></i>
+                <div>
+                  <strong>Годовой отчет за 2022 год</strong>
+                  <div
+                    class="doc-file"
+                    aria-label="Файл формата PDF размером 2.4 мегабайт"
+                  >
+                    PDF • 2.4 MB
+                  </div>
+                </div>
+              </li>
+              <li role="listitem">
+                <i class="ph-fill ph-file-pdf doc-icon" aria-hidden="true"></i>
+                <div>
+                  <strong>Благодарственное письмо Минспорта</strong>
+                  <div
+                    class="doc-file"
+                    aria-label="Файл формата PDF размером 1.1 мегабайт"
+                  >
+                    PDF • 1.1 MB
+                  </div>
+                </div>
+              </li>
+              <li role="listitem">
+                <i class="ph-fill ph-file-pdf doc-icon" aria-hidden="true"></i>
+                <div>
+                  <strong>Диплом участника выставки "Образование"</strong>
+                  <div
+                    class="doc-file"
+                    aria-label="Файл формата PDF размером 3.5 мегабайт"
+                  >
+                    PDF • 3.5 MB
+                  </div>
+                </div>
+              </li>
+              <li role="listitem">
+                <i class="ph-fill ph-file-pdf doc-icon" aria-hidden="true"></i>
+                <div>
+                  <strong>Устав организации</strong>
+                  <div
+                    class="doc-file"
+                    aria-label="Файл формата PDF размером 500 килобайт"
+                  >
+                    PDF • 500 KB
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer" id="contacts" role="contentinfo">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <h2><i class="ph-fill ph-compass"></i> TERRA SCIENTIA</h2>
+            <h2>
+              <i class="ph-fill ph-compass" aria-hidden="true"></i> TERRA
+              SCIENTIA
+            </h2>
             <p>
               АНО «Терра Сктиенсия». Развитие научного туризма и просвещения.
             </p>
-            <div class="social-icons">
+            <div class="social-icons" role="group" aria-label="Социальные сети">
               <a href="#" class="social-icon" aria-label="Instagram"
-                ><i class="ph-fill ph-instagram-logo"></i
+                ><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i
               ></a>
               <a href="#" class="social-icon" aria-label="Telegram"
-                ><i class="ph-fill ph-telegram-logo"></i
+                ><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i
               ></a>
               <a href="#" class="social-icon" aria-label="Facebook"
-                ><i class="ph-fill ph-facebook-logo"></i
+                ><i class="ph-fill ph-facebook-logo" aria-hidden="true"></i
               ></a>
             </div>
           </div>
 
           <div class="footer-col">
             <h4>Навигация</h4>
-            <ul class="footer-links">
+            <ul class="footer-links" role="list">
               <li><a href="index.html" aria-label="Главная">Главная</a></li>
               <li><a href="about.html" aria-label="О нас">О нас</a></li>
               <li>
-                <a href="activity.html" aria-label="Программы">Программы</a>
+                <a href="activity.html" aria-label="Деятельность"
+                  >Деятельность</a
+                >
               </li>
               <li>
                 <a href="science-tourism.html" aria-label="Научный туризм"
@@ -355,34 +457,35 @@
 
           <div class="footer-col">
             <h4>Контакты</h4>
-            <ul class="footer-links">
+            <ul class="footer-links" role="list">
               <li>
-                <a href="tel:" aria-label="Номер телефона"
-                  ><i class="ph-fill ph-phone"></i> +7 (999) 000-00-00</a
+                <a href="tel:+79990000000" aria-label="Номер телефона"
+                  ><i class="ph-fill ph-phone" aria-hidden="true"></i>+7 (999)
+                  000-00-00</a
                 >
               </li>
               <li>
-                <a href="mailto:" aria-label="Электронная почта"
-                  ><i class="ph-fill ph-envelope"></i> info@terrascientia.ru</a
+                <a
+                  href="mailto:info@terrascientia.ru"
+                  aria-label="Электронная почта"
+                  ><i class="ph-fill ph-envelope"></i>info@terrascientia.ru</a
                 >
               </li>
               <li>
                 <a
                   href="https://www.openstreetmap.org/?#map=15/55.74903/37.61397"
                   aria-label="Адрес организации"
-                  ><i class="ph-fill ph-map-pin"></i> г. Москва, ул. Научная,
+                  ><i class="ph-fill ph-map-pin"></i>г. Москва, ул. Научная,
                   10</a
                 >
               </li>
               <li>
-                <a href="contacts.html" aria-label="Страница контакты"
+                <a href="contacts.html" aria-label="Контактная информация"
                   >Контактная информация</a
                 >
               </li>
               <li>
-                <a href="partners.html" aria-label="Страница партнеры"
-                  >Партнерам</a
-                >
+                <a href="partners.html" aria-label="Партнеры">Партнеры</a>
               </li>
             </ul>
           </div>
@@ -390,7 +493,12 @@
           <div class="footer-col">
             <h4>Newsletter</h4>
             <p>Получать анонсы туров</p>
-            <form action="#" method="POST" onsubmit="event.preventDefault()">
+            <form
+              action="#"
+              method="POST"
+              onsubmit="event.preventDefault()"
+              aria-label="Подписка на рассылку"
+            >
               <input
                 type="email"
                 placeholder="Email"
@@ -400,9 +508,9 @@
               <button
                 type="submit"
                 class="btn btn-accent"
-                aria-label="Кнопка для подписки"
+                aria-label="Подписаться"
               >
-                <i class="ph-bold ph-paper-plane-right"></i>
+                <i class="ph-bold ph-paper-plane-right" aria-hidden="true"></i>
               </button>
             </form>
           </div>

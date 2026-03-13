@@ -1,18 +1,22 @@
 <!doctype html>
-<html lang="ru">
+<html
+  lang="ru"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:og="http://ogp.me/ns#"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Изучите проекты и экспедиции Центра Роста: научные исследования, гранты, спортивные туры и многое другое."
+      content="Изучите проекты и экспедиции Центра: научные исследования, гранты, спортивные туры и многое другое."
     />
     <meta
       name="keywords"
       content="Деятельность, проекты, экспедиции, научные исследования, гранты, спортивные туры"
     />
     <meta name="author" content="Terra Scientia" />
-    <title>Деятельность | Центр Роста</title>
+    <title>Деятельность | Центр</title>
 
     <!-- Шрифты и иконки (Совпадают с Главной страницей) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,34 +29,57 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
       <div class="container header-inner">
         <a href="index.html" class="logo" aria-label="Terra Scientia Главная">
-          <i class="ph-fill ph-compass"></i>
+          <i class="ph-fill ph-compass" aria-hidden="true"></i>
           TERRA <span>SCIENTIA</span>
         </a>
 
-        <nav>
-          <ul class="nav-menu" id="navMenu">
-            <li>
+        <nav role="navigation" aria-label="Основное меню">
+          <ul class="nav-menu" id="navMenu" role="menubar">
+            <li role="presentation">
               <a href="about.html" class="nav-link" aria-label="О нас">О нас</a>
             </li>
-            <li>
-              <a href="activity.html" class="nav-link" aria-label="Программы"
+            <li role="presentation" class="dropdown">
+              <a
+                href="#"
+                class="nav-link"
+                id="programs-nav-link"
+                aria-label="Программы"
+                aria-expanded="false"
                 >Программы</a
               >
+              <ul role="menu">
+                <li role="none">
+                  <a
+                    href="activity.html"
+                    role="menuitem"
+                    aria-label="Деятельность"
+                    >Деятельность</a
+                  >
+                </li>
+                <li role="none">
+                  <a
+                    href="science-tourism.html"
+                    role="menuitem"
+                    aria-label="Научный туризм"
+                    >Научный туризм</a
+                  >
+                </li>
+              </ul>
             </li>
-            <li>
+            <li role="presentation">
               <a href="media.html" class="nav-link" aria-label="Новости"
                 >Новости</a
               >
             </li>
-            <li>
+            <li role="presentation">
               <a href="partners.html" class="nav-link" aria-label="Партнеры"
                 >Партнеры</a
               >
             </li>
-            <li>
+            <li role="presentation">
               <a
                 href="contacts.html"
                 class="btn btn-primary nav-cta"
@@ -68,267 +95,337 @@
           id="burger"
           role="button"
           aria-label="Переключение навигации"
+          aria-expanded="false"
           tabindex="0"
         >
-          <i class="ph ph-list"></i>
+          <i class="ph ph-list" aria-hidden="true"></i>
         </div>
       </div>
     </header>
 
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1>Реализуем проекты <br />в духе исследования</h1>
-        <p>
-          От лаборатории до вершины. Мы создаем образовательные программы,
-          поддерживаем науку и проводим активные приключения.
-        </p>
-      </div>
-    </section>
-
-    <!-- 1. Scientific Projects -->
-    <section id="sci-fi" class="section-padding">
-      <div class="container">
-        <span class="section-subtitle">Исследования</span>
-        <h2 class="section-title">Научные проекты</h2>
-
-        <div class="programs-grid" id="projects">
-          <!-- Project 1 -->
-          <article class="project-card">
-            <img src="img/Кружок.png" class="project-img" alt="Глациология" loading="lazy"/>
-            <div class="project-content">
-              <span class="project-tag">Природа</span>
-              <h3 class="project-title">Исследование ледников Алтая</h3>
-              <p class="project-meta">2023 • Выполнено</p>
-              <p class="project-desc">
-                Сбор данных об изменении ледниковой сети и составление
-                климатического отчета.
-              </p>
-              <a href="#" class="btn btn-outline project"
-                ><i class="ph-bold ph-file-pdf"></i> Скачать отчет</a
-              >
-            </div>
-          </article>
-
-          <!-- Project 2 -->
-          <article class="project-card">
-            <img src="img/Новые лица.png" class="project-img" alt="Ботаника" loading="lazy"/>
-            <div class="project-content">
-              <span class="project-tag">Экология</span>
-              <h3 class="project-title">Флора Саянских гор</h3>
-              <p class="project-meta">2024 • В процессе</p>
-              <p class="project-desc">
-                Картирование редких видов растений и их распространение в
-                условиях потепления климата.
-              </p>
-              <a href="#" class="btn btn-outline project"
-                ><i class="ph-bold ph-file-pdf"></i> Статья</a
-              >
-            </div>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="project-card">
-            <img
-              src="img/Сайт-портал.jpg"
-              class="project-img"
-              alt="Археология"
-              loading="lazy"
-            />
-            <div class="project-content">
-              <span class="project-tag">История</span>
-              <h3 class="project-title">Восстановление древних практик</h3>
-              <p class="project-meta">2022 • Завершен</p>
-              <p class="project-desc">
-                Исследование дохристианских обрядов через реконструкцию
-                исторических маршрутов.
-              </p>
-              <a href="#" class="btn btn-outline project"
-                ><i class="ph-bold ph-play-circle"></i> Видео</a
-              >
-            </div>
-          </article>
+    <main role="main">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="container hero-content">
+          <h1 id="hero-heading">Реализуем проекты <br />в духе исследования</h1>
+          <p>
+            От лаборатории до вершины. Мы создаем образовательные программы,
+            поддерживаем науку и проводим активные приключения.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 2. Grants -->
-    <section class="section-padding programs">
-      <div class="container">
-        <span class="section-subtitle">Финансирование</span>
-        <h2 class="section-title">Грантовая деятельность</h2>
+      <section
+        id="sci-fi"
+        class="section-padding"
+        role="region"
+        aria-labelledby="sci-fi-heading"
+      >
+        <div class="container">
+          <span class="section-subtitle">Исследования</span>
+          <h2 id="sci-fi-heading" class="section-title">Научные проекты</h2>
 
-        <div class="grants-container">
-          <!-- Supported Grants -->
-          <div class="grant-card grant-success">
-            <h3><i class="ph-fill ph-check-circle"></i> Поддержанные гранты</h3>
-            <p>Успешные проекты, реализованные при поддержке грантов.</p>
+          <div class="programs-grid" id="projects" role="list">
+            <!-- Project 1 -->
+            <article class="project-card" role="listitem">
+              <img
+                src="img/Кружок.png"
+                class="project-img"
+                alt="Исследование ледников Алтая"
+                loading="lazy"
+              />
+              <div class="project-content">
+                <span class="project-tag">Природа</span>
+                <h3 class="project-title">Исследование ледников Алтая</h3>
+                <p class="project-meta">2023 • Выполнено</p>
+                <p class="project-desc">
+                  Сбор данных об изменении ледниковой сети и составление
+                  климатического отчета.
+                </p>
+                <a
+                  href="#"
+                  class="btn btn-outline project"
+                  aria-label="Скачать отчет"
+                >
+                  <i class="ph-bold ph-file-pdf" aria-hidden="true"></i> Скачать
+                  отчет
+                </a>
+              </div>
+            </article>
 
-            <div class="grant-list">
-              <div class="grant-item">
-                <div class="grant-header">
-                  <span>Минспорт России</span>
-                  <span class="grant-desc">Успех</span>
+            <!-- Project 2 -->
+            <article class="project-card" role="listitem">
+              <img
+                src="img/Новые лица.png"
+                class="project-img"
+                alt="Флора Саянских гор"
+                loading="lazy"
+              />
+              <div class="project-content">
+                <span class="project-tag">Экология</span>
+                <h3 class="project-title">Флора Саянских гор</h3>
+                <p class="project-meta">2024 • В процессе</p>
+                <p class="project-desc">
+                  Картирование редких видов растений и их распространение в
+                  условиях потепления климата.
+                </p>
+                <a
+                  href="#"
+                  class="btn btn-outline project"
+                  aria-label="Скачать статью"
+                >
+                  <i class="ph-bold ph-file-pdf" aria-hidden="true"></i> Статья
+                </a>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card" role="listitem">
+              <img
+                src="img/Сайт-портал.jpg"
+                class="project-img"
+                alt="Восстановление древних практик"
+                loading="lazy"
+              />
+              <div class="project-content">
+                <span class="project-tag">История</span>
+                <h3 class="project-title">Восстановление древних практик</h3>
+                <p class="project-meta">2022 • Завершен</p>
+                <p class="project-desc">
+                  Исследование дохристианских обрядов через реконструкцию
+                  исторических маршрутов.
+                </p>
+                <a
+                  href="#"
+                  class="btn btn-outline project"
+                  aria-label="Посмотреть видео"
+                >
+                  <i class="ph-bold ph-play-circle" aria-hidden="true"></i>
+                  Видео
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section-padding programs"
+        role="region"
+        aria-labelledby="grants-heading"
+      >
+        <div class="container">
+          <span class="section-subtitle">Финансирование</span>
+          <h2 id="grants-heading" class="section-title">
+            Грантовая деятельность
+          </h2>
+
+          <div class="grants-container">
+            <!-- Supported Grants -->
+            <div
+              class="grant-card grant-success"
+              role="group"
+              aria-label="Поддержанные гранты"
+            >
+              <h3>
+                <i class="ph-fill ph-check-circle" aria-hidden="true"></i>
+                Поддержанные гранты
+              </h3>
+              <p>Успешные проекты, реализованные при поддержке грантов.</p>
+
+              <div class="grant-list" role="list">
+                <div class="grant-item" role="listitem">
+                  <div class="grant-header">
+                    <span>Минспорт России</span>
+                    <span class="grant-desc">Успех</span>
+                  </div>
+                  <div class="grant-item-desc">
+                    Формирование физической культуры и спорта. 2022-2023 гг.
+                  </div>
                 </div>
-                <div class="grant-item-desc">
-                  Формирование физической культуры и спорта. 2022-2023 гг.
+                <div class="grant-item" role="listitem">
+                  <div class="grant-header">
+                    <span>Минобрнауки</span>
+                    <span class="grant-desc">Успех</span>
+                  </div>
+                  <div class="grant-item-desc">
+                    Вовлечение молодежи в науку. 2023 г.
+                  </div>
                 </div>
               </div>
-              <div class="grant-item">
-                <div class="grant-header">
-                  <span>Минобрнауки</span>
-                  <span class="grant-desc">Успех</span>
+            </div>
+
+            <!-- Open Grants -->
+            <div class="grant-card" role="group" aria-label="Открытые конкурсы">
+              <h3>
+                <i class="ph-fill ph-handshake" aria-hidden="true"></i> Открытые
+                конкурсы
+              </h3>
+              <p>Приглашаем партнеров к совместным инициативам.</p>
+
+              <div class="grant-list" role="list">
+                <div class="grant-item" role="listitem">
+                  <div class="grant-header">
+                    <span>Проект "ЭкоПуть"</span>
+                    <span class="grant-status">Прием заявок</span>
+                  </div>
+                  <div class="grant-item-desc">
+                    Экологический туризм для школьников. Сроки до 30.10.
+                  </div>
+                  <a
+                    href="#"
+                    class="grant-more"
+                    aria-label="Подробнее о конкурсе"
+                    >Подробнее →</a
+                  >
                 </div>
-                <div class="grant-item-desc">
-                  Вовлечение молодежи в науку. 2023 г.
-                </div>
+              </div>
+              <button
+                class="btn btn-primary grant"
+                aria-label="Подать заявку на грант"
+              >
+                Подать заявку
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section-padding"
+        role="region"
+        aria-labelledby="expeditions-heading"
+      >
+        <div class="container">
+          <span class="section-subtitle">Приключения</span>
+          <h2 id="expeditions-heading" class="section-title">Экспедиции</h2>
+
+          <div class="timeline" role="list">
+            <div class="timeline-item" role="listitem">
+              <div class="timeline-content">
+                <span class="timeline-date">Июнь 2023</span>
+                <h3>Полярный дневник</h3>
+                <p>
+                  Экспедиция к мысу Челюскин. Участники преодолели 600 км на
+                  снегоходах, собирая метеоданные.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item" role="listitem">
+              <div class="timeline-content">
+                <span class="timeline-date">Сентябрь 2022</span>
+                <h3>Долина Гейзеров</h3>
+                <p>
+                  Группа из 20 студентов провела исследования термических
+                  источников и фотографическую фиксацию фауны.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item" role="listitem">
+              <div class="timeline-content">
+                <span class="timeline-date">Октябрь 2021</span>
+                <h3>Камни Байкала</h3>
+                <p>
+                  Поиск залежей редкого строительного камня и анализ его
+                  геологической структуры.
+                </p>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <!-- Open Grants -->
-          <div class="grant-card">
-            <h3><i class="ph-fill ph-handshake"></i> Открытые конкурсы</h3>
-            <p>Приглашаем партнеров к совместным инициативам.</p>
+      <section
+        class="section-padding programs"
+        role="region"
+        aria-labelledby="sports-heading"
+      >
+        <div class="container">
+          <span class="section-subtitle">Активный отдых</span>
+          <h2 id="sports-heading" class="section-title">Спортивный туризм</h2>
+          <p>
+            Мы обеспечиваем безопасность и техническую подготовку для любых
+            видов туризма.
+          </p>
 
-            <div class="grant-list">
-              <div class="grant-item">
-                <div class="grant-header">
-                  <span>Проект "ЭкоПуть"</span>
-                  <span class="grant-status">Прием заявок</span>
-                </div>
-                <div class="grant-item-desc">
-                  Экологический туризм для школьников. Сроки до 30.10.
-                </div>
-                <a href="#" class="grant-more">Подробнее →</a>
+          <div class="sports-grid" role="list">
+            <div class="sport-card" role="listitem">
+              <img src="img/Сайт-портал.jpg" alt="Альпинизм" loading="lazy" />
+              <div class="sport-overlay">
+                <i
+                  class="ph-fill ph-mountains sport-icon"
+                  aria-hidden="true"
+                ></i>
+                <h3>Альпинизм</h3>
+                <p>
+                  Скалолазание, ледолазание, восхождение на горные вершины
+                  категории сложности.
+                </p>
               </div>
             </div>
-            <button class="btn btn-primary grant">Подать заявку</button>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- 3. Expeditions -->
-    <section class="section-padding">
-      <div class="container">
-        <span class="section-subtitle">Приключения</span>
-        <h2 class="section-title">Экспедиции</h2>
+            <div class="sport-card" role="listitem">
+              <img src="img/Кружок.png" alt="Сплавы" loading="lazy" />
+              <div class="sport-overlay">
+                <i class="ph-fill ph-water sport-icon" aria-hidden="true"></i>
+                <h3>Сплавы</h3>
+                <p>
+                  Сплав на байдарках и катамаранах по горным и равнинным рекам
+                  любой категории сложности.
+                </p>
+              </div>
+            </div>
 
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <span class="timeline-date">Июнь 2023</span>
-              <h3>Полярный дневник</h3>
-              <p>
-                Экспедиция к мысу Челюскин. Участники преодолели 600 км на
-                снегоходах, собирая метеоданные.
-              </p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <span class="timeline-date">Сентябрь 2022</span>
-              <h3>Долина Гейзеров</h3>
-              <p>
-                Группа из 20 студентов провела исследования термических
-                источников и фотографическую фиксацию фауны.
-              </p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <span class="timeline-date">Октябрь 2021</span>
-              <h3>Камни Байкала</h3>
-              <p>
-                Поиск залежей редкого строительного камня и анализ его
-                геологической структуры.
-              </p>
+            <div class="sport-card" role="listitem">
+              <img src="img/видеорепотраж.png" alt="Треккинг" loading="lazy" />
+              <div class="sport-overlay">
+                <i class="ph-fill ph-path sport-icon" aria-hidden="true"></i>
+                <h3>Треккинг</h3>
+                <p>
+                  Пешие походы выходного дня и многодневные походы с ночевками в
+                  палатках.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- 4. Sports Tourism -->
-    <section class="section-padding programs">
-      <div class="container">
-        <span class="section-subtitle">Активный отдых</span>
-        <h2 class="section-title">Спортивный туризм</h2>
-        <p>
-          Мы обеспечиваем безопасность и техническую подготовку для любых видов
-          туризма.
-        </p>
-
-        <div class="sports-grid">
-          <div class="sport-card">
-            <img src="img/Сайт-портал.jpg" alt="Альпинизм" loading="lazy"/>
-            <div class="sport-overlay">
-              <i class="ph-fill ph-mountains sport-icon"></i>
-              <h3>Альпинизм</h3>
-              <p>
-                Скалолазание, ледолазание, восхождение на горные вершины
-                категории сложности.
-              </p>
-            </div>
-          </div>
-
-          <div class="sport-card">
-            <img src="img/Кружок.png" alt="Сплавы" loading="lazy"/>
-            <div class="sport-overlay">
-              <i class="ph-fill ph-water sport-icon"></i>
-              <h3>Сплавы</h3>
-              <p>
-                Сплав на байдарках и катамаранах по горным и равнинным рекам
-                любой категории сложности.
-              </p>
-            </div>
-          </div>
-
-          <div class="sport-card">
-            <img src="img/видеорепотраж.png" alt="Треккинг" loading="lazy"/>
-            <div class="sport-overlay">
-              <i class="ph-fill ph-path sport-icon"></i>
-              <h3>Треккинг</h3>
-              <p>
-                Пешие походы выходного дня и многодневные походы с ночевками в
-                палатках.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer" id="contacts">
+    <footer class="footer" id="contacts" role="contentinfo">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <h2><i class="ph-fill ph-compass"></i> TERRA SCIENTIA</h2>
+            <h2>
+              <i class="ph-fill ph-compass" aria-hidden="true"></i> TERRA
+              SCIENTIA
+            </h2>
             <p>
               АНО «Терра Сктиенсия». Развитие научного туризма и просвещения.
             </p>
-            <div class="social-icons">
+            <div class="social-icons" role="group" aria-label="Социальные сети">
               <a href="#" class="social-icon" aria-label="Instagram"
-                ><i class="ph-fill ph-instagram-logo"></i
+                ><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i
               ></a>
               <a href="#" class="social-icon" aria-label="Telegram"
-                ><i class="ph-fill ph-telegram-logo"></i
+                ><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i
               ></a>
               <a href="#" class="social-icon" aria-label="Facebook"
-                ><i class="ph-fill ph-facebook-logo"></i
+                ><i class="ph-fill ph-facebook-logo" aria-hidden="true"></i
               ></a>
             </div>
           </div>
 
           <div class="footer-col">
             <h4>Навигация</h4>
-            <ul class="footer-links">
+            <ul class="footer-links" role="list">
               <li><a href="index.html" aria-label="Главная">Главная</a></li>
               <li><a href="about.html" aria-label="О нас">О нас</a></li>
               <li>
-                <a href="activity.html" aria-label="Программы">Программы</a>
+                <a href="activity.html" aria-label="Деятельность"
+                  >Деятельность</a
+                >
               </li>
               <li>
                 <a href="science-tourism.html" aria-label="Научный туризм"
@@ -341,34 +438,35 @@
 
           <div class="footer-col">
             <h4>Контакты</h4>
-            <ul class="footer-links">
+            <ul class="footer-links" role="list">
               <li>
-                <a href="tel:" aria-label="Номер телефона"
-                  ><i class="ph-fill ph-phone"></i> +7 (999) 000-00-00</a
+                <a href="tel:+79990000000" aria-label="Номер телефона"
+                  ><i class="ph-fill ph-phone" aria-hidden="true"></i>+7 (999)
+                  000-00-00</a
                 >
               </li>
               <li>
-                <a href="mailto:" aria-label="Электронная почта"
-                  ><i class="ph-fill ph-envelope"></i> info@terrascientia.ru</a
+                <a
+                  href="mailto:info@terrascientia.ru"
+                  aria-label="Электронная почта"
+                  ><i class="ph-fill ph-envelope"></i>info@terrascientia.ru</a
                 >
               </li>
               <li>
                 <a
                   href="https://www.openstreetmap.org/?#map=15/55.74903/37.61397"
                   aria-label="Адрес организации"
-                  ><i class="ph-fill ph-map-pin"></i> г. Москва, ул. Научная,
+                  ><i class="ph-fill ph-map-pin"></i>г. Москва, ул. Научная,
                   10</a
                 >
               </li>
               <li>
-                <a href="contacts.html" aria-label="Страница контакты"
+                <a href="contacts.html" aria-label="Контактная информация"
                   >Контактная информация</a
                 >
               </li>
               <li>
-                <a href="partners.html" aria-label="Страница партнеры"
-                  >Партнерам</a
-                >
+                <a href="partners.html" aria-label="Партнеры">Партнеры</a>
               </li>
             </ul>
           </div>
@@ -376,7 +474,12 @@
           <div class="footer-col">
             <h4>Newsletter</h4>
             <p>Получать анонсы туров</p>
-            <form action="#" method="POST" onsubmit="event.preventDefault()">
+            <form
+              action="#"
+              method="POST"
+              onsubmit="event.preventDefault()"
+              aria-label="Подписка на рассылку"
+            >
               <input
                 type="email"
                 placeholder="Email"
@@ -386,9 +489,9 @@
               <button
                 type="submit"
                 class="btn btn-accent"
-                aria-label="Кнопка для подписки"
+                aria-label="Подписаться"
               >
-                <i class="ph-bold ph-paper-plane-right"></i>
+                <i class="ph-bold ph-paper-plane-right" aria-hidden="true"></i>
               </button>
             </form>
           </div>

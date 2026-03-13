@@ -1,9 +1,22 @@
 <!doctype html>
-<html lang="ru">
+<html
+  lang="ru"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:og="http://ogp.me/ns#"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Научный туризм | Центр Роста</title>
+    <meta
+      name="description"
+      content="Научные экспедиции для исследователей: геология, археология, экология. Участие в экспедициях в Киргизии, Камчатке, Узбекистане и других регионах."
+    />
+    <meta
+      name="keywords"
+      content="научный туризм, экспедиции, геология, археология, Камчатка, Алтай, Узбекистан, Киргизия, исследования"
+    />
+    <meta name="author" content="Terra Scientia" />
+    <title>Научный туризм | Центр</title>
 
     <!-- Шрифты и иконки -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,34 +29,57 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
       <div class="container header-inner">
         <a href="index.html" class="logo" aria-label="Terra Scientia Главная">
-          <i class="ph-fill ph-compass"></i>
+          <i class="ph-fill ph-compass" aria-hidden="true"></i>
           TERRA <span>SCIENTIA</span>
         </a>
 
-        <nav>
-          <ul class="nav-menu" id="navMenu">
-            <li>
+        <nav role="navigation" aria-label="Основное меню">
+          <ul class="nav-menu" id="navMenu" role="menubar">
+            <li role="presentation">
               <a href="about.html" class="nav-link" aria-label="О нас">О нас</a>
             </li>
-            <li>
-              <a href="activity.html" class="nav-link" aria-label="Программы"
+            <li role="presentation" class="dropdown">
+              <a
+                href="#"
+                class="nav-link"
+                id="programs-nav-link"
+                aria-label="Программы"
+                aria-expanded="false"
                 >Программы</a
               >
+              <ul role="menu">
+                <li role="none">
+                  <a
+                    href="activity.html"
+                    role="menuitem"
+                    aria-label="Деятельность"
+                    >Деятельность</a
+                  >
+                </li>
+                <li role="none">
+                  <a
+                    href="science-tourism.html"
+                    role="menuitem"
+                    aria-label="Научный туризм"
+                    >Научный туризм</a
+                  >
+                </li>
+              </ul>
             </li>
-            <li>
+            <li role="presentation">
               <a href="media.html" class="nav-link" aria-label="Новости"
                 >Новости</a
               >
             </li>
-            <li>
+            <li role="presentation">
               <a href="partners.html" class="nav-link" aria-label="Партнеры"
                 >Партнеры</a
               >
             </li>
-            <li>
+            <li role="presentation">
               <a
                 href="contacts.html"
                 class="btn btn-primary nav-cta"
@@ -59,417 +95,602 @@
           id="burger"
           role="button"
           aria-label="Переключение навигации"
+          aria-expanded="false"
           tabindex="0"
         >
-          <i class="ph ph-list"></i>
+          <i class="ph ph-list" aria-hidden="true"></i>
         </div>
       </div>
     </header>
 
-    <!-- Главный экран (Hero) -->
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1 class="hero-title">Исследуй. Открывай. Учись.</h1>
-        <p class="hero-subtitle">
-          Научные экспедиции для тех, кто готов увидеть мир новым взглядом.
-        </p>
-        <a href="#region" class="btn btn-primary"
-          >Подобрать программу <i class="ph-bold ph-arrow-right"></i
-        ></a>
-      </div>
-    </section>
-
-    <section class="section-padding" id="region">
-      <div class="container">
-        <h3 class="section-title">Выберите регион исследования</h3>
-        <div class="region-list">
-          <div class="region-card active">
-            <i class="ph-fill ph-mountains"></i>
-            <h4>Киргизия</h4>
-          </div>
-          <div class="region-card">
-            <i class="ph ph-globe-hemisphere-east"></i>
-            <h4>Узбекистан</h4>
-          </div>
-          <div class="region-card">
-            <i class="ph ph-island"></i>
-            <h4>Камчатка</h4>
-          </div>
-          <div class="region-card">
-            <i class="ph-fill ph-tree-palm"></i>
-            <h4>Алтай</h4>
-          </div>
-          <div class="region-card">
-            <i class="ph ph-triangle"></i>
-            <h4>Египет</h4>
-          </div>
-          <div class="region-card">
-            <i class="ph ph-drop"></i>
-            <h4>Байкал</h4>
-          </div>
+    <main role="main">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="container hero-content">
+          <h1 id="hero-heading" class="hero-title">
+            Исследуй. Открывай. Учись.
+          </h1>
+          <p class="hero-subtitle">
+            Научные экспедиции для тех, кто готов увидеть мир новым взглядом.
+          </p>
+          <a
+            href="#region"
+            class="btn btn-primary"
+            aria-label="Перейти к выбору региона"
+          >
+            Подобрать программу
+            <i class="ph-bold ph-arrow-right" aria-hidden="true"></i>
+          </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section-padding programs" id="tours">
-      <div class="container">
-        <span class="section-subtitle">Актуальные программы</span>
-        <h2 class="section-title">Научные туры</h2>
-
-        <div class="tours-grid">
-          <!-- Program 1 -->
-          <div class="tour-card">
-            <div class="tour-gallery">
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Горы"
-              />
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Флаг"
-              />
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Блокнот"
-              />
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Камни"
-              />
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Разговор"
-              />
+      <section class="section-padding" id="region">
+        <div class="container">
+          <h2 class="section-title" aria-level="2">
+            Выберите регион исследования
+          </h2>
+          <div
+            class="region-list"
+            role="list"
+            aria-label="Регионы для экспедиций"
+          >
+            <div class="region-card active" role="listitem">
+              <i class="ph-fill ph-mountains" aria-hidden="true"></i>
+              <h4>Киргизия</h4>
             </div>
-            <div class="tour-content">
-              <div class="tour-meta">
-                <span class="badge">Июнь 2024</span>
-                <span class="badge">12 Дней</span>
-              </div>
-              <h3 class="tour-title">Тянь-Шань: Палеонтология и Плато</h3>
-              <p class="tour-desc">
-                Изучение окаменелостей и геологического строения хребта
-                Заилийский Алатау.
-              </p>
-
-              <div class="tour-details">
-                <div class="detail-row">
-                  <i class="ph-bold ph-star"></i> Уровень: Средний
-                </div>
-                <div class="detail-row">
-                  <i class="ph-bold ph-map-trifold"></i> Алматинская область
-                </div>
-                <div class="detail-row">
-                  <i class="ph-bold ph-wallet"></i> 150 000 ₽ / чел.
-                </div>
-              </div>
-
-              <div class="tour-btns">
-                <button class="btn btn-primary">Забронировать</button>
-                <button class="btn btn-outline">
-                  <i class="ph-bold ph-info"></i>
-                </button>
-              </div>
+            <div class="region-card" role="listitem">
+              <i class="ph ph-globe-hemisphere-east" aria-hidden="true"></i>
+              <h4>Узбекистан</h4>
             </div>
-          </div>
-
-          <!-- Program 2 -->
-          <div class="tour-card">
-            <div class="tour-gallery">
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Руины"
-              />
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Город"
-              />
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Шлем"
-              />
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Солнце"
-              />
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Археология"
-              />
+            <div class="region-card" role="listitem">
+              <i class="ph ph-island" aria-hidden="true"></i>
+              <h4>Камчатка</h4>
             </div>
-            <div class="tour-content">
-              <div class="tour-meta">
-                <span class="badge">Июль 2024</span>
-                <span class="badge">10 Дней</span>
-              </div>
-              <h3 class="tour-title">Шелковый путь: Археология</h3>
-              <p class="tour-desc">
-                Исследование средневековых караван-сараев и культурных слоев
-                древнего города.
-              </p>
-
-              <div class="tour-details">
-                <div class="detail-row">
-                  <i class="ph-bold ph-star"></i> Уровень: Лёгкий
-                </div>
-                <div class="detail-row">
-                  <i class="ph-bold ph-map-trifold"></i> Узбекистан
-                </div>
-                <div class="detail-row">
-                  <i class="ph-bold ph-hand-heart"></i> Грант на участие для
-                  студентов
-                </div>
-              </div>
-
-              <div class="tour-btns">
-                <button class="btn btn-primary">Забронировать</button>
-                <button class="btn btn-outline">
-                  <i class="ph-bold ph-info"></i>
-                </button>
-              </div>
+            <div class="region-card" role="listitem">
+              <i class="ph-fill ph-tree-palm" aria-hidden="true"></i>
+              <h4>Алтай</h4>
             </div>
-          </div>
-
-          <!-- Program 3 -->
-          <div class="tour-card">
-            <div class="tour-gallery">
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Вулкан"
-              />
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Пепел"
-              />
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Буря"
-              />
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Снаряжение"
-              />
-              <img
-                src="img/Сайт-портал.jpg"
-                class="tour-img"
-                alt="Кратер"
-              />
+            <div class="region-card" role="listitem">
+              <i class="ph ph-triangle" aria-hidden="true"></i>
+              <h4>Египет</h4>
             </div>
-            <div class="tour-content">
-              <div class="tour-meta">
-                <span class="badge">Август 2024</span>
-                <span class="badge">15 Дней</span>
-              </div>
-              <h3 class="tour-title">Камчатка: Геология и Вулканизм</h3>
-              <p class="tour-desc">
-                Изучение активных вулканов, сбор проб вулканического пепла и
-                наблюдение за птицами.
-              </p>
-
-              <div class="tour-details">
-                <div class="detail-row">
-                  <i class="ph-bold ph-star"></i> Уровень: Сложный
-                </div>
-                <div class="detail-row">
-                  <i class="ph-bold ph-map-trifold"></i> Камчатский край
-                </div>
-                <div class="detail-row">
-                  <i class="ph-bold ph-wallet"></i> 250 000 ₽ / чел.
-                </div>
-              </div>
-
-              <div class="tour-btns">
-                <button class="btn btn-primary">Забронировать</button>
-                <button class="btn btn-outline">
-                  <i class="ph-bold ph-info"></i>
-                </button>
-              </div>
+            <div class="region-card" role="listitem">
+              <i class="ph ph-drop" aria-hidden="true"></i>
+              <h4>Байкал</h4>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section-padding" id="archive">
-      <div class="container">
-        <h2 class="section-title">Архив экспедиций</h2>
-        <div class="search-bar">
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Поиск (год, регион, тип)..."
-            id="archiveSearch"
-          />
-          <button class="btn btn-primary">
-            <i class="ph-bold ph-magnifying-glass"></i>
-          </button>
-        </div>
+      <section class="section-padding programs" id="tours">
+        <div class="container">
+          <span class="section-subtitle">Актуальные программы</span>
+          <h2 class="section-title" aria-level="2">Научные туры</h2>
 
-        <div class="archive-list" id="archiveList">
-          <div class="archive-item">
-            <div class="archive-info">
-              <h4>Археология дюны Мраморной</h4>
-              <div class="archive-meta">Египет • 2023 • Завершен</div>
-            </div>
-            <button class="btn btn-outline">Отчёт</button>
-          </div>
-          <div class="archive-item">
-            <div class="archive-info">
-              <h4>Ледники Байкала</h4>
-              <div class="archive-meta">Байкал • 2022 • Завершен</div>
-            </div>
-            <button class="btn btn-outline">Отчёт</button>
-          </div>
-          <div class="archive-item">
-            <div class="archive-info">
-              <h4>Флора Амазонки</h4>
-              <div class="archive-meta">Бразилия • 2023 • Завершен</div>
-            </div>
-            <button class="btn btn-outline">Отчёт</button>
-          </div>
-          <div class="archive-item">
-            <div class="archive-info">
-              <h4>Сплав по Амуру</h4>
-              <div class="archive-meta">Дальний Восток • 2021 • Завершен</div>
-            </div>
-            <button class="btn btn-outline">Отчёт</button>
-          </div>
-        </div>
-      </div>
-    </section>
+          <div
+            class="tours-grid"
+            role="list"
+            aria-label="Список научных программ"
+          >
+            <!-- Program 1 -->
+            <div class="tour-card" role="listitem">
+              <div class="tour-gallery" role="group" aria-label="Фотогалерея">
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Горные ландшафты Киргизии"
+                  loading="lazy"
+                />
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Флаг Киргизии"
+                  loading="lazy"
+                />
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Научный блокнот"
+                  loading="lazy"
+                />
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Геологические образования"
+                  loading="lazy"
+                />
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Научные дискуссии"
+                  loading="lazy"
+                />
+              </div>
+              <div class="tour-content">
+                <div class="tour-meta">
+                  <span class="badge">Июнь 2024</span>
+                  <span class="badge">12 Дней</span>
+                </div>
+                <h3 class="tour-title" aria-level="3">
+                  Тянь-Шань: Палеонтология и Плато
+                </h3>
+                <p class="tour-desc">
+                  Изучение окаменелостей и геологического строения хребта
+                  Заилийский Алатау.
+                </p>
 
-    <section class="section-padding programs" id="reviews">
-      <div class="container">
-        <h2 class="section-title">Что говорят участники</h2>
-        <div class="review-grid">
-          <div class="review-card">
-            <div class="stars">
-              <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i
-              ><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i
-              ><i class="ph-fill ph-star"></i>
+                <div
+                  class="tour-details"
+                  role="group"
+                  aria-label="Детали программы"
+                >
+                  <div class="detail-row">
+                    <i class="ph-bold ph-star" aria-hidden="true"></i> Уровень:
+                    Средний
+                  </div>
+                  <div class="detail-row">
+                    <i class="ph-bold ph-map-trifold" aria-hidden="true"></i>
+                    Алматинская область
+                  </div>
+                  <div class="detail-row">
+                    <i class="ph-bold ph-wallet" aria-hidden="true"></i> 150 000
+                    ₽ / чел.
+                  </div>
+                </div>
+
+                <div class="tour-btns">
+                  <button
+                    class="btn btn-primary"
+                    aria-label="Забронировать место"
+                  >
+                    Забронировать
+                  </button>
+                  <button
+                    class="btn btn-outline btn-info"
+                    aria-label="Получить больше информации"
+                    data-title="Тянь-Шань: Палеонтология и Плато"
+                    data-details='{
+                        "route": "Алматинская область. Выезд с базы отдыха в ущелье Кеген. Поездка к скалам Текели и долине озер. Дегустация чая. Работа с палеонтологами.",
+                        "accommodation": "Туристическая база «Азия» в горах. Базовый комфорт. Лагерные условия. Возможность бронирования номера в отеле за доплату.",
+                        "food": "Полный пансион. Завтраки, обеды (2-3 блюда) и ужины в горах. Питание с учетом диеты участников. Вода в ручье и лагере."
+                      }'
+                  >
+                    <i class="ph-bold ph-info" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
             </div>
-            <p class="review-desc">
-              "Это был самый мощный опыт в моей жизни. Мы не просто ходили, мы
-              буквально восстанавливали находки. Организация на высшем уровне!"
-            </p>
-            <div class="review-user">
-              <img src="https://picsum.photos/seed/user1/50/50" alt="User" />
-              <div>
-                <strong>Алексей М.</strong><br />
-                <span class="review-user-desc">Участник, Камчатка 2023</span>
+
+            <!-- Program 2 -->
+            <div class="tour-card" role="listitem">
+              <div class="tour-gallery" role="group" aria-label="Фотогалерея">
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Археологические раскопки"
+                  loading="lazy"
+                />
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Древний город"
+                  loading="lazy"
+                />
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Археологические инструменты"
+                  loading="lazy"
+                />
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Солнечный день"
+                  loading="lazy"
+                />
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Археологические находки"
+                  loading="lazy"
+                />
+              </div>
+              <div class="tour-content">
+                <div class="tour-meta">
+                  <span class="badge">Июль 2024</span>
+                  <span class="badge">10 Дней</span>
+                </div>
+                <h3 class="tour-title" aria-level="3">
+                  Шелковый путь: Археология
+                </h3>
+                <p class="tour-desc">
+                  Исследование средневековых караван-сараев и культурных слоев
+                  древнего города.
+                </p>
+
+                <div
+                  class="tour-details"
+                  role="group"
+                  aria-label="Детали программы"
+                >
+                  <div class="detail-row">
+                    <i class="ph-bold ph-star" aria-hidden="true"></i> Уровень:
+                    Лёгкий
+                  </div>
+                  <div class="detail-row">
+                    <i class="ph-bold ph-map-trifold" aria-hidden="true"></i>
+                    Узбекистан
+                  </div>
+                  <div class="detail-row">
+                    <i class="ph-bold ph-hand-heart" aria-hidden="true"></i>
+                    Грант на участие для студентов
+                  </div>
+                </div>
+
+                <div class="tour-btns">
+                  <button
+                    class="btn btn-primary"
+                    aria-label="Забронировать место"
+                  >
+                    Забронировать
+                  </button>
+                  <button
+                    class="btn btn-outline btn-info"
+                    aria-label="Получить больше информации"
+                    data-title="Шелковый путь: Археология"
+                    data-details='{
+                        "route": "Узбекистан. Посещение городища Самарканд и древних крепостей. Экскурсии в музеи, работа с экспонатами.",
+                        "accommodation": "Отели 3* в центре городов. Двухместные номера с удобствами. Смена локаций каждые 3 дня.",
+                        "food": "Континентальный стиль питания. Ограниченный набор блюд в полевых лагерях."
+                      }'
+                  >
+                    <i class="ph-bold ph-info" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Program 3 -->
+            <div class="tour-card" role="listitem">
+              <div class="tour-gallery" role="group" aria-label="Фотогалерея">
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Вулканические ландшафты Камчатки"
+                  loading="lazy"
+                />
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Пепел вулкана"
+                  loading="lazy"
+                />
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Сильный ветер"
+                  loading="lazy"
+                />
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Снаряжение для экспедиции"
+                  loading="lazy"
+                />
+                <img
+                  src="img/Сайт-портал.jpg"
+                  class="tour-img"
+                  alt="Кратер вулкана"
+                  loading="lazy"
+                />
+              </div>
+              <div class="tour-content">
+                <div class="tour-meta">
+                  <span class="badge">Август 2024</span>
+                  <span class="badge">15 Дней</span>
+                </div>
+                <h3 class="tour-title" aria-level="3">
+                  Камчатка: Геология и Вулканизм
+                </h3>
+                <p class="tour-desc">
+                  Изучение активных вулканов, сбор проб вулканического пепла и
+                  наблюдение за птицами.
+                </p>
+
+                <div
+                  class="tour-details"
+                  role="group"
+                  aria-label="Детали программы"
+                >
+                  <div class="detail-row">
+                    <i class="ph-bold ph-star" aria-hidden="true"></i> Уровень:
+                    Сложный
+                  </div>
+                  <div class="detail-row">
+                    <i class="ph-bold ph-map-trifold" aria-hidden="true"></i>
+                    Камчатский край
+                  </div>
+                  <div class="detail-row">
+                    <i class="ph-bold ph-wallet" aria-hidden="true"></i> 250 000
+                    ₽ / чел.
+                  </div>
+                </div>
+
+                <div class="tour-btns">
+                  <button
+                    class="btn btn-primary"
+                    aria-label="Забронировать место"
+                  >
+                    Забронировать
+                  </button>
+                  <button
+                    class="btn btn-outline btn-info"
+                    aria-label="Получить больше информации"
+                    data-title="Камчатка: Геология и Вулканизм"
+                    data-details='{
+                        "route": "Камчатка. Поездка на Ключевскую Сопку и Авачинскую вулканическую группу. Спуск в кратер, работа с горным инструментом.",
+                        "accommodation": "Туристические комплексы в Петропавловске-Камчатском и в горных лагерях. Базовый комфорт.",
+                        "food": "Полный пансион. Включены спецпитания (высококалорийное для гор) и консервы для экспедиций."
+                      }'
+                  >
+                    <i class="ph-bold ph-info" aria-hidden="true"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="review-card">
-            <div class="stars">
-              <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i
-              ><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i
-              ><i class="ph-fill ph-star"></i>
-            </div>
-            <p class="review-desc">
-              "Благодаря гранту я смог поехать в Узбекистан. Наука, которая на
-              деле. Очень рекомендую всем студентам-историкам."
-            </p>
-            <div class="review-user">
-              <img src="https://picsum.photos/seed/user2/50/50" alt="User" />
-              <div>
-                <strong>Сара Дж.</strong><br />
-                <span class="review-user-desc">Участник, Узбекистан 2023</span>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section-padding" id="gallery">
-      <div class="container">
-        <div class="gallery-header">
-          <h2 class="section-title">Галерея экспедиций</h2>
-          <button class="btn btn-outline">Скачать пресс-материалы</button>
-        </div>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="img/Сайт-портал.jpg" alt="Geo" />
-          </div>
-          <div class="gallery-item">
-            <img
-              src="img/Сайт-портал.jpg"
-              alt="Nature"
+      <section class="section-padding" id="archive">
+        <div class="container">
+          <h2 class="section-title" aria-level="2">Архив экспедиций</h2>
+          <div class="search-bar">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Поиск (год, регион, тип)..."
+              id="archiveSearch"
+              aria-label="Поиск по архиву экспедиций"
             />
+            <button class="btn btn-primary" aria-label="Искать в архиве">
+              <i class="ph-bold ph-magnifying-glass" aria-hidden="true"></i>
+            </button>
           </div>
-          <div class="gallery-item">
-            <img src="img/Сайт-портал.jpg" alt="Team" />
-          </div>
-          <div class="gallery-item">
-            <img
-              src="img/Сайт-портал.jpg"
-              alt="Animal"
-            />
-          </div>
-          <div class="gallery-item">
-            <img src="img/Сайт-портал.jpg" alt="Sky" />
-          </div>
-          <div class="gallery-item">
-            <img src="img/Сайт-портал.jpg" alt="Water" />
-          </div>
-          <div class="gallery-item">
-            <img
-              src="img/Сайт-портал.jpg"
-              alt="Desert"
-            />
-          </div>
-          <div class="gallery-item">
-            <img src="img/Сайт-портал.jpg" alt="Snow" />
+
+          <div
+            class="archive-list"
+            id="archiveList"
+            role="list"
+            aria-label="Список архивных экспедиций"
+          >
+            <div class="archive-item" role="listitem">
+              <div class="archive-info">
+                <h4>Археология дюны Мраморной</h4>
+                <div class="archive-meta">Египет • 2023 • Завершен</div>
+              </div>
+              <button class="btn btn-outline" aria-label="Посмотреть отчет">
+                Отчёт
+              </button>
+            </div>
+            <div class="archive-item" role="listitem">
+              <div class="archive-info">
+                <h4>Ледники Байкала</h4>
+                <div class="archive-meta">Байкал • 2022 • Завершен</div>
+              </div>
+              <button class="btn btn-outline" aria-label="Посмотреть отчет">
+                Отчёт
+              </button>
+            </div>
+            <div class="archive-item" role="listitem">
+              <div class="archive-info">
+                <h4>Флора Амазонки</h4>
+                <div class="archive-meta">Бразилия • 2023 • Завершен</div>
+              </div>
+              <button class="btn btn-outline" aria-label="Посмотреть отчет">
+                Отчёт
+              </button>
+            </div>
+            <div class="archive-item" role="listitem">
+              <div class="archive-info">
+                <h4>Сплав по Амуру</h4>
+                <div class="archive-meta">Дальний Восток • 2021 • Завершен</div>
+              </div>
+              <button class="btn btn-outline" aria-label="Посмотреть отчет">
+                Отчёт
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <footer class="footer" id="contacts">
+      <section class="section-padding programs" id="reviews">
+        <div class="container">
+          <h2 class="section-title" aria-level="2">Что говорят участники</h2>
+          <div class="review-grid" role="list" aria-label="Отзывы участников">
+            <div class="review-card" role="listitem">
+              <div class="stars" role="group" aria-label="Оценка">
+                <i class="ph-fill ph-star" aria-hidden="true"></i>
+                <i class="ph-fill ph-star" aria-hidden="true"></i>
+                <i class="ph-fill ph-star" aria-hidden="true"></i>
+                <i class="ph-fill ph-star" aria-hidden="true"></i>
+                <i class="ph-fill ph-star" aria-hidden="true"></i>
+              </div>
+              <p class="review-desc">
+                "Это был самый мощный опыт в моей жизни. Мы не просто ходили, мы
+                буквально восстанавливали находки. Организация на высшем
+                уровне!"
+              </p>
+              <div class="review-user" role="group" aria-label="Пользователь">
+                <img
+                  src="https://picsum.photos/seed/user1/50/50"
+                  alt="Алексей М."
+                  loading="lazy"
+                />
+                <div>
+                  <strong>Алексей М.</strong><br />
+                  <span class="review-user-desc">Участник, Камчатка 2023</span>
+                </div>
+              </div>
+            </div>
+            <div class="review-card" role="listitem">
+              <div class="stars" role="group" aria-label="Оценка">
+                <i class="ph-fill ph-star" aria-hidden="true"></i>
+                <i class="ph-fill ph-star" aria-hidden="true"></i>
+                <i class="ph-fill ph-star" aria-hidden="true"></i>
+                <i class="ph-fill ph-star" aria-hidden="true"></i>
+                <i class="ph-fill ph-star" aria-hidden="true"></i>
+              </div>
+              <p class="review-desc">
+                "Благодаря гранту я смог поехать в Узбекистан. Наука, которая на
+                деле. Очень рекомендую всем студентам-историкам."
+              </p>
+              <div class="review-user" role="group" aria-label="Пользователь">
+                <img
+                  src="https://picsum.photos/seed/user2/50/50"
+                  alt="Сара Дж."
+                  loading="lazy"
+                />
+                <div>
+                  <strong>Сара Дж.</strong><br />
+                  <span class="review-user-desc"
+                    >Участник, Узбекистан 2023</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding" id="gallery">
+        <div class="container">
+          <div class="gallery-header">
+            <h2 class="section-title" aria-level="2">Галерея экспедиций</h2>
+            <button
+              class="btn btn-outline"
+              aria-label="Скачать пресс-материалы"
+            >
+              Скачать пресс-материалы
+            </button>
+          </div>
+          <div class="gallery-grid" role="list" aria-label="Фотогалерея">
+            <div class="gallery-item" role="listitem">
+              <img
+                src="img/Сайт-портал.jpg"
+                alt="Геологические исследования"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-item" role="listitem">
+              <img
+                src="img/Сайт-портал.jpg"
+                alt="Природа Камчатки"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-item" role="listitem">
+              <img
+                src="img/Сайт-портал.jpg"
+                alt="Команда в экспедиции"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-item" role="listitem">
+              <img
+                src="img/Сайт-портал.jpg"
+                alt="Дикие животные"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-item" role="listitem">
+              <img
+                src="img/Сайт-портал.jpg"
+                alt="Небо над Камчаткой"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-item" role="listitem">
+              <img
+                src="img/Сайт-портал.jpg"
+                alt="Вода в горах"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-item" role="listitem">
+              <img
+                src="img/Сайт-портал.jpg"
+                alt="Пустыня Киргизии"
+                loading="lazy"
+              />
+            </div>
+            <div class="gallery-item" role="listitem">
+              <img
+                src="img/Сайт-портал.jpg"
+                alt="Снег на Байкале"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div
+      class="modal-overlay"
+      id="tourModal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="modal-content">
+        <button
+          class="modal-close"
+          aria-label="Закрыть модальное окно"
+        >
+          <i class="ph ph-x" aria-hidden="true"></i>
+        </button>
+        <h2 class="modal-title" id="modalTitle">Название тура</h2>
+        <div class="modal-details" id="modalBody">
+          <!-- Сюда JS вставит подробности -->
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer" id="contacts" role="contentinfo">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <h2><i class="ph-fill ph-compass"></i> TERRA SCIENTIA</h2>
+            <h2>
+              <i class="ph-fill ph-compass" aria-hidden="true"></i> TERRA
+              SCIENTIA
+            </h2>
             <p>
               АНО «Терра Сктиенсия». Развитие научного туризма и просвещения.
             </p>
-            <div class="social-icons">
+            <div class="social-icons" role="group" aria-label="Социальные сети">
               <a href="#" class="social-icon" aria-label="Instagram"
-                ><i class="ph-fill ph-instagram-logo"></i
+                ><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i
               ></a>
               <a href="#" class="social-icon" aria-label="Telegram"
-                ><i class="ph-fill ph-telegram-logo"></i
+                ><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i
               ></a>
               <a href="#" class="social-icon" aria-label="Facebook"
-                ><i class="ph-fill ph-facebook-logo"></i
+                ><i class="ph-fill ph-facebook-logo" aria-hidden="true"></i
               ></a>
             </div>
           </div>
 
           <div class="footer-col">
             <h4>Навигация</h4>
-            <ul class="footer-links">
+            <ul class="footer-links" role="list">
               <li><a href="index.html" aria-label="Главная">Главная</a></li>
               <li><a href="about.html" aria-label="О нас">О нас</a></li>
               <li>
-                <a href="activity.html" aria-label="Программы">Программы</a>
+                <a href="activity.html" aria-label="Деятельность"
+                  >Деятельность</a
+                >
               </li>
               <li>
                 <a href="science-tourism.html" aria-label="Научный туризм"
@@ -482,34 +703,35 @@
 
           <div class="footer-col">
             <h4>Контакты</h4>
-            <ul class="footer-links">
+            <ul class="footer-links" role="list">
               <li>
-                <a href="tel:" aria-label="Номер телефона"
-                  ><i class="ph-fill ph-phone"></i> +7 (999) 000-00-00</a
+                <a href="tel:+79990000000" aria-label="Номер телефона"
+                  ><i class="ph-fill ph-phone" aria-hidden="true"></i>+7 (999)
+                  000-00-00</a
                 >
               </li>
               <li>
-                <a href="mailto:" aria-label="Электронная почта"
-                  ><i class="ph-fill ph-envelope"></i> info@terrascientia.ru</a
+                <a
+                  href="mailto:info@terrascientia.ru"
+                  aria-label="Электронная почта"
+                  ><i class="ph-fill ph-envelope"></i>info@terrascientia.ru</a
                 >
               </li>
               <li>
                 <a
                   href="https://www.openstreetmap.org/?#map=15/55.74903/37.61397"
                   aria-label="Адрес организации"
-                  ><i class="ph-fill ph-map-pin"></i> г. Москва, ул. Научная,
+                  ><i class="ph-fill ph-map-pin"></i>г. Москва, ул. Научная,
                   10</a
                 >
               </li>
               <li>
-                <a href="contacts.html" aria-label="Страница контакты"
+                <a href="contacts.html" aria-label="Контактная информация"
                   >Контактная информация</a
                 >
               </li>
               <li>
-                <a href="partners.html" aria-label="Страница партнеры"
-                  >Партнерам</a
-                >
+                <a href="partners.html" aria-label="Партнеры">Партнеры</a>
               </li>
             </ul>
           </div>
@@ -517,7 +739,12 @@
           <div class="footer-col">
             <h4>Newsletter</h4>
             <p>Получать анонсы туров</p>
-            <form action="#" method="POST" onsubmit="event.preventDefault()">
+            <form
+              action="#"
+              method="POST"
+              onsubmit="event.preventDefault()"
+              aria-label="Подписка на рассылку"
+            >
               <input
                 type="email"
                 placeholder="Email"
@@ -527,9 +754,9 @@
               <button
                 type="submit"
                 class="btn btn-accent"
-                aria-label="Кнопка для подписки"
+                aria-label="Подписаться"
               >
-                <i class="ph-bold ph-paper-plane-right"></i>
+                <i class="ph-bold ph-paper-plane-right" aria-hidden="true"></i>
               </button>
             </form>
           </div>
@@ -539,7 +766,6 @@
         </div>
       </div>
     </footer>
-
     <script src="script.js"></script>
   </body>
 </html>
