@@ -217,6 +217,11 @@ img {
   position: relative;
   width: max-content;
 }
+
+.nav-menu .dropdown .nav-link{
+  cursor: pointer;
+}
+
 .nav-menu .dropdown ul {
   display: none;
   position: absolute;
@@ -1984,7 +1989,7 @@ img {
 }
 
 @media (max-width: 480px) {
-  .form-grid {
+  .form-grid, .partners-grid {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
 }
