@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Новости, видео, интервью и подкасты Центра. Узнайте о наших экспедициях, достижениях и медиа-проектах."
+      content="Новости, видео, интервью и подкасты Центра. Узнайте о наших турах, достижениях и медиа-проектах."
     />
     <meta
       name="keywords"
-      content="медиа, блог, новости, видео, подкаст, СМИ, экспедиции, образование, наука, туризм"
+      content="медиа, блог, новости, видео, подкаст, СМИ, туры, образование, наука, туризм"
     />
     <meta name="author" content="Terra Scientia" />
     <title>Медиа и Блог | Ц</title>
@@ -107,11 +107,9 @@
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="container hero-content">
-          <h1 id="hero-heading">
-            Истории, которые вдохновляют
-          </h1>
+          <h1 id="hero-heading">Истории, которые вдохновляют</h1>
           <p class="hero-subtitle">
-            Новости, видео и интервью о наших экспедициях и достижениях.
+            Новости, видео и интервью о наших турах и достижениях.
           </p>
         </div>
       </section>
@@ -127,7 +125,7 @@
             role="tablist"
             aria-label="Фильтр новостей"
           >
-            <button
+            <!-- <button
               class="tab-btn active"
               data-category="all"
               role="tab"
@@ -135,7 +133,17 @@
               aria-controls="newsGrid"
             >
               Все новости
-            </button>
+            </button> -->
+            <a href="#news">
+              <button
+                class="tab-btn"
+                role="tab"
+                aria-selected="false"
+                aria-controls="newsGrid"
+              >
+                События
+              </button></a
+            ><!-- data-category="event" -->
             <a href="#video-blog">
               <button
                 class="tab-btn"
@@ -146,33 +154,29 @@
                 Видеоблог
               </button></a
             >
-            <button
-              class="tab-btn"
-              data-category="event"
-              role="tab"
-              aria-selected="false"
-              aria-controls="newsGrid"
+            <a href="#press">
+              <button
+                class="tab-btn"
+                role="tab"
+                aria-selected="false"
+                aria-controls="newsGrid"
+              >
+                В СМИ
+              </button></a
             >
-              События
-            </button>
-            <button
-              class="tab-btn"
-              data-category="media"
-              role="tab"
-              aria-selected="false"
-              aria-controls="newsGrid"
+
+            <!-- data-category="media" -->
+            <a href="#press">
+              <button
+                class="tab-btn"
+                role="tab"
+                aria-selected="false"
+                aria-controls="newsGrid"
+              >
+                Подкаст
+              </button></a
             >
-              В СМИ
-            </button>
-            <button
-              class="tab-btn"
-              data-category="podcast"
-              role="tab"
-              aria-selected="false"
-              aria-controls="newsGrid"
-            >
-              Подкаст
-            </button>
+            <!-- data-category="podcast" -->
           </div>
         </div>
       </section>
@@ -181,6 +185,7 @@
         class="section-padding programs"
         role="region"
         aria-labelledby="news-heading"
+        id="news"
       >
         <div class="container">
           <h2 id="news-heading" class="section-title">Новости и материалы</h2>
@@ -213,7 +218,7 @@
                 <p class="article-excerpt">
                   Наша организация подтвердила статус партнера по проекту
                   «Вовлечение молодежи в науку». Грант позволит провести 5 новых
-                  экспедиций для студентов.
+                  туров для студентов.
                 </p>
                 <a href="#" class="btn btn-outline" aria-label="Читать далее"
                   >Читать далее</a
@@ -295,8 +300,7 @@
               </div>
             </article>
 
-            <!-- Article 4 -->
-            <article
+            <!-- <article
               class="article-card news-item"
               data-category="podcast"
               role="listitem"
@@ -328,7 +332,7 @@
                   >Слушать</a
                 >
               </div>
-            </article>
+            </article> -->
           </div>
         </div>
       </section>
@@ -340,9 +344,7 @@
         id="video-blog"
       >
         <div class="container">
-          <h2 id="videos-heading" class="section-title">
-            Видеоблог экспедиций
-          </h2>
+          <h2 id="videos-heading" class="section-title">Видеоблог туров</h2>
           <div class="videos-grid" role="list">
             <!-- Video 1 -->
             <div class="video-card" role="listitem">
@@ -352,7 +354,7 @@
                   <i class="ph-fill ph-play" aria-hidden="true"></i>
                 </div>
               </div>
-              <div class="video-header">Дневник экспедиции: Камчатка</div>
+              <div class="video-header">Дневник туров: Камчатка</div>
             </div>
             <!-- Video 2 -->
             <div class="video-card" role="listitem">
@@ -377,7 +379,7 @@
           </div>
         </div>
       </section>
-      
+
       <section
         class="section-padding programs press-section"
         id="press"
@@ -416,7 +418,7 @@
 
       <section
         class="section-padding"
-        id="about"
+        id="podcast"
         role="region"
         aria-labelledby="podcast-heading"
       >
@@ -437,8 +439,7 @@
               <span class="section-subtitle">Подкаст</span>
               <p class="podcast-desc">
                 Блог о том, как современные технологии и древние знания помогают
-                исследовать мир. Подкаст Центра доступен на всех
-                платформах.
+                исследовать мир. Подкаст Центра доступен на всех платформах.
               </p>
               <div class="podcast-buttons">
                 <button class="btn btn-primary" aria-label="Слушать на Spotify">

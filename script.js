@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
           ? '<i class="ph-bold ph-x"></i>'
           : '<i class="ph ph-list"></i>';
       });
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        link.addEventListener("click", () =>
-          navMenu.classList.remove("active"),
-        );
-      });
+      // document.querySelectorAll(".nav-link").forEach((link) => {
+      //   link.addEventListener("click", () =>
+      //     navMenu.classList.remove("active"),
+      //   );
+      // });
     }
   } catch (e) {
     console.warn("Menu Error:", e);
@@ -281,8 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (title && detailsData) {
           try {
-            const details = JSON.parse(detailsData);
-
+            const details = JSON.parse(detailsData);console
             // Вставляем контент в модальное окно
             modalTitle.textContent = title;
             modalBody.innerHTML = `
@@ -297,6 +296,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="detail-section">
                         <h4>Питание</h4>
                         <p>${details.food}</p>
+                    </div>
+                    <div class="modal-map" id="tourMapContainer">
+                    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${details.map}&amp;layer=mapnik" ></iframe><br/>
                     </div>
                 `;
 
