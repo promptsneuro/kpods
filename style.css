@@ -1122,7 +1122,8 @@ img {
 
 @media (max-width: 480px) {
   .mission-stats,
-  .team-grid {
+  .team-grid,
+  .goals-grid {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
 }
@@ -2493,19 +2494,21 @@ img {
   margin: 40px auto 40px;
   display: flex;
   gap: 10px;
+  width: 100%;
 }
 
 .search-bar button.btn.btn-primary {
-  width: 1px;
+  /* width: 1px; */
   justify-content: center;
 }
 .search-input {
-  flex: 1;
+  /* flex: 1; */
   padding: 15px 20px;
   border: 1px solid #ddd;
   border-radius: 50px;
   font-family: inherit;
   outline: none;
+  width: 100%;
 }
 .search-input:focus {
   border-color: var(--color-primary);
@@ -2654,7 +2657,13 @@ img {
     padding-left: 20px;
   }
   .tours-grid,
-  .archive-list {
+  .archive-list,
+  .review-grid {
     grid-template-columns: 1fr;
   }
+}
+@media (max-width: 480px) {
+.search-bar button.btn.btn-primary {
+  padding: 6px 14px;
+}
 }
