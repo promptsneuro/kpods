@@ -129,11 +129,7 @@
           <h2 class="section-title" aria-level="2">
             Выберите регион исследования
           </h2>
-          <div
-            class="region-list"
-            role="list"
-            aria-label="Регионы для туров"
-          >
+          <div class="region-list" role="list" aria-label="Регионы для туров">
             <div class="region-card active" role="listitem">
               <i class="ph-fill ph-mountains" aria-hidden="true"></i>
               <h4>Киргизия</h4>
@@ -570,67 +566,76 @@
         <div class="container">
           <div class="gallery-header">
             <h2 class="section-title" aria-level="2">Галерея туров</h2>
-            <button
-              class="btn btn-accent"
-              aria-label="Скачать пресс-материалы"
-            >
+            <button class="btn btn-accent" aria-label="Скачать пресс-материалы">
               Скачать пресс-материалы
+            </button>
+          </div>
+          <div class="search-bar">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Поиск (год, регион, тип)..."
+              id="gallerySearch"
+              aria-label="Поиск по архиву туров"
+            />
+            <button class="btn btn-accent" aria-label="Искать в архиве">
+              <i class="ph-bold ph-magnifying-glass" aria-hidden="true"></i>
             </button>
           </div>
           <div class="gallery-grid" role="list" aria-label="Фотогалерея">
             <div class="gallery-item" role="listitem">
               <img
                 src="img/Сайт-портал.jpg"
-                alt="Геологические исследования"
+                alt="2023 Геологические исследования завершен"
                 loading="lazy"
               />
             </div>
             <div class="gallery-item" role="listitem">
               <img
                 src="img/Сайт-портал.jpg"
-                alt="Природа Камчатки"
+                alt="2023 Природа Камчатки завершен"
                 loading="lazy"
               />
             </div>
             <div class="gallery-item" role="listitem">
               <img
                 src="img/Сайт-портал.jpg"
-                alt="Команда в туре"
+                alt="2023 Команда в туре завершен"
                 loading="lazy"
               />
             </div>
             <div class="gallery-item" role="listitem">
               <img
                 src="img/Сайт-портал.jpg"
-                alt="Дикие животные"
+                alt="2023 Дикие животные завершен"
                 loading="lazy"
               />
             </div>
             <div class="gallery-item" role="listitem">
               <img
                 src="img/Сайт-портал.jpg"
-                alt="Небо над Камчаткой"
+                alt="2025 Небо над Камчаткой завершен"
                 loading="lazy"
               />
             </div>
             <div class="gallery-item" role="listitem">
               <img
                 src="img/Сайт-портал.jpg"
-                alt="Вода в горах"
+                alt="2025 Вода в горах завершен"
                 loading="lazy"
               />
             </div>
             <div class="gallery-item" role="listitem">
               <img
                 src="img/Сайт-портал.jpg"
-                alt="Пустыня Киргизии"
+                alt="2024 Пустыня Киргизии завершен"
                 loading="lazy"
               />
             </div>
             <div class="gallery-item" role="listitem">
               <img
                 src="img/Сайт-портал.jpg"
-                alt="Снег на Байкале"
+                alt="2024 Снег на Байкале завершен"
                 loading="lazy"
               />
             </div>
@@ -647,10 +652,7 @@
       aria-hidden="true"
     >
       <div class="modal-content">
-        <button
-          class="modal-close"
-          aria-label="Закрыть модальное окно"
-        >
+        <button class="modal-close" aria-label="Закрыть модальное окно">
           <i class="ph ph-x" aria-hidden="true"></i>
         </button>
         <h2 class="modal-title" id="modalTitle">Название тура</h2>

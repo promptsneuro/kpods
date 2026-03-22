@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   } catch (e) {
-    console.warn("Search Error:", e);
+    console.warn("Archive search Error:", e);
   }
 
   try {
@@ -254,12 +254,49 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.classList.add("active");
         const type = btn.getAttribute("data-map-type");
         mapLayers.forEach((layer) => layer.classList.remove("active"));
-        if (type === "ostm")
-          document.getElementById("map-ostm").classList.add("active");
-        if (type === "google")
-          document.getElementById("map-google").classList.add("active");
-        if (type === "static")
-          document.getElementById("map-static").classList.add("active");
+        setTimeout(() => {
+          if (type === "ostm") {
+            document.getElementById("map-ostm").classList.add("active");
+          } else if (type === "google") {
+            document.getElementById("map-google").classList.add("active");
+          } else if (type === "static") {
+            document.getElementById("map-static").classList.add("active");
+          }
+        }, 200); // 200ms wait for smooth fade out
+      });
+    });
+  } catch (e) {
+    console.warn("Map Error:", e);
+  }
+
+  try {
+    const mapBtns = document.querySelectorAll(".map-btn");
+    const mapLayers = document.querySelectorAll(".map-layer");
+
+    mapBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Remove active class from buttons
+        mapBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // Determine type
+        const type = btn.getAttribute("data-map-type");
+
+        // Fade out all layers
+        mapLayers.forEach((layer) => {
+          layer.classList.remove("active");
+        });
+
+        // Add active class to target layer with a small delay for fade effect
+        setTimeout(() => {
+          if (type === "ostm") {
+            document.getElementById("map-ostm").classList.add("active");
+          } else if (type === "google") {
+            document.getElementById("map-google").classList.add("active");
+          } else if (type === "static") {
+            document.getElementById("map-static").classList.add("active");
+          }
+        }, 200); // 200ms wait for smooth fade out
       });
     });
   } catch (e) {
@@ -281,7 +318,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (title && detailsData) {
           try {
-            const details = JSON.parse(detailsData);console
+            const details = JSON.parse(detailsData);
+            console;
             // Вставляем контент в модальное окно
             modalTitle.textContent = title;
             modalBody.innerHTML = `
@@ -348,4 +386,44 @@ document.addEventListener("DOMContentLoaded", () => {
   } catch (e) {
     console.warn("Modal Error:", e);
   }
+
+  try {
+    const scrollToTop = document.getElementById("scrollToTop");
+    if (scrollToTop) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > document.querySelector(".hero").clientHeight) {
+          scrollToTop.classList.add("show-scroll-to-top");
+        } else {
+          scrollToTop.classList.remove("show-scroll-to-top");
+        }
+      });
+
+      scrollToTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    }
+  } catch (e) {
+    console.warn("scroll To Top Error:", e);
+  }
+
+  
+  try {
+    const searchInputGallery = document.getElementById("gallerySearch");
+    if (searchInputGallery) {
+      searchInputGallery.addEventListener("input", (e) => {
+        const term = e.target.value.toLowerCase();
+        document.querySelectorAll(".gallery-item").forEach((item) => {
+          const imgAlt = item.querySelector("img").getAttribute("alt").toLowerCase();
+          item.style.display = imgAlt.includes(term) ? "block" : "none";
+        });
+      });
+    }
+  } catch (e) {
+    console.warn("Gallery search Error:", e);
+  }
+
+  
 });

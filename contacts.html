@@ -104,7 +104,6 @@
     </header>
 
     <main role="main">
-
       <section
         class="section-padding programs"
         role="region"
@@ -114,58 +113,59 @@
           <div class="contact-grid">
             <div class="contact-info-block">
               <div class="container">
-              <h2 id="contact-heading">
-                Контактная информация
-              </h2>
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="ph-fill ph-map-pin" aria-hidden="true"></i>
+                <h2 id="contact-heading">Контактная информация</h2>
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="ph-fill ph-map-pin" aria-hidden="true"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>Фактический адрес</h4>
+                    <p>119071, г. Москва, ул. Научная, 10</p>
+                  </div>
                 </div>
-                <div class="contact-details">
-                  <h4>Фактический адрес</h4>
-                  <p>119071, г. Москва, ул. Научная, 10</p>
-                </div>
-              </div>
 
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="ph-fill ph-briefcase" aria-hidden="true"></i>
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="ph-fill ph-briefcase" aria-hidden="true"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>Юридический адрес</h4>
+                    <p>119071, г. Москва, ул. Научная, 10</p>
+                  </div>
                 </div>
-                <div class="contact-details">
-                  <h4>Юридический адрес</h4>
-                  <p>119071, г. Москва, ул. Научная, 10</p>
-                </div>
-              </div>
 
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="ph-fill ph-phone" aria-hidden="true"></i>
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="ph-fill ph-phone" aria-hidden="true"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>Телефон</h4>
+                    <p>+7 (999) 000-00-00</p>
+                  </div>
                 </div>
-                <div class="contact-details">
-                  <h4>Телефон</h4>
-                  <p>+7 (999) 000-00-00</p>
-                </div>
-              </div>
 
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="ph-fill ph-envelope-simple" aria-hidden="true"></i>
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i
+                      class="ph-fill ph-envelope-simple"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>E-mail</h4>
+                    <p>info@terracent.ru</p>
+                  </div>
                 </div>
-                <div class="contact-details">
-                  <h4>E-mail</h4>
-                  <p>info@terracent.ru</p>
-                </div>
-              </div>
 
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="ph-fill ph-clock" aria-hidden="true"></i>
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="ph-fill ph-clock" aria-hidden="true"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>Время работы</h4>
+                    <p>Пн - Пт: 10:00 - 18:00<br />Сб - Вс: Выходной</p>
+                  </div>
                 </div>
-                <div class="contact-details">
-                  <h4>Время работы</h4>
-                  <p>Пн - Пт: 10:00 - 18:00<br />Сб - Вс: Выходной</p>
-                </div>
-              </div>
               </div>
             </div>
             <section
@@ -176,97 +176,99 @@
             >
               <div class="container">
                 <div class="cooperation-box">
-                <h2 id="form-heading" class="partner-header">Напишите нам</h2>
-                <form
-                  id="cooperationForm"
-                  aria-label="Форма для связи с Центром"
-                >
-                  <div class="form-group">
-                    <label for="name" class="form-label">Ваше Имя</label>
-                    <input
-                      type="text"
-                      id="name"
-                      class="form-input"
-                      placeholder="Иван Иванов"
-                      required
-                      aria-required="true"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="email" class="form-label">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      class="form-input"
-                      placeholder="ivan@example.com"
-                      required
-                      aria-required="true"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="partnershipType"
-                      >Тип партнёрства</label
-                    >
-                    <select
-                      id="partnershipType"
-                      class="form-select"
-                      required
-                      aria-label="Тип партнёрства"
-                    >
-                      <option
-                        value=""
-                        disabled
-                        selected
-                        aria-label="Выберите тип"
-                      >
-                        Вопрос по программе
-                      </option>
-                      <option value="partnership" aria-label="Партнёрство">
-                        Партнёрство
-                      </option>
-                      <option value="grant" aria-label="Грантовая заявка">
-                        Грантовая заявка
-                      </option>
-                      <option value="other" aria-label="Другое">Другое</option>
-                    </select>
-                  </div>
-                  <div class="form-group full-width">
-                    <label class="form-label" for="message">Сообщение</label>
-                    <textarea
-                      id="message"
-                      class="form-textarea"
-                      placeholder="Опишите кратко ваш запрос или идею..."
-                      aria-label="Сообщение"
-                    ></textarea>
-                  </div>
-                  <button type="submit" class="submit-btn">
-                    Отправить заявку
-                  </button>
-                </form>
-
-                <div
-                  id="successMessage"
-                  class="success-message"
-                  role="alert"
-                  aria-live="polite"
-                  hidden
-                >
-                  <i
-                    class="ph-fill ph-check-circle success-icon"
-                    aria-hidden="true"
-                  ></i>
-                  <h3 class="partner-header">Заявка принята!</h3>
-                  <p>
-                    Спасибо за интерес к сотрудничеству. Мы свяжемся с вами в
-                    ближайшее время.
-                  </p>
-                  <button
-                    class="btn btn-outline"
-                    id="send-more"
-                    aria-label="Отправить ещё"
+                  <h2 id="form-heading" class="partner-header">Напишите нам</h2>
+                  <form
+                    id="cooperationForm"
+                    aria-label="Форма для связи с Центром"
                   >
-                    Отправить ещё
-                  </button>
+                    <div class="form-group">
+                      <label for="name" class="form-label">Ваше Имя</label>
+                      <input
+                        type="text"
+                        id="name"
+                        class="form-input"
+                        placeholder="Иван Иванов"
+                        required
+                        aria-required="true"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="email" class="form-label">Email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        class="form-input"
+                        placeholder="ivan@example.com"
+                        required
+                        aria-required="true"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="partnershipType"
+                        >Тип партнёрства</label
+                      >
+                      <select
+                        id="partnershipType"
+                        class="form-select"
+                        required
+                        aria-label="Тип партнёрства"
+                      >
+                        <option
+                          value=""
+                          disabled
+                          selected
+                          aria-label="Выберите тип"
+                        >
+                          Вопрос по программе
+                        </option>
+                        <option value="partnership" aria-label="Партнёрство">
+                          Партнёрство
+                        </option>
+                        <option value="grant" aria-label="Грантовая заявка">
+                          Грантовая заявка
+                        </option>
+                        <option value="other" aria-label="Другое">
+                          Другое
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group full-width">
+                      <label class="form-label" for="message">Сообщение</label>
+                      <textarea
+                        id="message"
+                        class="form-textarea"
+                        placeholder="Опишите кратко ваш запрос или идею..."
+                        aria-label="Сообщение"
+                      ></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                      Отправить заявку
+                    </button>
+                  </form>
+
+                  <div
+                    id="successMessage"
+                    class="success-message"
+                    role="alert"
+                    aria-live="polite"
+                    hidden
+                  >
+                    <i
+                      class="ph-fill ph-check-circle success-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <h3 class="partner-header">Заявка принята!</h3>
+                    <p>
+                      Спасибо за интерес к сотрудничеству. Мы свяжемся с вами в
+                      ближайшее время.
+                    </p>
+                    <button
+                      class="btn btn-outline"
+                      id="send-more"
+                      aria-label="Отправить ещё"
+                    >
+                      Отправить ещё
+                    </button>
                   </div>
                 </div>
               </div>
@@ -354,7 +356,11 @@
             role="region"
             aria-label="Интерактивная карта"
           >
-            <div class="map-controls">
+            <div
+              class="map-controls"
+              role="group"
+              aria-label="Выбор типа карты"
+            >
               <button
                 class="map-btn active"
                 data-map-type="ostm"
@@ -385,7 +391,7 @@
                 id="map-ostm"
                 class="map-layer active"
                 role="region"
-                aria-label="OpenStreetMap карта"
+                aria-label="Карта проезда OpenStreetMap"
               >
                 <iframe
                   src="https://www.openstreetmap.org/export/embed.html?bbox=37.589249610900886%2C55.74216330872453%2C37.627959251403816%2C55.75588253752735&amp;layer=mapnik"
@@ -395,7 +401,7 @@
                   allowfullscreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
-                  aria-label="OpenStreetMap карта"
+                  aria-label="Карта проезда OpenStreetMap"
                 ></iframe>
                 <small
                   ><a
@@ -411,7 +417,7 @@
                 id="map-google"
                 class="map-layer"
                 role="region"
-                aria-label="Google карта"
+                aria-label="Карта проезда Google Maps"
               >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d577337.0372487117!2d36.72585733901914!3d55.58072949390743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2z0JzQvtGB0LrQstCw!5e0!3m2!1sru!2sru!4v1772631635429!5m2!1sru!2sru"
@@ -421,7 +427,7 @@
                   allowfullscreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
-                  aria-label="Google карта"
+                  aria-label="Карта проезда Google Maps"
                 ></iframe>
               </div>
 
