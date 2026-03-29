@@ -436,10 +436,11 @@ img {
   height: auto;
 }
 
-.about-text h2 {
-  font-size: 2rem;
+.about-text .section-title {
+  /* font-size: 2rem; */
   margin-bottom: 20px;
   color: var(--color-text-main);
+  text-align: left;
 }
 
 .about-text p {
@@ -672,8 +673,6 @@ img {
   }
 }
 
-
-
 /* ABOUT */
 #about-hero {
   background-image: url("img/Миссия.png");
@@ -729,9 +728,10 @@ img {
   letter-spacing: 1px;
 }
 
-.mission-text h2 {
-  font-size: 2rem;
+.mission-text .section-title {
+  /* font-size: 2rem; */
   margin-bottom: 20px;
+  /* text-align: left; */
 }
 .mission-text p {
   color: var(--color-text-light);
@@ -1206,7 +1206,8 @@ img {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   border-color: var(--color-primary);
 }
-.timeline-content p {
+.timeline-content p,
+.history-content p {
   font-size: 0.9rem;
   margin-top: 5px;
 }
@@ -1260,7 +1261,6 @@ img {
   margin-bottom: 10px;
 }
 
-
 /* CONTACTS */
 .docs-container.contacts {
   display: revert;
@@ -1275,11 +1275,11 @@ img {
   padding: 80px 0;
 }
 
-.contact-info-block h2,
-.contact-info-block h3 {
-  font-size: 1.8rem;
+.contact-info-block .section-title {
+  /* font-size: 1.8rem; */
   color: var(--color-primary);
   margin-bottom: 30px;
+  text-align: left;
 }
 
 .contact-item {
@@ -2107,7 +2107,6 @@ img {
   border-radius: var(--border-radius);
 }
 
-
 .region-list {
   display: flex;
   /* justify-content: center; Центрируем список */
@@ -2190,8 +2189,8 @@ img {
   color: var(--color-accent);
 }
 
-.region-card h4 {
-  font-size: 1.1rem;
+.region-card h3 {
+  /* font-size: 1.1rem; */
   color: var(--color-text-main);
   font-weight: 700;
   transition: var(--transition-smooth);
@@ -2200,7 +2199,6 @@ img {
 .region-card:hover h4 {
   color: var(--color-primary);
 }
-
 
 .tours-grid {
   display: grid;
@@ -2277,7 +2275,7 @@ img {
   margin-top: 20px;
   display: flex;
   gap: 10px;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
 }
 .tour-btns.btn.btn-primary {
   flex: 1;
@@ -2349,7 +2347,7 @@ img {
   padding: 8px 16px;
   font-size: 0.8rem;
 }
-.archive-info h4 {
+.archive-info h3 {
   font-size: 1.1rem;
   margin-bottom: 5px;
 }
@@ -2464,7 +2462,6 @@ img {
   color: white;
 }
 
-
 @media (max-width: 992px) {
   .nav-menu {
     gap: 20px;
@@ -2481,6 +2478,9 @@ img {
 }
 
 @media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
   .nav-menu {
     position: fixed;
     top: 70px; /* var(--header-height) */
@@ -2531,42 +2531,53 @@ img {
     padding: 10px 24px;
   }
 
-  .section-title, .partner-header {
-    font-size: 2rem; /* Уменьшен с 2.5rem */
+  .section-title,
+  .partner-header {
+    font-size: 2rem;
+    margin-bottom: 40px;
   }
-  .section-subtitle {
-    font-size: 0.8rem; /* Уменьшен с 0.9rem */
+  .section-subtitle,
+  .team-role,
+  .requisite-row span,
+  .tour-meta {
+    font-size: 0.85rem;
   }
 
-  /* Cards & Content */
-  .card-content h3, .goal-card h3 {
-    font-size: 1.1rem; /* Уменьшен с 1.25rem */
+  .card-content h3,
+  .goal-card h3,
+  .team-info h3,
+  .doc-info h3,
+  .project-title,
+  .grant-card h3,
+  .timeline-content h3,
+  .sport-overlay h3,
+  .partner-card h3,
+  .region-card h3,
+  .tour-title {
+    font-size: 1.1rem;
   }
-  .card-content p, .goal-card p{
-    font-size: 0.9rem; /* Уменьшен с 0.95rem */
-  }
-  .news-content h4,
-  .news-content p {
+  .card-content p,
+  .goal-card p,
+  .grant-card p,
+  .sport-overlay p,
+  .tour-desc {
     font-size: 0.9rem;
   }
   .footer-brand h2 {
     font-size: 1.5rem; /* Уменьшен с 1.8rem */
   }
-  .footer-col h4 {
+  .footer-col h4,
+  .contact-details h4 {
     font-size: 1rem; /* Уменьшен с 1.1rem */
   }
   .footer-col p {
     font-size: 0.85rem;
   }
 
-  /* Specific Sections */
-  .mission-text h2,
-  .about-text h2 {
-    font-size: 1.6rem; /* Уменьшен с 2rem */
-  }
   .mission-text p,
-  .about-text p {
-    font-size: 1rem; /* Уменьшен с 1.05rem */
+  .about-text p,
+  .contact-details p {
+    font-size: 0.95rem; /* Уменьшен с 1.05rem */
   }
   .stat-number {
     font-size: 1.5rem; /* Уменьшен с 2rem */
@@ -2590,9 +2601,7 @@ img {
   .footer-col form input {
     width: 50%;
   }
-  .project-title {
-    font-size: 1rem;
-  }
+
   .project-desc {
     font-size: 0.85rem;
   }
@@ -2600,165 +2609,41 @@ img {
   .social-icons {
     justify-content: center;
   }
-}
 
-@media (max-width: 480px) {
-  * {
-    word-wrap: anywhere;
-  }
-
-  .logo {
-    font-size: 100%;
-  }
-
-  .hero {
-    /* height: revert; */
-    height: auto;
-    padding-top: 90px; /* 60px; */
-    padding-bottom: 60px;
-  }
-
-  .hero h1 {
-    font-size: 1.75rem; /* Акцент на уменьшение заголовка для экрана */
-    margin-bottom: 15px;
-  }
-   .mission-text p, .about-text p, .hero p {
-    font-size: 0.9rem; /* Текст под заголовком */
-  }
-
-  .hero-btns {
-    flex-wrap: wrap;
-  }
-
-  .nav-menu {
-    top: 60px;
-    padding: 20px;
-  }
-
-  /* Section Titles */
-  .section-title, .partner-header, .doc-column h3, .doc-column h2 {
-    font-size: 1.5rem; /* Строгость заголовков */
-    margin-bottom: 30px;
-  }
-  .section-subtitle {
-    font-size: 0.75rem;
-  }
-
-  /* Cards */
-  .programs-grid,
-  .news-grid,
-  .goals-grid,
-  .sports-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-  }
-  .card-img {
-    height: 200px;
-  }
-  .card-content {
-    padding: 20px;
-  }
-  .card-content h3, .goal-card h3  {
-    font-size: 1rem;
-  }
-
-  /* Buttons */
-  .btn {
-    font-size: 0.85rem;
-    padding: 10px 20px;
-    /* width: 100%;
-    justify-content: center; */
-  }
-  .btn-primary.section {
-    margin-top: 10px;
-    /* width: 100%; */
-  }
-
-  /* Footer */
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-col form input {
-    width: 70%;
-  }
-
-  .team-info h3 {
-    font-size: 1.1rem;
-  }
-  .team-role {
-    font-size: 0.75rem;
-    padding: 2px 8px;
-  }
-  .team-bio {
-    font-size: 0.85rem;
-  }
-
-  .article-title {
-    font-size: 1.1rem;
-  }
-  .article-excerpt {
-    font-size: 0.9rem;
-  }
-  .tab-btn {
-    font-size: 0.9rem;
-    padding: 8px 0;
-  }
-
-  .contact-info-block h2,
-  .contact-info-block h3 {
-    font-size: 1.4rem;
-  }
-
-  .map-viewer {
-    height: 300px;
-  }
-  .map-btn {
-    font-size: 0.75rem;
-    padding: 8px 10px;
-  }
-}
-@media (max-width: 768px) {
   .mission-grid,
   .docs-container {
     grid-template-columns: 1fr;
   }
   .requisite-row {
-    flex-direction: column;
+    /* flex-direction: column;  */
     gap: 5px;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    /* align-items: flex-start; */
   }
   .requisite-row span:last-child {
     text-align: left;
   }
-}
 
-@media (max-width: 480px) {
-  .mission-stats,
-  .team-grid,
-  .goals-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
   .grants-container {
     grid-template-columns: 1fr;
   }
+  .grant-item-desc,
+  .grant-more,
+  .timeline-date {
+    font-size: 0.8rem;
+  }
+
+  .grant-status {
+    font-size: 0.9rem;
+  }
+
   .timeline::after {
     left: 20px;
   }
   .timeline-item {
     padding-left: 40px;
   }
-}
 
-@media (max-width: 480px) {
-  .sports-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -2787,54 +2672,7 @@ img {
     padding: 8px 12px;
     font-size: 0.8rem;
   }
-}
 
-@media (max-width: 480px) {
-  .map-viewer {
-    /* height: 350px; */
-    margin: 0 10px;
-    border-radius: 12px;
-  }
-  .map-controls {
-    width: 95%;
-    top: 5px;
-  }
-
-  .map-layer small {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .media-block {
-    padding: 40px 20px;
-  }
-  .videos-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-  }
-  .tabs-container {
-    gap: 15px;
-    padding: 20px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .tab-btn {
-    font-size: 0.9rem;
-    width: max-content;
-    white-space: nowrap;
-  }
-
-  .tab-btn::after {
-    bottom: -5px;
-  }
-
-  .scroll-to-top {
-    right: 15px;
-  }
-}
-
-@media (max-width: 768px) {
   .hero-title {
     font-size: 2.2rem;
   }
@@ -2844,60 +2682,44 @@ img {
   .cooperation-box {
     padding: 30px;
   }
-}
 
-@media (max-width: 480px) {
-  .form-grid,
-  .partners-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  .filter-news {
+    padding: 30px 0;
   }
-}
 
-@media (max-width: 480px) {
-  .modal-content {
-    padding: 20px;
-    height: 85vh;
-    max-height: 600px;
+  .tab-btn {
+    font-size: 0.9rem;
   }
-  .modal-title {
-    font-size: 1.4rem;
-  }
-}
 
-@media (max-width: 480px) {
-  .region-list {
-    gap: 15px;
+  .media-block {
+    padding: 40px 20px;
+    margin-top: 60px;
   }
-  .region-card {
-    width: 200px;
-    height: 160px;
+
+  .media-block h2 {
+    font-size: 1.8rem;
+    text-align: center;
   }
-  .region-card i {
-    font-size: 2.5rem;
+
+  .press-item .press-quote {
+    font-size: 1.5rem;
   }
-  .region-card h4 {
+
+  .press-source {
     font-size: 1rem;
   }
-}
 
-@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    max-height: 85vh;
+    padding: 20px;
+  }
+
   .modal-title {
     font-size: 1.4rem;
   }
   .detail-section p {
     font-size: 0.95rem;
-  }
-  .tours-grid {
-    grid-template-columns: 1fr;
-  }
-  .tour-title {
-    font-size: 1.2rem;
-  }
-  .tour-meta {
-    font-size: 0.75rem;
-  }
-  .tour-desc {
-    font-size: 0.85rem;
   }
 
   .history-item .year {
@@ -2905,14 +2727,6 @@ img {
   }
   .history-content {
     font-size: 0.9rem;
-  }
-
-  .region-card h4 {
-    font-size: 1rem;
-  }
-
-  .gallery-header h2 {
-    font-size: 1.8rem;
   }
 
   .region-list {
@@ -2925,23 +2739,265 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
 @media (max-width: 480px) {
+  * {
+    word-wrap: anywhere;
+  }
+
+  .logo {
+    font-size: 100%;
+  }
+
+  .hero {
+    /* height: revert; */
+    height: auto;
+    padding-top: 90px; /* 60px; */
+    padding-bottom: 60px;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem; /* Акцент на уменьшение заголовка для экрана */
+    margin-bottom: 15px;
+  }
+  .mission-text p,
+  .about-text p,
+  .hero p,
+  .contact-details p {
+    font-size: 0.9rem; /* Текст под заголовком */
+  }
+
+  .hero-btns {
+    flex-wrap: wrap;
+  }
+
+  .nav-menu {
+    top: 60px;
+    padding: 20px;
+  }
+
+  /* Section Titles */
+  .section-title,
+  .partner-header,
+  .doc-column h3,
+  .doc-column h2 {
+    font-size: 1.5rem; /* Строгость заголовков */
+    margin-bottom: 30px;
+  }
+  .section-subtitle,
+  .team-role,
+  .team-bio,
+  .project-tag,
+  .requisite-row span,
+  .article-meta,
+  .tour-meta {
+    font-size: 0.75rem;
+    /* padding: 2px 8px; */
+  }
+
+  /* Cards */
+  .programs-grid,
+  .news-grid,
+  .goals-grid,
+  .sports-grid,
+  .docs-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+  .card-img {
+    height: 200px;
+  }
+  .card-content {
+    padding: 20px;
+  }
+  .card-content h3,
+  .goal-card h3,
+  .history-item h3,
+  .team-info h3,
+  .doc-info h3,
+  .project-title,
+  .grant-card h3,
+  .timeline-content h3,
+  .sport-overlay h3,
+  .partner-card h3,
+  .region-card h3,
+  .tour-title,
+  .archive-info h3 {
+    font-size: 1rem;
+  }
+
+  .card-content p,
+  .goal-card p,
+  .history-content p,
+  .project-desc,
+  .team-bio,
+  .grant-card p,
+  .sport-overlay p,
+  .partner-list li,
+  .tour-desc {
+    font-size: 0.85rem;
+  }
+
+  /* Buttons */
+  .btn {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    /* width: 100%;
+    justify-content: center; */
+  }
+  .btn-primary.section {
+    margin-top: 10px;
+    /* width: 100%; */
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-col form input {
+    width: 70%;
+  }
+
+  .history-item {
+    gap: revert;
+  }
+
+  .grant-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .grant-item-desc,
+  .timeline-date,
+  .grant-more {
+    font-size: 0.75rem;
+  }
+
+  .contact-details h4,
+  .review-desc {
+    font-size: 0.95rem;
+  }
+
+  .form-label {
+    font-size: 0.85rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .map-viewer {
+    height: 300px;
+    /* height: 350px; */
+    margin: 0 10px;
+    border-radius: 12px;
+  }
+  .map-controls {
+    width: 95%;
+    top: 5px;
+  }
+
+  .map-layer small {
+    display: none;
+  }
+
+  .map-btn {
+    font-size: 0.75rem;
+    padding: 8px 10px;
+  }
+  .mission-stats,
+  .team-grid,
+  .goals-grid,
+  .sports-grid,
+  .form-grid,
+  .partners-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+
+  .media-block {
+    padding: 40px 20px;
+  }
+
+  .filter-news {
+    padding: 20px 0;
+  }
+
+  .videos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+  .tabs-container {
+    gap: 15px;
+    /* padding: 20px; */
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+  }
+
+  .tab-btn {
+    width: max-content;
+    white-space: nowrap;
+
+    font-size: 0.85rem;
+    padding: 8px 0;
+  }
+
+  .tab-btn::after {
+    bottom: -5px;
+  }
+
+  .video-header {
+    left: 10px;
+  }
+
+  .press-item .press-quote {
+    font-size: 1.25rem;
+  }
+
+  .press-source {
+    font-size: 0.9rem;
+  }
+
+  .scroll-to-top {
+    right: 15px;
+  }
+
+  .modal-content {
+    padding: 20px;
+    height: 85vh;
+    max-height: 600px;
+    padding: 15px;
+  }
+  .modal-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .region-list {
+    gap: 15px;
+  }
+
+  .region-card {
+    width: 200px;
+    height: 160px;
+  }
+  .region-card i {
+    font-size: 2.5rem;
+  }
+
   /* .search-bar button.btn.btn-primary,
   .search-bar button.btn.btn-accent {
     padding: 6px 14px;
   } */
 
-  .modal-title {
-    font-size: 1.2rem;
-  }
-  .modal-content {
-    padding: 15px;
-  }
-
   .tour-btns,
   .search-bar {
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
+    justify-content: center;
   }
 
   .search-bar {
