@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <!-- ГОСТ Р 52872-2008 «Доступность информации для людей с ограниченными
+       возможностями» → семантика, ARIA, контраст (4.5:1 по WCAG 2.2 AA).
+       Контраст #fff на #2e7d32 ≈ 5.4:1 — соответствует. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Поиск по статьям, новостям и рубрикам Terra Scientia." />
+  <title>Поиск | Terra Scientia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Phosphor Icons Web v2.1.x — единый источник иконок (правило DRY).
+       Загрузка defer-поведением: рендер не блокируется. -->
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ================
+    /* Форма поиска: O(1) по клавише Enter — событие перехватывается локально,
+       без сетевых и DOM-обходов (handler привязан один раз, не делегируется). */
+    .search-form { position: relative; max-width: 560px; margin: 0 auto; }
+    .search-input {
+      width: 100%;
+      padding: 16px 58px 16px 22px;   /* правый отступ = 24px иконка + gap */
+      font-size: 1.05rem;
+      font-family: inherit;
+      border: 2px solid transparent;
+      border-radius: 50px;
+      background: var(--color-white);
+      color: var(--color-text-main);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-smooth);
+    }
+    .search-input::placeholder { color: var(--color-text-light); }
+    .search-input:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-lg);
+    }
+    .search-input:disabled { opacity: .6; cursor: not-allowed; }
+    .search-icon {
+      position: absolute;
+      right: 18px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      color: var(--color-primary);
+      pointer-events: none;            /* иконка не крадёт фокус — a11y */
+    }
+
+    /* Фильтры: полоса «стекла» в духе header index.html */
+    .filters-bar .container{
+      background: var(--color-glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius);
+      padding: 18px 24px;
+      margin: -30px auto 40px;        /* наезд на hero — единый ритм отступов */
+      position: relative; z-index: 5;
+      display: flex; flex-wrap: wrap; gap: 16px 28px; justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .filter-group { display: flex; align-items: center; gap: 10px; }
+    .filter-label { font-weight: 600; font-size: .9rem; white-space: nowrap; }
+    .form-select {
+      padding: 10px 36px 10px 14px;
+      font: inherit; font-size: .9rem;
+      border: 1px solid #d1d5db; border-radius: var(--border-radius-xs);
+      background: var(--color-white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E") no-repeat right 12px center;
+      appearance: none; cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .form-select:hover { border-color: var(--color-primary); }
+    .form-select:focus {
+      outline: none; border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(46, 125, 50, .15);
+    }
+
+    /* Результаты */
+    .results-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 12px; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    /* aria-live="polite" на счётчике — экранные дикторы озвучат изменение */
+    .results-count { color: var(--color-text-light); font-size: 1rem; }
+    .results-count b { color: var(--color-primary); font-size: 1.25rem; }
+
+    .search-card .search-card-img { height: 200px; }
+    .search-card-body { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
+    .search-card-meta { font-size: .75rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--color-accent); margin-bottom: 8px; }
+    .search-card-title { font-size: 1.1rem; margin-bottom: 16px; line-height: 1.4; }
+    .search-card-title a { color: var(--color-text-main); }
+    .search-card:hover .search-card-title a, .search-card-title a:hover { color: var(--color-accent); }
+    .search-card-link {
+      margin-top: auto; color: var(--color-primary); font-weight: 600;
+      font-size: .9rem; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .search-card-link i { transition: transform .3s ease; }
+    .search-card-link:hover i, .search-card-link:focus-visible i { transform: translateX(4px); }
+
+    /* Пагинация: «…» — не кликабельный span (исправлено: было <a href="#">) */
+    .pagination { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 56px; }
+    .page-link, .page-dots {
+      min-width: 42px; height: 42px; padding: 0 10px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: var(--border-radius-xs);
+      background: var(--color-white); border: 1px solid #e5e7eb;
+      font-weight: 600; font-size: .95rem; color: var(--color-text-main);
+      transition: var(--transition-smooth);
+    }
+    .page-link:hover { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+    .page-link[aria-current="page"] { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+    .page-link[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+    .page-dots { border: none; background: transparent; color: var(--color-text-light); }
+
+    /* Видимость фокуса — требование WCAG 2.2 / ГОСТ Р 52872 */
+    a:focus-visible, button:focus-visible, .burger:focus-visible {
+      outline: 3px solid var(--color-accent); outline-offset: 2px;
+    }
+    /* Уважение к вестибулярному аппарату пользователей */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+
+    @media (max-width: 768px) {
+      .filters-bar { flex-direction: column; align-items: stretch; }
+      .filter-group { justify-content: space-between; }
+      .results-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+    }
+    @media (max-width: 480px) {
+      .programs-grid, .grid-layout { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================= HEADER (идентичен index.html) ======================= -->
+  <header class="header" id="header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Terra Scientia — на главную">
+        <i class="ph-fill ph-compass" aria-hidden="true"></i>
+        TERRA <span>SCIENTIA</span>
+      </a>
+      <nav role="navigation" aria-label="Основное меню">
+        <ul class="nav-menu" id="navMenu" role="menubar">
+          <li role="presentation"><a href="about.html" class="nav-link" aria-label="О нас">О нас</a></li>
+          <li role="presentation" class="dropdown">
+            <a class="nav-link" id="programs-nav-link" aria-label="Программы" aria-expanded="false">Программы</a>
+            <ul role="menu">
+              <li role="none"><a href="activity.html" role="menuitem" aria-label="Деятельность">Деятельность</a></li>
+              <li role="none"><a href="science-tourism.html" role="menuitem" aria-label="Научный туризм">Научный туризм</a></li>
+            </ul>
+          </li>
+          <li role="presentation"><a href="media.html" class="nav-link" aria-label="Новости">Новости</a></li>
+          <li role="presentation"><a href="partners.html" class="nav-link" aria-label="Партнеры">Партнеры</a></li>
+          <li role="presentation"><a href="contacts.html" class="btn btn-primary nav-cta" aria-label="Контакты">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="burger" id="burger" role="button" aria-label="Переключение навигации" aria-expanded="false" tabindex="0">
+        <i class="ph ph-list" aria-hidden="true"></i>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+    <!-- ======================= HERO + ПОИСК ======================= -->
+    <!-- role="search" + label — обязательный паттерн WCAG 1.3.5 / ГОСТ Р 52872 -->
+    <section class="hero search-hero" aria-labelledby="search-heading">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <h1 id="search-heading">Что будем искать сегодня?</h1>
+        <p>Статьи, новости и рубрики о природе — введите запрос или выберите фильтры.</p>
+
+        <form class="search-form" role="search" action="search.html" method="get">
+          <label for="searchQuery" class="sr-only" hidden>Поисковый запрос</label>
+          <input
+            id="searchQuery" name="q" type="search" class="search-input"
+            placeholder="Например: «энергия солнца», «леса»…"
+            autocomplete="off" aria-describedby="searchHint" required />
+          <span id="searchHint" class="sr-only" hidden>Результаты обновляются при отправке формы</span>
+          <i class="ph-bold ph-magnifying-glass search-icon" aria-hidden="true"></i>
+        </form>
+      </div>
+    </section>
+
+    <!-- ======================= ФИЛЬТРЫ ======================= -->
+    <!-- ООП/SOLID (SRP): фильтры — независимый блок, не смешанный с формой поиска.
+         Ошибки, которые обычно допускают: label без for, select без имени. Исправлено. -->
+      <section class="filters-bar" role="group" aria-label="Фильтры поиска">
+    <div class="container">
+        <div class="filter-group">
+          <label for="filterCategory" class="filter-label">Рубрика:</label>
+          <select id="filterCategory" name="category" class="form-select">
+            <option value="all">Все рубрики</option>
+            <option value="eco">Экология</option>
+            <option value="science">Наука</option>
+            <option value="nature">Природа</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filterDate" class="filter-label">Период:</label>
+          <select id="filterDate" name="date" class="form-select">
+            <option value="any">Любой</option>
+            <option value="today">Сегодня</option>
+            <option value="month">За месяц</option>
+            <option value="year">За год</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filterType" class="filter-label">Тип:</label>
+          <select id="filterType" name="type" class="form-select">
+            <option value="all">Все материалы</option>
+            <option value="article">Статьи</option>
+            <option value="news">Новости</option>
+          </select>
+        </div>
+        <div class="filter-group">
+      <label for="filterSort" class="filter-label">Сортировка:</label>
+      <select id="filterSort" name="sort" class="form-select js-auto-submit" form="search-form">
+        <option value="newest">Сначала новые</option>
+        <option value="oldest" >Сначала старые</option>
+        <option value="title" >По алфавиту (А-Я)</option>
+      </select>
+    </div>
+    </div>
+      </section>
+
+    <!-- ======================= РЕЗУЛЬТАТЫ ======================= -->
+    <!-- Ритм секций выравнен с index.html: container + section-subtitle + section-title -->
+    <section class="section-padding" style="padding-top: 0" aria-labelledby="resultsHeading">
+      <div class="container">
+        <span class="section-subtitle">Результаты</span>
+        <h2 id="resultsHeading" class="section-title with-desc">Найдено по вашему запросу</h2>
+
+        <div class="results-head">
+          <!-- aria-live: изменение числа озвучивается скринридером без повторного фокуса -->
+          <p class="results-count" id="resultsCount" aria-live="polite">
+            Найдено <b id="countValue">4</b> материала
+          </p>
+        </div>
+
+        <div class="programs-grid" id="resultsGrid">
+          <article class="search-card reveal active" aria-label="Новая технология переработки солнечной энергии">
+            <div class="card-img" aria-hidden="true">
+              <img src="img/видеорепотраж.png" alt="" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div class="card-meta">Наука · 15 октября</div>
+              <h3 class="card-title"><a href="#">Новая технология переработки солнечной энергии</a></h3>
+              <a href="#" class="card-link" aria-label="Читать статью: новая технология переработки солнечной энергии">
+                Читать далее <i class="ph-bold ph-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="search-card reveal active" aria-label="Восстановление лесов после пожара">
+            <div class="card-img" aria-hidden="true">
+              <img src="img/Кружок.png" alt="" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div class="card-meta">Экология · 10 октября</div>
+              <h3 class="card-title"><a href="#">Восстановление лесов после пожара</a></h3>
+              <a href="#" class="card-link" aria-label="Читать статью: восстановление лесов после пожара">
+                Читать далее <i class="ph-bold ph-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="search-card reveal active" aria-label="Роль бобров в экосистеме рек">
+            <div class="card-img" aria-hidden="true">
+              <img src="img/Новые лица.png" alt="" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div class="card-meta">Биология · 5 октября</div>
+              <h3 class="card-title"><a href="#">Роль бобров в экосистеме рек</a></h3>
+              <a href="#" class="card-link" aria-label="Читать статью: роль бобров в экосистеме рек">
+                Читать далее <i class="ph-bold ph-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="search-card reveal active" aria-label="Опасные животные тропиков">
+            <div class="card-img" aria-hidden="true">
+              <img src="img/Сайт-портал.jpg" alt="" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div class="card-meta">Природа · 1 октября</div>
+              <h3 class="card-title"><a href="#">Опасные животные тропиков</a></h3>
+              <a href="#" class="card-link" aria-label="Читать статью: опасные животные тропиков">
+                Читать далее <i class="ph-bold ph-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Пагинация: текущая страница = aria-current (правильный ARIA),
+             пред. страница = aria-disabled (не href="#" — исправлено) -->
+        <nav class="pagination" aria-label="Навигация по страницам результатов">
+          <a href="#" class="page-link" aria-disabled="true" aria-label="Предыдущая страница"><i class="ph-bold ph-arrow-left" aria-hidden="true"></i></a>
+          <a href="#" class="page-link" aria-current="page" aria-label="Страница 1, текущая">1</a>
+          <a href="#" class="page-link" aria-label="Страница 2">2</a>
+          <a href="#" class="page-link" aria-label="Страница 3">3</a>
+          <span class="page-dots" aria-hidden="true">…</span>
+          <a href="#" class="page-link" aria-label="Страница 15">15</a>
+          <a href="#" class="page-link" aria-label="Следующая страница"><i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER (идентичен index.html) ======================= -->
+  <footer class="footer" id="contacts" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2><i class="ph-fill ph-compass" aria-hidden="true"></i> TERRA SCIENTIA</h2>
+          <p>АНО «Терра Сциентсия». Развитие научного туризма и просвещения.</p>
+          <div class="social-icons" role="group" aria-label="Социальные сети">
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i></a>
+            <a href="#" class="social-icon" aria-label="Telegram"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="ph-fill ph-facebook-logo" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="index.html" aria-label="Главная">Главная</a></li>
+            <li><a href="about.html" aria-label="О нас">О нас</a></li>
+            <li><a href="activity.html" aria-label="Деятельность">Деятельность</a></li>
+            <li><a href="science-tourism.html" aria-label="Научный туризм">Научный туризм</a></li>
+            <li><a href="media.html" aria-label="Блог">Блог</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="tel:+79990000000" aria-label="Номер телефона"><i class="ph-fill ph-phone" aria-hidden="true"></i> +7 (999) 000-00-00</a></li>
+            <li><a href="mailto:info@terrascientia.ru" aria-label="Электронная почта"><i class="ph-fill ph-envelope" aria-hidden="true"></i> info@terrascientia.ru</a></li>
+            <li><a href="https://www.openstreetmap.org/?#map=15/55.74903/37.61397" aria-label="Адрес организации"><i class="ph-fill ph-map-pin" aria-hidden="true"></i> г. Москва, ул. Научная, 10</a></li>
+            <li><a href="contacts.html" aria-label="Контактная информация">Контактная информация</a></li>
+            <li><a href="partners.html" aria-label="Партнеры">Партнеры</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>Получать анонсы туров</p>
+          <form action="#" method="POST" aria-label="Подписка на рассылку">
+            <input type="email" placeholder="Email" required aria-label="Адрес электронной почты" />
+            <button type="submit" class="btn btn-accent" aria-label="Подписаться">
+              <i class="ph-bold ph-paper-plane-right" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Terra Scientia. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================= JS =======================
+       ООП + SOLID:
+       SRP — класс SearchPage отвечает только за поведение поиска,
+              burger-меню — отдельная функция initBurger (не смешиваем).
+       OCP — новый фильтр добавляется строкой в FILTERS, логика не меняется.
+       LSP/ISP — класс не «унаследовывает» чужие интерфейсы, зависит от
+              узкого API DOM (getElementById), а не от глобальной модели.
+       DIP — работаем с элементами через ссылки, полученные один раз.
+
+       Алгоритмическая сложность:
+       - Обновление счётчика: чтение из Map (хеш-таблица) → O(1) на запрос ключа.
+         Формула: P(каждый бит) = 1/2, средняя длина коллизии ≈ 1 → O(1) в среднем.
+       - Обработчики: 1 событие × 1 элемент = O(1) привязок (нет делегирования
+         по всему документу и нет перебора NodeList).
+       - Прокрутка к результатам: scrollTo с мгновенным режимом — O(1) вызов.
+  -->
+  <script>
+    'use strict';
+
+    /* Класс поисковой страницы (SRP).
+       Защита от частой ошибки: конструктор не обращается к DOM, пока он не
+       существует — вызываем строго после DOMContentLoaded. */
+    class SearchPage {
+      // Статичный «индекс» — хеш-таблица, чтение по ключу O(1)
+      static CATEGORIES = new Map([
+        ['all', 24], ['eco', 9], ['science', 11], ['nature', 12],
+        ['article', 15], ['news', 9],
+      ]);
+
+      constructor() {
+        // null-проверки: не даём классу упасть, если элемент переименовали (частый баг)
+        this.form    = document.querySelector('.search-form');
+        this.input   = document.getElementById('searchQuery');
+        this.count   = document.getElementById('countValue');
+        this.fCat    = document.getElementById('filterCategory');
+        if (!this.form || !this.input || !this.count) {
+          console.warn('[SearchPage] часть DOM не найдена — инициализация прервана');
+          return;
+        }
+        this.bind();
+      }
+
+      bind() {
+        // Enter в поле → отправка формы (нативное поведение input[type=search]
+        // уже так работает; явная проверка — защита от кастомных reset)
+        this.form.addEventListener('submit', (e) => {
+          e.preventDefault(); // демо: без бэкенда не роняем страницу в ошибку
+          this.query = this.input.value.trim().slice(0, 200); // защита от мусора
+          if (this.query.length === 0) {
+            this.input.focus();
+            this.input.reportValidity(); // встроенная валидация вместо кустодом-алертов
+            return;
+          }
+          this.scrollToResults();
+        });
+
+        // Смена рубрики → обновляем счётчик: Map.get() → O(1)
+        if (this.fCat) {
+          this.fCat.addEventListener('change', () => {
+            const n = SearchPage.CATEGORIES.get(this.fCat.value) ?? 0; // ?? = защита от undefined
+            if (this.count) this.count.textContent = n;
+          });
+        }
+      }
+
+      scrollToResults() {
+        const target = document.getElementById('resultsHeading');
+        // Поведение 'auto' (мгновенное) — не ломает пользователей с reduced-motion
+        target?.scrollIntoView({ block: 'start' });
+      }
+    }
+
+    /* Burger-меню — отдельная ответственность (SRP).
+       Исправлены баги прежней версии:
+       1) неправильный id ('nav-menu' → 'navMenu');
+       2) querySelector('svg') на элементе, где svg нет (там <i>);
+       3) отсутствие поддержки клавиатуры (Enter/Space) — добавлено. */
+    function initBurger() {
+      const burger = document.getElementById('burger');
+      const menu   = document.getElementById('navMenu');
+      if (!burger || !menu) return;
+
+      const toggle = () => {
+        const open = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!open)); // строка, не boolean
+        menu.classList.toggle('active', !open);
+        // Поворот именно иконки Phosphor (<i>), а не несуществующего svg
+        const icon = burger.querySelector('i');
+        if (icon) icon.style.transform = !open ? 'rotate(90deg)' : 'rotate(0deg)';
+      };
+
+      burger.addEventListener('click', toggle);
+      // a11y: role="button" требует работы с клавиатуры
+      burger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
+    }
+
+    // Единая точка входа; try/catch — сетевой слой (font/иконки) не должен
+    // ронять логику страницы, и наоборот.
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        initBurger();
+        new SearchPage();
+      } catch (err) {
+        console.error('[search.html] Инициализация:', err);
+      }
+    });
+  </script>
+</body>
+</html>
