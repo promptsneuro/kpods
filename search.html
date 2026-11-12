@@ -89,18 +89,123 @@
     .results-count { color: var(--color-text-light); font-size: 1rem; }
     .results-count b { color: var(--color-primary); font-size: 1.25rem; }
 
-    .search-card .search-card-img { height: 200px; }
-    .search-card-body { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
-    .search-card-meta { font-size: .75rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--color-accent); margin-bottom: 8px; }
-    .search-card-title { font-size: 1.1rem; margin-bottom: 16px; line-height: 1.4; }
-    .search-card-title a { color: var(--color-text-main); }
-    .search-card:hover .search-card-title a, .search-card-title a:hover { color: var(--color-accent); }
-    .search-card-link {
-      margin-top: auto; color: var(--color-primary); font-weight: 600;
-      font-size: .9rem; display: inline-flex; align-items: center; gap: 6px;
-    }
-    .search-card-link i { transition: transform .3s ease; }
-    .search-card-link:hover i, .search-card-link:focus-visible i { transform: translateX(4px); }
+    /* =========================================
+   ФИНАЛЬНЫЕ КАРТОЧКИ ПОИСКА (Исправленные классы)
+   ========================================= */
+
+/* 1. Жестко задаем сетку */
+.programs-grid2 {
+    display: grid !important;
+    /* grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important; */
+    gap: 30px !important;
+    margin-bottom: 50px !important;
+    width: 100% !important;
+}
+
+/* 2. Сама карточка */
+.search-card {
+    display: flex !important;
+    flex-direction: column !important;
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #e5e7eb !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    height: 100% !important;
+}
+
+.search-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 3. Блок с картинкой */
+.search-card-img {
+    width: 100% !important;
+    height: 200px !important;
+    overflow: hidden !important;
+    background: #f3f4f6 !important;
+}
+
+.search-card-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* 4. ТЕЛО КАРТОЧКИ (Вот тут исправленные классы и отступы) */
+.search-card-body {
+    padding: 24px 28px !important; /* Воздух внутри карточки */
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    background: #ffffff !important;
+}
+
+/* 5. Мета-данные (Дата и рубрика) */
+.search-card-meta {
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    color: #6b7280 !important;
+    margin-bottom: 12px !important; /* Отступ от даты до заголовка */
+}
+
+/* 6. Заголовок */
+.search-card-title {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+    font-weight: 700 !important;
+    margin: 0 0 20px 0 !important; /* Отступ от заголовка до кнопки */
+    color: #111827 !important;
+    
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.search-card-title a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.search-card-title a:hover {
+    color: #2e7d32 !important;
+}
+
+/* 7. Ссылка "Читать" (прижата к низу) */
+.search-card-link {
+    margin-top: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    color: #2e7d32 !important;
+    text-decoration: none !important;
+    transition: gap 0.3s ease !important;
+}
+
+.search-card-link:hover {
+    gap: 12px !important;
+    color: #1b5e20 !important;
+}
+
+/* 8. Подсветка поискового запроса */
+mark.search-highlight {
+    background-color: #fef08a !important;
+    color: #111827 !important;
+    padding: 2px 6px !important;
+    border-radius: 6px !important;
+}
+
+#resultsGrid {
+  grid-template-columns: repeat(auto-fit,minmax(100%,1fr));
+}
 
     /* Пагинация: «…» — не кликабельный span (исправлено: было <a href="#">) */
     .pagination { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 56px; }
@@ -132,8 +237,133 @@
       .results-head { flex-direction: column; align-items: flex-start; gap: 6px; }
     }
     @media (max-width: 480px) {
-      .programs-grid, .grid-layout { grid-template-columns: 1fr !important; }
+      .programs-grid2, .grid-layout { grid-template-columns: 1fr !important; }
     }
+
+    .search-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Растягиваем на всю высоту сетки */
+}
+
+.search-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* 3. Блок с картинкой */
+.search-card .search-card-img {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Фиксированная высота для всех картинок */
+    background: #e8f5e9; /* Светло-зеленый фон, если картинки нет */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Иконка-заглушка, если нет фото (добавим через CSS) */
+.search-card .search-card-img::before {
+    content: '\f1bb'; /* Код иконки Phosphor, можно заменить или убрать */
+    font-family: "Phosphor"; 
+    font-size: 3rem;
+    color: #a5d6a7;
+    opacity: 0.5;
+    position: absolute;
+}
+
+.search-card .search-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Картинка заполняет блок без искажений */
+    display: block;
+    position: relative; /* Перекрываем иконку-заглушку, если фото есть */
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+.search-card:hover .search-card-img img {
+    transform: scale(1.05); /* Легкий зум при наведении */
+}
+
+/* 4. Тело карточки */
+.search-card .search-card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Занимает все оставшееся пространство */
+}
+
+/* 5. Мета-данные (Рубрика · Дата) */
+.search-card .search-card-meta {
+    font-size: 0.85rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* 6. Заголовок карточки */
+.search-card .search-card-title {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: #1f2937;
+    /* Ограничиваем заголовок 3 строками, чтобы карточки были ровными */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.search-card .search-card-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.search-card .search-card-title a:hover {
+    color: var(--color-primary, #2e7d32);
+}
+
+/* 7. Подсветка поискового запроса */
+.search-highlight {
+    background-color: #fff3cd;
+    color: #1f2937;
+    padding: 0 4px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+/* 8. Ссылка "Читать далее" (прижата к низу) */
+.search-card .search-card-link {
+    margin-top: auto; /* Волшебное свойство: толкает ссылку в самый низ */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-primary, #2e7d32);
+    text-decoration: none;
+    transition: gap 0.3s ease;
+}
+
+.search-card .search-card-link:hover {
+    gap: 12px; /* Стрелочка отъезжает вправо при наведении */
+}
+
+.search-card .search-card-link i {
+    font-size: 1.1rem;
+}
   </style>
 </head>
 <body>
@@ -244,54 +474,54 @@
           </p>
         </div>
 
-        <div class="programs-grid" id="resultsGrid">
+        <div class="programs-grid2" id="resultsGrid" style="grid-template-columns: repeat(auto-fit,minmax(100%,1fr));">
           <article class="search-card reveal active" aria-label="Новая технология переработки солнечной энергии">
-            <div class="card-img" aria-hidden="true">
+            <div class="search-card-img" aria-hidden="true">
               <img src="img/видеорепотраж.png" alt="" loading="lazy" />
             </div>
-            <div class="card-body">
-              <div class="card-meta">Наука · 15 октября</div>
-              <h3 class="card-title"><a href="#">Новая технология переработки солнечной энергии</a></h3>
-              <a href="#" class="card-link" aria-label="Читать статью: новая технология переработки солнечной энергии">
+            <div class="search-card-body">
+              <div class="search-card-meta">Наука · 15 октября</div>
+              <h3 class="search-card-title"><a href="#">Новая технология переработки солнечной энергии</a></h3>
+              <a href="#" class="search-card-link" aria-label="Читать статью: новая технология переработки солнечной энергии">
                 Читать далее <i class="ph-bold ph-arrow-right" aria-hidden="true"></i>
               </a>
             </div>
           </article>
 
           <article class="search-card reveal active" aria-label="Восстановление лесов после пожара">
-            <div class="card-img" aria-hidden="true">
+            <div class="search-card-img" aria-hidden="true">
               <img src="img/Кружок.png" alt="" loading="lazy" />
             </div>
-            <div class="card-body">
-              <div class="card-meta">Экология · 10 октября</div>
-              <h3 class="card-title"><a href="#">Восстановление лесов после пожара</a></h3>
-              <a href="#" class="card-link" aria-label="Читать статью: восстановление лесов после пожара">
+            <div class="search-card-body">
+              <div class="search-card-meta">Экология · 10 октября</div>
+              <h3 class="search-card-title"><a href="#">Восстановление лесов после пожара</a></h3>
+              <a href="#" class="search-card-link" aria-label="Читать статью: восстановление лесов после пожара">
                 Читать далее <i class="ph-bold ph-arrow-right" aria-hidden="true"></i>
               </a>
             </div>
           </article>
 
           <article class="search-card reveal active" aria-label="Роль бобров в экосистеме рек">
-            <div class="card-img" aria-hidden="true">
+            <div class="search-card-img" aria-hidden="true">
               <img src="img/Новые лица.png" alt="" loading="lazy" />
             </div>
-            <div class="card-body">
-              <div class="card-meta">Биология · 5 октября</div>
-              <h3 class="card-title"><a href="#">Роль бобров в экосистеме рек</a></h3>
-              <a href="#" class="card-link" aria-label="Читать статью: роль бобров в экосистеме рек">
+            <div class="search-card-body">
+              <div class="search-card-meta">Биология · 5 октября</div>
+              <h3 class="search-card-title"><a href="#">Роль бобров в экосистеме рек</a></h3>
+              <a href="#" class="search-card-link" aria-label="Читать статью: роль бобров в экосистеме рек">
                 Читать далее <i class="ph-bold ph-arrow-right" aria-hidden="true"></i>
               </a>
             </div>
           </article>
 
           <article class="search-card reveal active" aria-label="Опасные животные тропиков">
-            <div class="card-img" aria-hidden="true">
+            <div class="search-card-img" aria-hidden="true">
               <img src="img/Сайт-портал.jpg" alt="" loading="lazy" />
             </div>
-            <div class="card-body">
-              <div class="card-meta">Природа · 1 октября</div>
-              <h3 class="card-title"><a href="#">Опасные животные тропиков</a></h3>
-              <a href="#" class="card-link" aria-label="Читать статью: опасные животные тропиков">
+            <div class="search-card-body">
+              <div class="search-card-meta">Природа · 1 октября</div>
+              <h3 class="search-card-title"><a href="#">Опасные животные тропиков</a></h3>
+              <a href="#" class="search-card-link" aria-label="Читать статью: опасные животные тропиков">
                 Читать далее <i class="ph-bold ph-arrow-right" aria-hidden="true"></i>
               </a>
             </div>
